@@ -1,5 +1,8 @@
 # ![cake!](https://github.com/jeinstei/baketorio/blob/50524bdb629312d64bb3a55e89dc78152fd84869/graphics/baking_tech.png) baketorio
+
 Baking! in Factorio!
+
+Overhauls game to be all about baking. All science packs are changed to be things you must bake.
 
 ## History
 
