@@ -1,3 +1,37 @@
+-- Add recipe names here to add them to productivity modules
+local prod_recipes = {
+  "butter-solification",
+  "cheese-recipe",
+  "greenhouse-recipe",
+  "organic-synthesizer-recipe",
+  "hardtack-recipe",
+  "salted-hardtack-recipe",
+  "chicken-recipe",
+  "chicken-recipe-egg",
+  "egg-recipe",
+  "cow-recipe",
+  "breed-cow-recipe",
+  "frosting-recipe",
+  "cocoa-powder-recipe",
+  "brownie-recipe",
+  "cinnamon-sugar-recipe",
+  "cinnamon-sugar-doughnut-recipe",
+  "chocolate-chip-batter-recipe",
+  "chocolate-chip-cookie-recipe",
+  "blueberry-pie-recipe",
+  "blueberry-pie-cooked-recipe",
+  "strawberry-pie-recipe",
+  "strawberry-pie-cooked-recipe",
+  "soda-ash",
+  "baking-soda",
+  "plain-ice-cream",
+  "brownies-with-ice-cream",
+}
+
+for _, v in ipairs(prod_recipes) do
+	baketorio_add_to_prod_mod(v)
+end
+
 data:extend(
     {
         {

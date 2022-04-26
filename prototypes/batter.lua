@@ -103,7 +103,6 @@ for key,value in pairs(batter) do
             icon_size = 32
         }
     }
-
 end
 
 local shapes = {
@@ -281,6 +280,9 @@ for key,shape in pairs(shapes) do
         cooked_shape,
         cooked_shape_recipe
     })
+	baketorio_add_to_prod_mod(uncooked_shape_recipe.name)
+	baketorio_add_to_prod_mod(cooked_shape_recipe.name)
+
     if(shape.frosted_mod ~= nil) then
         local cooked_shape_frosted = {
             type="item",
@@ -314,5 +316,6 @@ for key,shape in pairs(shapes) do
             cooked_shape_frosted,
             cooked_shape_frosted_recipe
         })
+		baketorio_add_to_prod_mod(cooked_shape_frosted_recipe.name)
     end
 end

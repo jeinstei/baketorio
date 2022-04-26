@@ -1,9 +1,10 @@
 --local serpent = require("serpent")
 function makeRecipe(name,amount,ingredients,c) 
+	local recipe_name = "recipe-".. name.."-" .. c
     data:extend{
         {
             type="recipe",
-            name="recipe-".. name.."-" .. c,
+            name= recipe_name,
             energy_required = 2,
             category = "crafting",
             order= name .."-".. amount,
@@ -16,6 +17,7 @@ function makeRecipe(name,amount,ingredients,c)
             icon_size=32
         }
     }
+	baketorio_add_to_prod_mod(recipe_name)
     if(name ~= "nutrient1") then
         log(name);
         table.insert(data.raw.technology[name].effects,{

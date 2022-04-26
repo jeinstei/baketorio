@@ -115,6 +115,28 @@ data:extend(
     }
 )
 
+-- Add recipe names here to add them to productivity modules
+local prod_recipes = {
+  "wheat-seeds",
+  "wheat-recipe",
+  "flour-recipe",
+  "sugar-recipe",
+  "sugarcane-recipe",
+  "sugarcane-seeds",
+  "cocoa-bean-seeds",
+  "cocoa-beans-recipe",
+  "cinnamon-seeds",
+  "cinnamon-recipe",
+  "blueberries-seeds",
+  "blueberries-recipe",
+  "strawberry-seeds",
+  "strawberries-recipe",
+}
+
+for _, v in ipairs(prod_recipes) do
+	baketorio_add_to_prod_mod(v)
+end
+
 data:extend{
     {
         type = "recipe",

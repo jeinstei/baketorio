@@ -32,6 +32,20 @@ function capsule_action(health)
     }
 end
 
+-- Build table of productivity modules
+local baketorio_prod_mods = {}
+for _, v in pairs(data.raw.module) do
+  if v.name:find("productivity%-module") and v.limitation then
+    table.insert(baketorio_prod_mods, v.limitation)
+  end
+end
+
+-- Get productivity module tables to add recipes
+function baketorio_add_to_prod_mod(name)
+  for _, v in pairs(baketorio_prod_mods) do
+    table.insert(v,name)
+  end
+end
 
 food = {};
 
