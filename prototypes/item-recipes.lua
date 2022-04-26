@@ -396,7 +396,7 @@ data:extend(
                 {type="item",name="fryer-dough",amount=1},
                 {type="item",name="strawberries",amount=3},
             },
-            result="blueberry-pie",
+            result="strawberry-pie",
         },
         {
             type = "recipe",
