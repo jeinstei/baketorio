@@ -41,7 +41,7 @@ local doughs =
         subgroup = "bread",
         stack_size = 100,
         ingredients = {
-            {"flour", 2},
+            {type="item", name="flour", amount=2},
             {type="fluid", name="water", amount=5}
         }
         
@@ -58,8 +58,8 @@ local doughs =
         subgroup = "bread",
         stack_size = 100,
         ingredients = {
-            {"flour", 2},
-            {"egg",1},
+            {type="item", name="flour", amount=2},
+            {type="item", name="egg", amount=1},
             {type="fluid", name="water", amount=5}
         }
     },
@@ -75,8 +75,8 @@ local doughs =
         subgroup = "bread",
         stack_size = 100,
         ingredients = {
-            {"flour", 2},
-            {"sugar",1},
+            {type="item", name="flour", amount=2},
+            {type="item", name="sugar", amount=1},
             {type="fluid", name="water", amount=5}
         }
     },
@@ -93,8 +93,8 @@ local doughs =
         subgroup = "bread",
         stack_size = 100,
         ingredients = {
-            {"cinnamon-sugar", 1},
-            {"flour", 2},
+            {type="item", name="cinnamon-sugar", amount=1},
+            {type="item", name="flour", amount=2},
             {type="fluid", name="water", amount=5}
         }
         
@@ -111,9 +111,11 @@ for key,value in pairs(doughs) do
         category = "crafting-with-fluid",
         subgroup = "bread",
         energy_required = 1,
-        enabled = "false",
+        enabled = false,
         ingredients = value.ingredients,
-        result = value.name,
+        results = {
+            {type="item", name=value.name, amount=1}
+        },
         icons = getIcons(DOUGH_ICON,value.sub_icon)
         
     }
@@ -122,11 +124,13 @@ for key,value in pairs(doughs) do
         name=(value.prefix .. "-bread"),
         subgroup = "bread",
         energy_required = 2,
-        enabled = "false",
+        enabled = false,
         tastiness = value.tastiness,
         salt_mod = value.salt_mod,
         stack_size = 100,
-        result = value.name,
+        results = {
+            {type="item", name=value.name, amount=1}
+        },
         icons = getIcons(BREAD_ICON,value.sub_icon)
         
     }
@@ -136,11 +140,13 @@ for key,value in pairs(doughs) do
         category = "smelting",
         subgroup = "bread",
         energy_required = 2,
-        enabled = "false",
+        enabled = false,
         ingredients = {
-            {value.name,1}
+            {type="item", name=value.name, amount=1}
         },
-        result = item.name,
+        results = {
+            {type="item", name=item.name, amount=1}
+        },
         icons = getIcons(BREAD_ICON,value.sub_icon)
         
     }

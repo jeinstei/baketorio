@@ -18,7 +18,7 @@ data:extend(
             category = "greenhouse-recipes",
             subgroup = "fluid-recipes",
             energy_required = 10,
-            enabled = "false",
+            enabled = false,
             ingredients ={
                 {type="item",name="cow",amount=1},
                 {type="item",name="nutrient2",amount=1}
@@ -37,7 +37,7 @@ data:extend(
             category = "chemistry",
             subgroup = "fluid-recipes",
             energy_required = 2,
-            enabled = "false",
+            enabled = false,
             ingredients ={
                 {type="fluid",name="unpasteurized-milk",amount=20,catalyst_amount=18},
                 {type="fluid",name="water",amount=5}
@@ -56,7 +56,7 @@ data:extend(
             category = "chemistry",
             subgroup = "fluid-recipes",
             energy_required = 2,
-            enabled = "false",
+            enabled = false,
             ingredients ={
                 {type="fluid",name="milk",amount=20,catalyst_amount=18},
                 {type="fluid",name="water",amount=5}
@@ -75,7 +75,7 @@ data:extend(
             category = "chemistry",
             subgroup = "fluid-recipes",
             energy_required = 5,
-            enabled = "false",
+            enabled = false,
             ingredients ={
                 {type="fluid",name="cream",amount=20},
             },

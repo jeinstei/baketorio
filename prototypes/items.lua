@@ -51,8 +51,8 @@ data:extend(
             type = "item",
             name = "salted-hardtack",
             icons = {
-                {icon = "__baketorio__/graphics/hardtack.png"},
-                {icon = "__baketorio__/graphics/salt-mod.png"}
+                {icon = "__baketorio__/graphics/hardtack.png", icon_size=32},
+                {icon = "__baketorio__/graphics/salt-mod.png", icon_size=32}
             },
             icon_size = 32,
             tastiness = 1,
@@ -207,8 +207,8 @@ data:extend(
             name = "brownies-with-ice-cream",
             tastiness=8,
             icons = {
-                {icon = "__baketorio__/graphics/brownies.png"},
-                {icon = "__baketorio__/graphics/plain-ice-cream-sub.png"}
+                {icon = "__baketorio__/graphics/brownies.png", icon_size=32},
+                {icon = "__baketorio__/graphics/plain-ice-cream-sub.png", icon_size=32}
             },
             icon_size = 32,
             subgroup = "raw-material",

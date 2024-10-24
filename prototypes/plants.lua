@@ -145,7 +145,7 @@ data:extend{
         subgroup = "seeds",
         order="a",
         energy_required = 30,
-        enabled = "true",
+        enabled = true,
         ingredients ={
             {type="item",name="wood",amount=100}
         },
@@ -162,7 +162,7 @@ data:extend{
         subgroup = "ingredient",
         order="a",
         energy_required = 10,
-        enabled = "true",
+        enabled = true,
         ingredients ={
             {type="item",name="wheat-seeds",amount=1}
         },
@@ -181,7 +181,7 @@ data:extend{
         category = "crafting",
         subgroup = "ingredient",
         energy_required = 1,
-        enabled = "true",
+        enabled = true,
         ingredients ={
             {type="item",name="wheat",amount=2}
         },
@@ -198,7 +198,7 @@ data:extend{
         category = "crafting",
         subgroup = "ingredient",
         energy_required = 1,
-        enabled = "false",
+        enabled = false,
         ingredients ={
             {type="item",name="sugarcane",amount=2}
         },
@@ -215,7 +215,7 @@ data:extend{
         category = "greenhouse-recipes",
         subgroup = "ingredient",
         energy_required = 10,
-        enabled = "false",
+        enabled = false,
         ingredients ={
             {type="item",name="sugarcane-seeds",amount=1},
             {type="item",name="nutrient1",amount=1}
@@ -235,7 +235,7 @@ data:extend{
         category = "organic-synth-recipes",
         subgroup = "seeds",
         energy_required = 30,
-        enabled = "false",
+        enabled = false,
         ingredients ={
             {type="item",name="nutrient1",amount=10}
         },
@@ -252,7 +252,7 @@ data:extend{
         category = "organic-synth-recipes",
         subgroup = "seeds",
         energy_required = 30,
-        enabled = "false",
+        enabled = false,
         ingredients ={
             {type="item",name="nutrient4",amount=1}
         },
@@ -269,7 +269,7 @@ data:extend{
         category = "greenhouse-recipes",
         subgroup = "ingredient",
         energy_required = 10,
-        enabled = "false",
+        enabled = false,
         ingredients ={
             {type="item",name="cocoa-bean-seeds",amount=1},
             {type="item",name="nutrient3",amount=1}
@@ -289,7 +289,7 @@ data:extend{
         category = "organic-synth-recipes",
         subgroup = "seeds",
         energy_required = 120,
-        enabled = "false",
+        enabled = false,
         ingredients ={
             {type="item",name="nutrient4",amount=100}
         },
@@ -306,7 +306,7 @@ data:extend{
         subgroup = "ingredient",
         order="j",
         energy_required = 10,
-        enabled = "false",
+        enabled = false,
         ingredients ={
             {type="item",name="cinnamon-seeds",amount=1},
             {type="item",name="nutrient4",amount=1}
@@ -326,7 +326,7 @@ data:extend{
         category = "organic-synth-recipes",
         subgroup = "seeds",
         energy_required = 360,
-        enabled = "false",
+        enabled = false,
         ingredients ={
             {type="item",name="nutrient5",amount=1}
         },
@@ -343,7 +343,7 @@ data:extend{
         subgroup = "ingredient",
         order="l",
         energy_required = 10,
-        enabled = "false",
+        enabled = false,
         ingredients ={
             {type="item",name="blueberry-seeds",amount=1},
             {type="item",name="nutrient5",amount=1}
@@ -363,7 +363,7 @@ data:extend{
         category = "organic-synth-recipes",
         subgroup = "seeds",
         energy_required = 500,
-        enabled = "false",
+        enabled = false,
         ingredients ={
             {type="item",name="nutrient5",amount=25}
         },
@@ -380,7 +380,7 @@ data:extend{
         subgroup = "ingredient",
         order="m",
         energy_required = 10,
-        enabled = "false",
+        enabled = false,
         ingredients ={
             {type="item",name="strawberry-seeds",amount=1},
             {type="item",name="nutrient5",amount=5}

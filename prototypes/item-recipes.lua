@@ -41,7 +41,7 @@ data:extend(
             category = "chemistry",
             subgroup = "ingredient",
             energy_required = 0.1,
-            enabled = "false",
+            enabled = false,
             ingredients ={
                 {type="fluid",name="liquid-butter",amount=5}
             },
@@ -59,7 +59,7 @@ data:extend(
             category = "chemistry",
             order="g",
             energy_required = 30,
-            enabled = "false",
+            enabled = false,
             ingredients ={
                 {type="fluid",name="milk",amount=30},
                 {type="fluid",name="cream",amount=2}
@@ -77,7 +77,7 @@ data:extend(
             category = "crafting",
             subgroup = "production-machine",
             energy_required = 5,
-            enabled = "true",
+            enabled = true,
             ingredients ={
                 
                 {type="item",name="iron-plate",amount=20},
@@ -95,7 +95,7 @@ data:extend(
             category = "crafting",
             subgroup = "production-machine",
             energy_required = 5,
-            enabled = "true",
+            enabled = true,
             ingredients ={
                 
                 {type="item",name="iron-plate",amount=10},
@@ -113,7 +113,7 @@ data:extend(
             category = "smelting",
             subgroup = "bread",
             energy_required = 2,
-            enabled = "true",
+            enabled = true,
             ingredients ={
                 {type="item",name="flour",amount=2}
             },
@@ -128,7 +128,7 @@ data:extend(
             category = "crafting",
             subgroup = "bread",
             energy_required = 2,
-            enabled = "true",
+            enabled = true,
             ingredients ={
                 {type="item",name="hardtack",amount=3},
                 {type="item",name="salt",amount=1}
@@ -137,8 +137,8 @@ data:extend(
                 {type="item",name="salted-hardtack",amount=3}
             },
             icons = {
-                {icon = "__baketorio__/graphics/hardtack.png"},
-                {icon = "__baketorio__/graphics/salt-mod.png"}
+                {icon = "__baketorio__/graphics/hardtack.png", icon_size=32},
+                {icon = "__baketorio__/graphics/salt-mod.png", icon_size=32}
             },
             icon_size = 32,
         },
@@ -149,7 +149,7 @@ data:extend(
             category = "organic-synth-recipes",
             subgroup = "seeds",
             energy_required = 40,
-            enabled = "false",
+            enabled = false,
             ingredients ={
                 {type="item",name="nutrient2",amount=40},
             },
@@ -166,7 +166,7 @@ data:extend(
             category = "organic-synth-recipes",
             subgroup = "seeds",
             energy_required = 20,
-            enabled = "false",
+            enabled = false,
             ingredients ={
                 {type="item",name="egg",amount=1},
             },
@@ -174,8 +174,8 @@ data:extend(
                 {type="item",name="chicken",amount=1,probability=0.25}
             },
             icons = {
-                {icon="__baketorio__/graphics/chicken.png"},
-                {icon="__baketorio__/graphics/egg-sub.png"}
+                {icon="__baketorio__/graphics/chicken.png", icon_size=32},
+                {icon="__baketorio__/graphics/egg-sub.png", icon_size=32}
             },
             icon_size = 32,
         },
@@ -186,7 +186,7 @@ data:extend(
             category = "greenhouse-recipes",
             subgroup = "ingredient",
             energy_required = 10,
-            enabled = "false",
+            enabled = false,
             ingredients ={
                 {type="item",name="chicken",amount=1},
                 {type="item",name="nutrient1",amount=5}
@@ -205,7 +205,7 @@ data:extend(
             category = "organic-synth-recipes",
             subgroup = "seeds",
             energy_required = 20,
-            enabled = "false",
+            enabled = false,
             ingredients ={
                 {type="item",name="nutrient3",amount=10},
             },
@@ -222,7 +222,7 @@ data:extend(
             category = "organic-synth-recipes",
             subgroup = "seeds",
             energy_required = 100,
-            enabled = "false",
+            enabled = false,
             ingredients ={
                 {type="item",name="cow",amount=2},
                 {type="item",name="nutrient2",amount=10},
@@ -240,7 +240,7 @@ data:extend(
             subgroup = "ingredient",
             order="ea",
             energy_required = 3,
-            enabled = "false",
+            enabled = false,
             ingredients ={
                 {type="fluid",name="cream",amount=10},
                 {type="item",name="sugar",amount=1}
@@ -258,7 +258,7 @@ data:extend(
             subgroup = "ingredient",
             order="i",
             energy_required = 20,
-            enabled = "false",
+            enabled = false,
             ingredients ={
                 {type="item",name="cocoa-beans",amount=3}
             },
@@ -274,7 +274,7 @@ data:extend(
             category = "smelting",
             subgroup = "chocolate",
             energy_required = 2,
-            enabled = "false",
+            enabled = false,
             ingredients ={
                 {type="item",name="chocolate-batter",amount=1}
             },
@@ -291,7 +291,7 @@ data:extend(
             subgroup = "ingredient",
             order="k",
             energy_required = 20,
-            enabled = "false",
+            enabled = false,
             ingredients ={
                 {type="item",name="cinnamon",amount=1},
                 {type="item",name="sugar",amount=1}
@@ -308,7 +308,7 @@ data:extend(
             category = "crafting",
             subgroup = "bread",
             energy_required = 20,
-            enabled = "false",
+            enabled = false,
             ingredients ={
                 {type="item",name="fryer-dough-doughnut-cooked",amount=1},
                 {type="item",name="cinnamon-sugar",amount=1}
@@ -333,7 +333,7 @@ data:extend(
             category = "crafting",
             subgroup = "chocolate",
             energy_required = 5,
-            enabled = "false",
+            enabled = false,
             ingredients ={
                 {type="item",name="basic-batter",amount=1},
                 {type="item",name="cocoa-powder",amount=1}
@@ -350,7 +350,7 @@ data:extend(
             category = "smelting",
             subgroup = "chocolate",
             energy_required = 6,
-            enabled = "false",
+            enabled = false,
             ingredients ={
                 {type="item",name="chocolate-chip-batter",amount=1},
             },
@@ -366,12 +366,14 @@ data:extend(
             category = "crafting",
             subgroup = "fruit",
             energy_required = 5,
-            enabled = "false",
+            enabled = false,
             ingredients ={
                 {type="item",name="fryer-dough",amount=1},
                 {type="item",name="blueberries",amount=10},
             },
-            result="blueberry-pie",
+            results={
+                {type="item",name="blueberry-pie",amount=1}
+            },
         },
         {
             type = "recipe",
@@ -379,11 +381,13 @@ data:extend(
             category = "smelting",
             subgroup = "fruit",
             energy_required = 10,
-            enabled = "false",
+            enabled = false,
             ingredients ={
                 {type="item",name="blueberry-pie",amount=1},
             },
-            result="blueberry-pie-cooked",
+            results={
+                {type="item",name="blueberry-pie-cooked",amount=1}
+            },
         },
         {
             type = "recipe",
@@ -391,12 +395,14 @@ data:extend(
             category = "crafting",
             subgroup = "fruit",
             energy_required = 5,
-            enabled = "false",
+            enabled = false,
             ingredients ={
                 {type="item",name="fryer-dough",amount=1},
                 {type="item",name="strawberries",amount=3},
             },
-            result="strawberry-pie",
+            results={
+                {type="item",name="strawberry-pie",amount=1}
+            },
         },
         {
             type = "recipe",
@@ -404,11 +410,13 @@ data:extend(
             category = "smelting",
             subgroup = "fruit",
             energy_required = 10,
-            enabled = "false",
+            enabled = false,
             ingredients ={
                 {type="item",name="strawberry-pie",amount=1},
             },
-            result="strawberry-pie-cooked",
+            results={
+                {type="item",name="strawberry-pie-cooked",amount=1}
+            },
         },
         {
             type = "recipe",
@@ -416,11 +424,13 @@ data:extend(
             category = "smelting",
             subgroup = "raw-material",
             energy_required = 10,
-            enabled = "false",
+            enabled = false,
             ingredients ={
                 {type="item",name="trona",amount=5},
             },
-            result="soda-ash",
+            results={
+                {type="item",name="soda-ash",amount=1}
+            },
         },
         {
             type = "recipe",
@@ -428,13 +438,15 @@ data:extend(
             category = "crafting-with-fluid",
             subgroup = "raw-material",
             energy_required = 5,
-            enabled = "false",
+            enabled = false,
             ingredients ={
                 {type="item",name="soda-ash",amount=2},
                 {type="item",name="coal",amount=1},
                 {type="fluid",name="water",amount=10},
             },
-            result="baking-soda",
+            results={
+                {type="item",name="baking-soda",amount=1}
+            },
         },
         {
             type = "recipe",
@@ -443,12 +455,14 @@ data:extend(
             subgroup = "ingredient",
             order="ec",
             energy_required = 120,
-            enabled = "false",
+            enabled = false,
             ingredients ={
                 {type="item",name="sugar",amount=1},
                 {type="fluid",name="milk",amount=5},
             },
-            result="plain-ice-cream",
+            results={
+                {type="item",name="plain-ice-cream",amount=1}
+            },
         },
         {
             type = "recipe",
@@ -456,12 +470,14 @@ data:extend(
             category = "crafting-with-fluid",
             subgroup = "chocolate",
             energy_required = 2,
-            enabled = "false",
+            enabled = false,
             ingredients ={
                 {type="item",name="brownie",amount=1},
                 {type="item",name="plain-ice-cream",amount=1},
             },
-            result="brownies-with-ice-cream",
+            results={
+                {type="item",name="brownies-with-ice-cream",amount=1}
+            },
         },
     }
 )

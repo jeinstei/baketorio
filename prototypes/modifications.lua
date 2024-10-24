@@ -4,8 +4,8 @@ for key,value in pairs(foods) do
             type = "item",
             name = "salted-"+value.name,
             icons = {
-                {icon = value.icon},
-                {icon = "__baketorio__/graphics/salt-mod.png"}
+                {icon = value.icon, icon_size=32},
+                {icon = "__baketorio__/graphics/salt-mod.png", icon_size=32}
             },
             icon_size = 32,
             subgroup = "raw-material",
@@ -17,7 +17,7 @@ for key,value in pairs(foods) do
             category = "crafting",
             subgroup = "raw-material",
             energy_required = 1,
-            enabled = "true",
+            enabled = true,
             ingredients ={
                 {type="item",name="flour",amount=2}
             },

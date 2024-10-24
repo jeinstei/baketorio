@@ -11,8 +11,9 @@ function makeRecipe(name,amount,ingredients,c)
             subgroup="nutrients",
             enabled = (name == "nutrient1"),
             ingredients = ingredients,
-            result=name,
-            result_count=amount*2;
+            results = {
+                {type="item", name=name, amount=amount*2}
+            },
             icon = "__baketorio__/graphics/"..name..".png",
             icon_size=32
         }
@@ -99,7 +100,9 @@ data:extend{
         unit =
         {
           count = 10,
-          ingredients = {{"automation-science-pack", 1}},
+          ingredients = {
+            {"automation-science-pack", 1}
+        },
           time = 30
         },
     },
@@ -113,7 +116,9 @@ data:extend{
         unit =
         {
           count = 30,
-          ingredients = {{"automation-science-pack", 1}},
+          ingredients = {
+            {"automation-science-pack", 1}
+        },
           time = 30
         },
     },
@@ -127,7 +132,10 @@ data:extend{
         unit =
         {
           count = 150,
-          ingredients = {{"automation-science-pack", 1},{"logistic-science-pack", 1}},
+          ingredients = {
+            {"automation-science-pack", 1},
+            {"logistic-science-pack", 1}
+        },
           time = 30
         },
     },
@@ -141,7 +149,11 @@ data:extend{
         unit =
         {
           count = 200,
-          ingredients = {{"automation-science-pack", 1},{"logistic-science-pack", 1},{"chemical-science-pack", 1}},
+          ingredients = {
+            {"automation-science-pack", 1},
+            {"logistic-science-pack", 1},
+            {"chemical-science-pack", 1}
+        },
           time = 30
         },
     },
@@ -155,7 +167,12 @@ data:extend{
         unit =
         {
           count = 500,
-          ingredients = {{"automation-science-pack", 1},{"logistic-science-pack", 1},{"chemical-science-pack", 1},{"production-science-pack", 1}},
+          ingredients = {
+            {"automation-science-pack", 1},
+            {"logistic-science-pack", 1},
+            {"chemical-science-pack", 1},
+            {"production-science-pack", 1}
+          },
           time = 30
         },
     },
@@ -169,7 +186,14 @@ data:extend{
         unit =
         {
           count = 800,
-          ingredients = {{"automation-science-pack", 1},{"logistic-science-pack", 1},{"chemical-science-pack", 1},{"utility-science-pack", 1},{"production-science-pack", 1},{"space-science-pack", 1}},
+          ingredients = {
+            {"automation-science-pack", 1},
+            {"logistic-science-pack", 1},
+            {"chemical-science-pack", 1},
+            {"utility-science-pack", 1},
+            {"production-science-pack", 1},
+            {"space-science-pack", 1}
+          },
           time = 30
         },
     },
@@ -244,7 +268,7 @@ for i=1,#foods-1 do
     local ingredient1 = foods[i].name
     local nutrientData = get_nutrient(foods[i].tastiness)
     if(nutrientData.name ~= "none") then
-        makeRecipe(nutrientData.name,nutrientData.amount,{{ingredient1,1}},c);
+        makeRecipe(nutrientData.name,nutrientData.amount,{{type="item", name=ingredient1, amount=1}},c);
     end
     for j=i+1,#foods do
         local ingredient2 = foods[j].name
@@ -264,7 +288,7 @@ for i=1,#foods-1 do
         c = c+1
         nutrientData = get_nutrient(t)
         if(nutrientData.name ~= "none") then
-            makeRecipe(nutrientData.name,nutrientData.amount,{{ingredient1,1},{ingredient2,1}},c);
+            makeRecipe(nutrientData.name,nutrientData.amount,{{type="item", name=ingredient1, amount=1},{type="item", name=ingredient2, amount=1}},c);
         end
         ::continue::
     end
