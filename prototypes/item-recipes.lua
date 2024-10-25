@@ -45,8 +45,7 @@ data:extend(
             ingredients ={
                 {type="fluid",name="liquid-butter",amount=5}
             },
-            results=
-            {
+            results = {
                 {type="item", name="butter", amount=1},
             },
             icon = "__baketorio__/graphics/butter.png",
@@ -64,8 +63,7 @@ data:extend(
                 {type="fluid",name="milk",amount=30},
                 {type="fluid",name="cream",amount=2}
             },
-            results=
-            {
+            results = {
                 {type="item", name="cheese", amount=5},
             },
             icon = "__baketorio__/graphics/cheese.png",
@@ -83,7 +81,7 @@ data:extend(
                 {type="item",name="iron-plate",amount=20},
                 {type="item",name="copper-cable",amount=5}
             },
-            results={
+            results = {
                 {type="item",name="greenhouse",amount=1}
             },
             icon = "__baketorio__/graphics/greenhouse-icon.png",
@@ -101,7 +99,7 @@ data:extend(
                 {type="item",name="iron-plate",amount=10},
                 {type="item",name="electronic-circuit",amount=2}
             },
-            results={
+            results = {
                 {type="item",name="organic-synthesizer",amount=1}
             },
             icon = "__baketorio__/graphics/organic-synth-item.png",
@@ -117,7 +115,7 @@ data:extend(
             ingredients ={
                 {type="item",name="flour",amount=2}
             },
-            results={
+            results = {
                 {type="item",name="hardtack",amount=3}
             },
             icon = "__baketorio__/graphics/hardtack.png",
@@ -133,7 +131,7 @@ data:extend(
                 {type="item",name="hardtack",amount=3},
                 {type="item",name="salt",amount=1}
             },
-            results={
+            results = {
                 {type="item",name="salted-hardtack",amount=3}
             },
             icons = {
@@ -153,7 +151,7 @@ data:extend(
             ingredients ={
                 {type="item",name="nutrient2",amount=40},
             },
-            results={
+            results = {
                 {type="item",name="chicken",amount=1}
             },
             icon = "__baketorio__/graphics/chicken.png",
@@ -170,7 +168,7 @@ data:extend(
             ingredients ={
                 {type="item",name="egg",amount=1},
             },
-            results={
+            results = {
                 {type="item",name="chicken",amount=1,probability=0.25}
             },
             icons = {
@@ -191,7 +189,7 @@ data:extend(
                 {type="item",name="chicken",amount=1},
                 {type="item",name="nutrient1",amount=5}
             },
-            results={
+            results = {
                 {type="item",name="egg",amount=1},
                 {type="item",name="chicken",amount=1}
             },
@@ -209,7 +207,7 @@ data:extend(
             ingredients ={
                 {type="item",name="nutrient3",amount=10},
             },
-            results={
+            results = {
                 {type="item",name="cow",amount=1}
             },
             icon="__baketorio__/graphics/cow.png",
@@ -227,7 +225,7 @@ data:extend(
                 {type="item",name="cow",amount=2},
                 {type="item",name="nutrient2",amount=10},
             },
-            results={
+            results = {
                 {type="item",name="cow",amount=3}
             },
             icon="__baketorio__/graphics/cow.png",
@@ -245,7 +243,7 @@ data:extend(
                 {type="fluid",name="cream",amount=10},
                 {type="item",name="sugar",amount=1}
             },
-            results={
+            results = {
                 {type="item",name="frosting",amount=1}
             },
             icon="__baketorio__/graphics/frosting.png",
@@ -262,7 +260,7 @@ data:extend(
             ingredients ={
                 {type="item",name="cocoa-beans",amount=3}
             },
-            results={
+            results = {
                 {type="item",name="cocoa-powder",amount=2}
             },
             icon="__baketorio__/graphics/cocoa-powder.png",
@@ -278,7 +276,7 @@ data:extend(
             ingredients ={
                 {type="item",name="chocolate-batter",amount=1}
             },
-            results={
+            results = {
                 {type="item",name="brownie",amount=2}
             },
             icon="__baketorio__/graphics/brownies.png",
@@ -296,7 +294,7 @@ data:extend(
                 {type="item",name="cinnamon",amount=1},
                 {type="item",name="sugar",amount=1}
             },
-            results={
+            results = {
                 {type="item",name="cinnamon-sugar",amount=2}
             },
             icon="__baketorio__/graphics/cinnamon-sugar.png",
@@ -313,7 +311,7 @@ data:extend(
                 {type="item",name="fryer-dough-doughnut-cooked",amount=1},
                 {type="item",name="cinnamon-sugar",amount=1}
             },
-            results={
+            results = {
                 {type="item",name="cinnamon-sugar-doughnut",amount=1}
             },
             icons={
@@ -338,7 +336,7 @@ data:extend(
                 {type="item",name="basic-batter",amount=1},
                 {type="item",name="cocoa-powder",amount=1}
             },
-            results={
+            results = {
                 {type="item",name="chocolate-chip-batter",amount=1}
             },
             icon="__baketorio__/graphics/chocolate-chip-batter.png",
@@ -354,7 +352,7 @@ data:extend(
             ingredients ={
                 {type="item",name="chocolate-chip-batter",amount=1},
             },
-            results={
+            results = {
                 {type="item",name="chocolate-chip-cookie",amount=3}
             },
             icon="__baketorio__/graphics/chocolate-chip-cookie.png",
@@ -371,7 +369,7 @@ data:extend(
                 {type="item",name="fryer-dough",amount=1},
                 {type="item",name="blueberries",amount=10},
             },
-            results={
+            results = {
                 {type="item",name="blueberry-pie",amount=1}
             },
         },
@@ -385,7 +383,7 @@ data:extend(
             ingredients ={
                 {type="item",name="blueberry-pie",amount=1},
             },
-            results={
+            results = {
                 {type="item",name="blueberry-pie-cooked",amount=1}
             },
         },
@@ -400,7 +398,7 @@ data:extend(
                 {type="item",name="fryer-dough",amount=1},
                 {type="item",name="strawberries",amount=3},
             },
-            results={
+            results = {
                 {type="item",name="strawberry-pie",amount=1}
             },
         },
@@ -414,7 +412,7 @@ data:extend(
             ingredients ={
                 {type="item",name="strawberry-pie",amount=1},
             },
-            results={
+            results = {
                 {type="item",name="strawberry-pie-cooked",amount=1}
             },
         },
@@ -428,7 +426,7 @@ data:extend(
             ingredients ={
                 {type="item",name="trona",amount=5},
             },
-            results={
+            results = {
                 {type="item",name="soda-ash",amount=1}
             },
         },
@@ -444,7 +442,7 @@ data:extend(
                 {type="item",name="coal",amount=1},
                 {type="fluid",name="water",amount=10},
             },
-            results={
+            results = {
                 {type="item",name="baking-soda",amount=1}
             },
         },
@@ -460,7 +458,7 @@ data:extend(
                 {type="item",name="sugar",amount=1},
                 {type="fluid",name="milk",amount=5},
             },
-            results={
+            results = {
                 {type="item",name="plain-ice-cream",amount=1}
             },
         },
@@ -475,7 +473,7 @@ data:extend(
                 {type="item",name="brownie",amount=1},
                 {type="item",name="plain-ice-cream",amount=1},
             },
-            results={
+            results = {
                 {type="item",name="brownies-with-ice-cream",amount=1}
             },
         },

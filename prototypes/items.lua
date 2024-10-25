@@ -17,7 +17,7 @@ data:extend(
             icon_size = 32,
             subgroup = "milk",
             stack_size = 100,
-            capsule_action = capsule_action(10);
+            tastiness=3,
         },
         {
             type = "item",
@@ -39,13 +39,13 @@ data:extend(
             stack_size = 50
         },
         {
-            type = "item",
+            type = "capsule",
             name = "hardtack",
             icon = "__baketorio__/graphics/hardtack.png",
             icon_size = 32,
             subgroup = "bread",
             stack_size = 50,
-            capsule_action = capsule_action(5);
+            tastiness = 1,
         },
         {
             type = "item",
@@ -55,10 +55,9 @@ data:extend(
                 {icon = "__baketorio__/graphics/salt-mod.png", icon_size=32}
             },
             icon_size = 32,
-            tastiness = 1,
+            tastiness = 2,
             subgroup = "bread",
             stack_size = 50,
-            capsule_action = capsule_action(8);
         },
         {
             type = "item",

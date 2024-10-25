@@ -220,12 +220,8 @@ for key,shape in pairs(shapes) do
         type="item",
         name=b.name .. "-" .. shape.name,
         subgroup = b.subgroup,
-        energy_required = 2,
         enabled = false,
         stack_size = 100,
-        results = {
-            {type="item", name=shape.name, amount=1},
-        },
         icon = get_png(b.name .. "-" .. shape.name);
         icon_size = 32;
     }
@@ -254,13 +250,9 @@ for key,shape in pairs(shapes) do
         type="item",
         name=b.name .. "-" .. shape.name .. "-cooked",
         subgroup = b.subgroup,
-        energy_required = 10,
         enabled = false,
         tastiness = shape.tastiness,
         stack_size = 100,
-        results = {
-            {type="item", name=shape.name},
-        },
         icon = get_png(b.name .. "-" .. shape.name .. "-cooked");
         icon_size = 32;
     }
@@ -294,14 +286,10 @@ for key,shape in pairs(shapes) do
             type="item",
             name=b.name .. "-" .. shape.name .. "-cooked-frosted",
             subgroup = b.subgroup,
-            energy_required = 2,
             enabled = false,
             tastiness = shape.tastiness + shape.frosted_mod,
             stack_size = 100,
             cant_mix_with=cooked_shape.name,
-            results = {
-                {type="item", name=shape.name, amount=1},
-            },
             icon = get_png(b.name .. "-" .. shape.name .. "-cooked-frosted");
             icon_size = 32;
         }

@@ -23,8 +23,7 @@ data:extend(
                 {type="item",name="cow",amount=1},
                 {type="item",name="nutrient2",amount=1}
             },
-            results=
-            {
+            results = {
                 {type="item",name="cow",amount=1},
                 {type="fluid", name="unpasteurized-milk", amount=150},
             },
@@ -38,12 +37,11 @@ data:extend(
             subgroup = "fluid-recipes",
             energy_required = 2,
             enabled = false,
-            ingredients ={
+            ingredients = {
                 {type="fluid",name="unpasteurized-milk",amount=20,catalyst_amount=18},
                 {type="fluid",name="water",amount=5}
             },
-            results=
-            {
+            results = {
                 {type="fluid", name="milk", amount=18,catalyst_amount=18},
                 {type="fluid", name="cream", amount=2},
             },
@@ -61,8 +59,7 @@ data:extend(
                 {type="fluid",name="milk",amount=20,catalyst_amount=18},
                 {type="fluid",name="water",amount=5}
             },
-            results=
-            {
+            results = {
                 {type="fluid", name="milk", amount=18,catalyst_amount=18},
                 {type="fluid", name="cream", amount=2},
             },
@@ -79,8 +76,7 @@ data:extend(
             ingredients ={
                 {type="fluid",name="cream",amount=20},
             },
-            results=
-            {
+            results = {
                 {type="fluid", name="liquid-butter", amount=10},
             },
             icon = "__baketorio__/graphics/butter_liquid.png",

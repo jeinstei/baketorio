@@ -251,13 +251,16 @@ end
 
 local foods = {}
 
-for key,value in pairs(data.raw["item"]) do
+for key,value in pairs(data.raw["capsule"]) do
     if(value.tastiness ~= nil and value.not_edible ~= true) then
         foods[#foods+1] = value;
     end
 end
 
+-- If not edible, should really just do damage if you eat it to -tastiness
+
 for key,value in pairs(foods) do
+    -- value.type = "capsule"
     value.capsule_action = capsule_action(value.tastiness*5)
 end
 

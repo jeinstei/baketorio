@@ -1,6 +1,6 @@
 for key,value in pairs(foods) do
     if(value.salt_mod ~= nul) then
-        data_extend {
+        data:extend( {
             type = "item",
             name = "salted-"+value.name,
             icons = {
@@ -10,8 +10,8 @@ for key,value in pairs(foods) do
             icon_size = 32,
             subgroup = "raw-material",
             stack_size = 50
-        }
-        data_extend {
+        })
+        data:extend( {
             type = "recipe",
             name = "salted-" + value.name + "-recipe",
             category = "crafting",
@@ -21,12 +21,12 @@ for key,value in pairs(foods) do
             ingredients ={
                 {type="item",name="flour",amount=2}
             },
-            results={
+            results = {
                 {type="item",name="hardtack",amount=3}
             },
             icon = "__baketorio__/graphics/hardtack.png",
             icon_size = 32,
-        }
+        })
         
     end 
 end

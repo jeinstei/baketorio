@@ -31,7 +31,7 @@ data:extend(
       order = "d",
       base_density = 5,
 	  base_spots_per_km2 = 1.0,
-	  random_spot_size_minimum = 0.25,
+	  random_spot_size_minimum = 0.5,
       random_spot_size_maximum = 3,
       has_starting_area_placement = false,
       regular_rq_factor_multiplier = 1.10,
@@ -93,7 +93,7 @@ data:extend(
       order = "d",
       base_density = 8,
 	  base_spots_per_km2 = 1.0,
-	  random_spot_size_minimum = 0.25,
+	  random_spot_size_minimum = 0.5,
       random_spot_size_maximum = 3,
       has_starting_area_placement = false,
       regular_rq_factor_multiplier = 0.50,
@@ -125,3 +125,9 @@ data:extend(
 }
 }
 )
+
+data.raw.planet.nauvis.map_gen_settings.autoplace_controls["salt"] = {}
+data.raw.planet.nauvis.map_gen_settings.autoplace_settings.entity.settings["salt"] = {}
+
+data.raw.planet.nauvis.map_gen_settings.autoplace_controls["trona"] = {}
+data.raw.planet.nauvis.map_gen_settings.autoplace_settings.entity.settings["trona"] = {}

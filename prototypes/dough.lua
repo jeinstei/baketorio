@@ -23,9 +23,6 @@ end
 local DOUGH_ICON = "__baketorio__/graphics/dough.png"
 local BREAD_ICON = "__baketorio__/graphics/bread.png"
 
-
-
-
 local doughs = 
 {
     {
@@ -123,14 +120,9 @@ for key,value in pairs(doughs) do
         type="item",
         name=(value.prefix .. "-bread"),
         subgroup = "bread",
-        energy_required = 2,
-        enabled = false,
         tastiness = value.tastiness,
         salt_mod = value.salt_mod,
         stack_size = 100,
-        results = {
-            {type="item", name=value.name, amount=1}
-        },
         icons = getIcons(BREAD_ICON,value.sub_icon)
         
     }
@@ -148,7 +140,6 @@ for key,value in pairs(doughs) do
             {type="item", name=item.name, amount=1}
         },
         icons = getIcons(BREAD_ICON,value.sub_icon)
-        
     }
     dataToAdd[#dataToAdd+1] = bread_recipe;
     dataToAdd[#dataToAdd+1] = dough_recipe;
