@@ -13,11 +13,11 @@ local batter = {
         subgroup = "basic",
         stack_size = 100,
         ingredients = {
-            {"flour", 3},
+            {type="item", name="flour", amount=3},
             {type="fluid", name="milk", amount=5},
-            {"butter",1},
-            {"egg",1},
-            {"sugar",1}
+            {type="item", name="butter", amount=1},
+            {type="item", name="egg", amount=1},
+            {type="item", name="sugar", amount=1}
         }
     },
     {
@@ -28,8 +28,8 @@ local batter = {
         subgroup = "chocolate",
         stack_size = 100,
         ingredients = {
-            {"basic-batter",1},
-            {"cocoa-powder",2},
+            {type="item", name="basic-batter", amount=1},
+            {type="item", name="cocoa-powder", amount=2},
         }
     },
     {
@@ -40,10 +40,10 @@ local batter = {
         subgroup = "bread",
         stack_size = 100,
         ingredients = {
-            {"flour", 3},
+            {type="item", name="flour", amount=3},
             {type="fluid", name="milk", amount=5},
-            {"butter",1},
-            {"salt",1}
+            {type="item", name="butter", amount=1},
+            {type="item", name="salt", amount=1}
         }
     },
     {
@@ -54,8 +54,8 @@ local batter = {
         subgroup = "milk",
         stack_size = 100,
         ingredients = {
-            {"basic-batter",1},
-            {"cheese",3},
+            {type="item", name="basic-batter", amount=1},
+            {type="item", name="cheese", amount=3},
         }
     },
     {
@@ -66,8 +66,8 @@ local batter = {
         subgroup = "fruit",
         stack_size = 100,
         ingredients = {
-            {"basic-batter",1},
-            {"blueberries",1},
+            {type="item", name="basic-batter", amount=1},
+            {type="item", name="blueberries", amount=1},
         }
     },
     {
@@ -78,10 +78,10 @@ local batter = {
         subgroup = "advanced",
         stack_size = 100,
         ingredients = {
-            {"basic-batter",1},
-            {"baking-soda",1},
-            {"salt",2},
-            {"strawberries",1},
+            {type="item", name="basic-batter", amount=1},
+            {type="item", name="baking-soda", amount=1},
+            {type="item", name="salt", amount=2},
+            {type="item", name="strawberries", amount=1},
         }
     }
 }
@@ -96,9 +96,11 @@ for key,value in pairs(batter) do
             category = "crafting-with-fluid",
             subgroup = value.subgroup,
             energy_required = 1,
-            enabled = "false",
+            enabled = false,
             ingredients = value.ingredients,
-            result = value.name,
+            results = {
+                {type="item", name=value.name, amount=1},
+            },
             icon = value.icon,
             icon_size = 32
         }
@@ -218,10 +220,8 @@ for key,shape in pairs(shapes) do
         type="item",
         name=b.name .. "-" .. shape.name,
         subgroup = b.subgroup,
-        energy_required = 2,
-        enabled = "false",
+        enabled = false,
         stack_size = 100,
-        result = shape.name,
         icon = get_png(b.name .. "-" .. shape.name);
         icon_size = 32;
     }
@@ -231,32 +231,28 @@ for key,shape in pairs(shapes) do
         category = "crafting",
         subgroup = b.subgroup,
         energy_required = 2,
-        enabled = "false",
+        enabled = false,
         ingredients = {
-            {
-                name=b.name,
-                amount=shape.batter_amount
-            }
+            {type="item", name=b.name, amount=shape.batter_amount},
         },
-        result = uncooked_shape.name,
-        result_count = shape.result,
+        results = {
+            {type="item", name=uncooked_shape.name, amount=shape.result},
+        },
         icon = uncooked_shape.icon;
         icon_size = 32;
         
     }
     if(shape.topping ~= nil) then
-        uncooked_shape_recipe.ingredients[2] = {name=shape.topping,amount=1};
+        uncooked_shape_recipe.ingredients[2] = {type="item", name=shape.topping,amount=1};
     end
 
     local cooked_shape = {
         type="item",
         name=b.name .. "-" .. shape.name .. "-cooked",
         subgroup = b.subgroup,
-        energy_required = 10,
-        enabled = "false",
+        enabled = false,
         tastiness = shape.tastiness,
         stack_size = 100,
-        result = shape.name,
         icon = get_png(b.name .. "-" .. shape.name .. "-cooked");
         icon_size = 32;
     }
@@ -266,11 +262,13 @@ for key,shape in pairs(shapes) do
         category = "smelting",
         subgroup = b.subgroup,
         energy_required = 10,
-        enabled = "false",
+        enabled = false,
         ingredients = {
-            {uncooked_shape.name,1}
+            {type="item", name=uncooked_shape.name, amount=1}
         },
-        result = cooked_shape.name,
+        results = {
+            {type="item", name=cooked_shape.name, amount=shape.result}
+        },
         icon = cooked_shape.icon;
         icon_size = 32;
     }
@@ -288,12 +286,10 @@ for key,shape in pairs(shapes) do
             type="item",
             name=b.name .. "-" .. shape.name .. "-cooked-frosted",
             subgroup = b.subgroup,
-            energy_required = 2,
-            enabled = "false",
+            enabled = false,
             tastiness = shape.tastiness + shape.frosted_mod,
             stack_size = 100,
             cant_mix_with=cooked_shape.name,
-            result = shape.name,
             icon = get_png(b.name .. "-" .. shape.name .. "-cooked-frosted");
             icon_size = 32;
         }
@@ -303,12 +299,14 @@ for key,shape in pairs(shapes) do
             category = "crafting",
             subgroup = b.subgroup,
             energy_required = 2,
-            enabled = "false",
+            enabled = false,
             ingredients = {
-                {cooked_shape.name,1},
-                {"frosting",1},
+                {type="item", name=cooked_shape.name, amount=1},
+                {type="item", name="frosting", amount=1},
             },
-            result = cooked_shape_frosted.name,
+            results = {
+                {type="item", name=cooked_shape_frosted.name, amount=1},
+            },
             icon = cooked_shape_frosted.icon;
             icon_size = 32;
         }

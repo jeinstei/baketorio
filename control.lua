@@ -1,13 +1,13 @@
 function set_gui_data(elem,prop,value) 
-    if (not global.gui_data) then global.gui_data = {} end
-    if (not global.gui_data[elem.index]) then global.gui_data[elem.index] = {} end
-    global.gui_data[elem.index][prop] = value
+    if (not storage.gui_data) then storage.gui_data = {} end
+    if (not storage.gui_data[elem.index]) then storage.gui_data[elem.index] = {} end
+    storage.gui_data[elem.index][prop] = value
 end
 
 function get_gui_data(elem,prop) 
-    if (not global.gui_data) then return false end
-    if (not global.gui_data[elem.index]) then return false end
-    return global.gui_data[elem.index][prop];
+    if (not storage.gui_data) then return false end
+    if (not storage.gui_data[elem.index]) then return false end
+    return storage.gui_data[elem.index][prop];
 end
 
 
@@ -81,3 +81,5 @@ script.on_event(defines.events.on_gui_elem_changed,function(event)
         
     end
 end)
+
+-- https://lua-api.factorio.com/latest/prototypes/UseItemAchievementPrototype.html

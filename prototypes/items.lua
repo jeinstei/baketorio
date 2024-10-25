@@ -17,7 +17,7 @@ data:extend(
             icon_size = 32,
             subgroup = "milk",
             stack_size = 100,
-            capsule_action = capsule_action(10);
+            tastiness=3,
         },
         {
             type = "item",
@@ -39,26 +39,25 @@ data:extend(
             stack_size = 50
         },
         {
-            type = "item",
+            type = "capsule",
             name = "hardtack",
             icon = "__baketorio__/graphics/hardtack.png",
             icon_size = 32,
             subgroup = "bread",
             stack_size = 50,
-            capsule_action = capsule_action(5);
+            tastiness = 1,
         },
         {
             type = "item",
             name = "salted-hardtack",
             icons = {
-                {icon = "__baketorio__/graphics/hardtack.png"},
-                {icon = "__baketorio__/graphics/salt-mod.png"}
+                {icon = "__baketorio__/graphics/hardtack.png", icon_size=32},
+                {icon = "__baketorio__/graphics/salt-mod.png", icon_size=32}
             },
             icon_size = 32,
-            tastiness = 1,
+            tastiness = 2,
             subgroup = "bread",
             stack_size = 50,
-            capsule_action = capsule_action(8);
         },
         {
             type = "item",
@@ -207,8 +206,8 @@ data:extend(
             name = "brownies-with-ice-cream",
             tastiness=8,
             icons = {
-                {icon = "__baketorio__/graphics/brownies.png"},
-                {icon = "__baketorio__/graphics/plain-ice-cream-sub.png"}
+                {icon = "__baketorio__/graphics/brownies.png", icon_size=32},
+                {icon = "__baketorio__/graphics/plain-ice-cream-sub.png", icon_size=32}
             },
             icon_size = 32,
             subgroup = "raw-material",

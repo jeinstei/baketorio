@@ -10,3 +10,4 @@ This mod was created buy [Butteredcoffe](https://mods.factorio.com/user/buttered
 
 ![eggs in a greenhouse](https://github.com/jeinstei/baketorio/blob/50524bdb629312d64bb3a55e89dc78152fd84869/graphics/eggs_greenhouse.png)
 
+The mod is currently maintained by [derim422](https://mods.factorio.com/user/derim422)/[jeinstei](https://github.com/jeinstei/)
