@@ -1,5 +1,5 @@
-for key,value in pairs(foods) do
-    if(value.salt_mod ~= nul) then
+for key,value in pairs(food) do
+    if(value.salt_mod ~= nil) then
         data:extend( {
             type = "item",
             name = "salted-"+value.name,

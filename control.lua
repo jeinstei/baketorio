@@ -17,7 +17,7 @@ script.on_event(defines.events.on_gui_opened,function(event)
         if(player == nil or player.gui.top.recipe_chooser ~= nil) then
             return;
         end
-        player.gui.top.add{type = "frame",name="recipe_chooser"}
+        player.gui.top.add{type = "frame",name="recipe_chooser", caption="Nutrients"}
         local item1 = player.gui.top.recipe_chooser.add{type = "choose-elem-button",name="item1",elem_type="item",entity=event.entity,nchooser=true}
         local item2 = player.gui.top.recipe_chooser.add{type = "choose-elem-button",name="item2",elem_type="item",entity=event.entity,nchooser=true}
         set_gui_data(item1,"nchooser",true)
