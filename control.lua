@@ -72,8 +72,8 @@ script.on_event(defines.events.on_gui_elem_changed,function(event)
                 }
             }
         end
-
-        local list = game.get_filtered_recipe_prototypes(filter)
+        
+        local list = prototypes.get_recipe_filtered(filter)
         for key,value in pairs(list) do
             get_gui_data(event.element,"entity").set_recipe(value.name);
             break;
