@@ -72,8 +72,8 @@ data:extend(
 	{
 	type = "resource",
     name = "trona",
-    icon_size = 32,
 	icon = "__baketorio__/graphics/trona.png",
+	icon_size = 32,
 	flags = {"placeable-neutral"},
 	map_color = {r=0.4, g=0.12, b=0},
 	minable =
