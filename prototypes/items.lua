@@ -12,12 +12,13 @@ data:extend(
         },
         {
             type = "capsule",
+            capsule_action=capsule_action(0),
             name = "cheese",
             icon = "__baketorio__/graphics/cheese.png",
             icon_size = 32,
             subgroup = "milk",
             stack_size = 100,
-            tastiness=3,
+            tastiness=3
         },
         {
             type = "item",
@@ -40,22 +41,24 @@ data:extend(
         },
         {
             type = "capsule",
+            capsule_action=capsule_action(0),
             name = "hardtack",
             icon = "__baketorio__/graphics/hardtack.png",
             icon_size = 32,
             subgroup = "bread",
             stack_size = 50,
-            tastiness = 1,
+            tastiness = 1
         },
         {
-            type = "item",
+            type = "capsule",
+            capsule_action=capsule_action(0),
             name = "salted-hardtack",
             icons = {
                 {icon = "__baketorio__/graphics/hardtack.png", icon_size=32},
                 {icon = "__baketorio__/graphics/salt-mod.png", icon_size=32}
             },
             icon_size = 32,
-            tastiness = 2,
+            tastiness = 1,
             subgroup = "bread",
             stack_size = 50,
         },
@@ -100,7 +103,8 @@ data:extend(
             stack_size = 50
         },
         {
-            type = "item",
+            type = "capsule",
+            capsule_action=capsule_action(0),
             name = "brownie",
             tastiness = 6,
             icon = "__baketorio__/graphics/brownies.png",
@@ -117,7 +121,8 @@ data:extend(
             stack_size = 50
         },
         {
-            type = "item",
+            type = "capsule",
+            capsule_action=capsule_action(0),
             name = "cinnamon-sugar-doughnut",
             tastiness = 6,
             icon = "__baketorio__/graphics/cinnamon-sugar-doughnut.png",
@@ -134,7 +139,8 @@ data:extend(
             stack_size = 50
         },
         {
-            type = "item",
+            type = "capsule",
+            capsule_action=capsule_action(0),
             name = "chocolate-chip-cookie",
             tastiness = 5,
             icon = "__baketorio__/graphics/chocolate-chip-cookie.png",
@@ -151,7 +157,8 @@ data:extend(
             stack_size = 50
         },
         {
-            type = "item",
+            type = "capsule",
+            capsule_action=capsule_action(0),
             name = "blueberry-pie-cooked",
             tastiness = 12,
             icon = "__baketorio__/graphics/blueberry-pie-cooked.png",
@@ -168,7 +175,8 @@ data:extend(
             stack_size = 50
         },
         {
-            type = "item",
+            type = "capsule",
+            capsule_action=capsule_action(0),
             name = "strawberry-pie-cooked",
             tastiness = 17,
             icon = "__baketorio__/graphics/strawberry-pie-cooked.png",
@@ -193,7 +201,8 @@ data:extend(
             stack_size = 100
         },
         {
-            type = "item",
+            type = "capsule",
+            capsule_action=capsule_action(0),
             name = "plain-ice-cream",
             tastiness=5,
             icon = "__baketorio__/graphics/plain-ice-cream.png",
@@ -202,7 +211,8 @@ data:extend(
             stack_size = 100
         },
         {
-            type = "item",
+            type = "capsule",
+            capsule_action=capsule_action(0),
             name = "brownies-with-ice-cream",
             tastiness=8,
             icons = {

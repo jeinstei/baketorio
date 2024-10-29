@@ -5,6 +5,7 @@ function makeRecipe(name,amount,ingredients,c)
         {
             type="recipe",
             name= recipe_name,
+            localised_name = {"item-name." .. name},
             energy_required = 2,
             category = "crafting",
             order= name .."-".. amount,
@@ -248,8 +249,13 @@ function get_nutrient(tastiness)
     };
 end
 
-
 local foods = {}
+
+for key,value in pairs(data.raw["item"]) do
+    if(value.tastiness ~= nil and value.not_edible ~= true) then
+        foods[#foods+1] = value;
+    end
+end
 
 for key,value in pairs(data.raw["capsule"]) do
     if(value.tastiness ~= nil and value.not_edible ~= true) then
@@ -260,8 +266,9 @@ end
 -- If not edible, should really just do damage if you eat it to -tastiness
 
 for key,value in pairs(foods) do
-    -- value.type = "capsule"
-    value.capsule_action = capsule_action(value.tastiness*5)
+    if (value.type == "capsule") then
+        value.capsule_action = capsule_action(value.tastiness*5)
+    end
 end
 
 local c = 0

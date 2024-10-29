@@ -136,7 +136,7 @@ data:extend {
       },
       {
         type = "unlock-recipe",
-        recipe = "butter-solification"
+        recipe = "butter-solidification"
       },
       {
         type = "unlock-recipe",

@@ -19,19 +19,19 @@ data:extend{
       usage_priority = "secondary-input",
     },
     energy_usage = "250kW",
-    module_specification =
-    {
-      module_slots = 3
-    },
+    module_slots = 3,
     allowed_effects = {"consumption", "speed", "productivity", "pollution"},
-    animation =
+    graphics_set =
     {
-      filename = "__baketorio__/graphics/greenhouse.png",
-      width = 208,
-      height = 208,
-      frame_count = 1,
-      scale=0.5,
-      shift={0,-0.1}
+      animation =
+      {
+        filename = "__baketorio__/graphics/greenhouse.png",
+        width = 208,
+        height = 208,
+        frame_count = 1,
+        scale=0.5,
+        shift={0,-0.1}
+      },
     },
     fluid_boxes =
     {
@@ -55,7 +55,7 @@ data:extend{
     fluid_boxes_off_when_no_fluid_recipe = true,
     open_sound = { filename = "__base__/sound/machine-open.ogg", volume = 0.85 },
     close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 },
-    vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
+    impact_category = "metal"
     },
     {
       type = "assembling-machine",
@@ -77,32 +77,24 @@ data:extend{
         usage_priority = "secondary-input",
       },
       energy_usage = "350kW",
-      module_specification =
-      {
-        module_slots = 2
-      },
+      module_slots = 2,
       allowed_effects = {"consumption", "speed", "productivity", "pollution"},
-      animation =
+      graphics_set =
       {
-        filename = "__baketorio__/graphics/organic-synthesizer.png",
-        width = 208,
-        height = 284,
-        frame_count = 13,
-        line_length = 4,
-        scale=0.5,
-        shift={0,-0.43}
-      },
-      animation1 =
-      {
-        filename = "__baketorio__/graphics/greenhouse.png",
-        width = 208,
-        height = 208,
-        frame_count = 1,
-        scale=0.5
+        animation =
+        {
+          filename = "__baketorio__/graphics/organic-synthesizer.png",
+          width = 208,
+          height = 284,
+          frame_count = 13,
+          line_length = 4,
+          scale=0.5,
+          shift={0,-0.43}
+        },
       },
       open_sound = { filename = "__base__/sound/machine-open.ogg", volume = 0.85 },
       close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 },
-      vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
+      impact_category = "metal"
     },
     {
       type = "assembling-machine",
@@ -125,10 +117,7 @@ data:extend{
         usage_priority = "secondary-input",
       },
       energy_usage = "350kW",
-      module_specification =
-      {
-        module_slots = 2
-      },
+      module_slots = 2,
       allowed_effects = {"consumption", "speed", "productivity", "pollution"},
       animation =
       {
@@ -143,6 +132,6 @@ data:extend{
 
       open_sound = { filename = "__base__/sound/machine-open.ogg", volume = 0.85 },
       close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 },
-      vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
+      impact_category = "metal"
     }
   }
