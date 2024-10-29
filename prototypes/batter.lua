@@ -2,8 +2,6 @@ function get_png(name)
     return "__baketorio__/graphics/"..name..".png"
 end
 
-
-
 local batter = {
     {
         type = "item",
@@ -89,7 +87,7 @@ local batter = {
 data:extend(batter);
 
 for key,value in pairs(batter) do
-    data:extend {
+    data:extend ({
         {
             type="recipe",
             name= (value.name .. "-recipe"),
@@ -103,8 +101,9 @@ for key,value in pairs(batter) do
             },
             icon = value.icon,
             icon_size = 32
-        }
+        },
     }
+    )
 end
 
 local shapes = {
@@ -247,7 +246,8 @@ for key,shape in pairs(shapes) do
     end
 
     local cooked_shape = {
-        type="item",
+        type = "capsule",
+        capsule_action=capsule_action(0),
         name=b.name .. "-" .. shape.name .. "-cooked",
         subgroup = b.subgroup,
         enabled = false,
@@ -283,7 +283,8 @@ for key,shape in pairs(shapes) do
 
     if(shape.frosted_mod ~= nil) then
         local cooked_shape_frosted = {
-            type="item",
+            type = "capsule",
+            capsule_action=capsule_action(0),
             name=b.name .. "-" .. shape.name .. "-cooked-frosted",
             subgroup = b.subgroup,
             enabled = false,

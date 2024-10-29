@@ -1,6 +1,6 @@
 -- Add recipe names here to add them to productivity modules
 local prod_recipes = {
-  "butter-solification",
+  "butter-solidification",
   "cheese-recipe",
   "greenhouse-recipe",
   "organic-synthesizer-recipe",
@@ -36,7 +36,7 @@ data:extend(
     {
         {
             type = "recipe",
-            name = "butter-solification",
+            name = "butter-solidification",
             order="f",
             category = "chemistry",
             subgroup = "ingredient",

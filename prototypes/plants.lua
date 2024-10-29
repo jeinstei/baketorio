@@ -90,7 +90,7 @@ data:extend(
         },
         {
             type = "item",
-            name = "blueberry-seeds",
+            name = "blueberries-seeds",
             icon = "__baketorio__/graphics/seeds-blueberries.png",
             icon_size = 32,
             subgroup = "seeds",
@@ -331,7 +331,7 @@ data:extend{
             {type="item",name="nutrient5",amount=1}
         },
         results = {
-            {type="item",name="blueberry-seeds",amount=1}
+            {type="item",name="blueberries-seeds",amount=1}
         },
         icon = "__baketorio__/graphics/seeds-blueberries.png",
         icon_size = 32,
@@ -345,12 +345,12 @@ data:extend{
         energy_required = 10,
         enabled = false,
         ingredients ={
-            {type="item",name="blueberry-seeds",amount=1},
+            {type="item",name="blueberries-seeds",amount=1},
             {type="item",name="nutrient5",amount=1}
         },
         results = {
-            {type="item",name="blueberry-seeds",amount=1,probability = 0.02},
-            {type="item",name="blueberry-seeds",amount=1},
+            {type="item",name="blueberries-seeds",amount=1,probability = 0.02},
+            {type="item",name="blueberries-seeds",amount=1},
             {type="item",name="blueberries",amount=1}
         },
         icon = "__baketorio__/graphics/blueberries.png",

@@ -117,7 +117,8 @@ for key,value in pairs(doughs) do
         
     }
     local item = {
-        type="item",
+        type = "capsule",
+        capsule_action=capsule_action(0),
         name=(value.prefix .. "-bread"),
         subgroup = "bread",
         tastiness = value.tastiness,
