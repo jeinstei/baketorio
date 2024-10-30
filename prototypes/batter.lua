@@ -91,6 +91,7 @@ for key,value in pairs(batter) do
         {
             type="recipe",
             name= (value.name .. "-recipe"),
+            localised_name = {"item-name." .. value.name},
             category = "crafting-with-fluid",
             subgroup = value.subgroup,
             energy_required = 1,
@@ -227,6 +228,7 @@ for key,shape in pairs(shapes) do
     local uncooked_shape_recipe = {
         type="recipe",
         name= (uncooked_shape.name .. "-recipe"),
+        localised_name = {"item-name." .. uncooked_shape.name},
         category = "crafting",
         subgroup = b.subgroup,
         energy_required = 2,
@@ -259,6 +261,7 @@ for key,shape in pairs(shapes) do
     local cooked_shape_recipe = {
         type="recipe",
         name= cooked_shape.name .. "-recipe",
+        localised_name = {"item-name." .. cooked_shape.name},
         category = "smelting",
         subgroup = b.subgroup,
         energy_required = 10,
@@ -297,6 +300,7 @@ for key,shape in pairs(shapes) do
         local cooked_shape_frosted_recipe = {
             type="recipe",
             name= cooked_shape_frosted.name .. "-recipe",
+            localised_name = {"item-name." .. cooked_shape_frosted.name},
             category = "crafting",
             subgroup = b.subgroup,
             energy_required = 2,

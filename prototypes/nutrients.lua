@@ -5,7 +5,7 @@ function makeRecipe(name,amount,ingredients,c)
         {
             type="recipe",
             name= recipe_name,
-            localised_name = {"item-name." .. name},
+            localised_name = {"nutrient-name." .. name},
             energy_required = 2,
             category = "crafting",
             order= name .."-".. amount,
@@ -34,6 +34,7 @@ data:extend(
         {
             type = "item",
             name = "nutrient1",
+            localised_name = {"nutrient-name.nutrient1"},
             icon = "__baketorio__/graphics/nutrient1.png",
             icon_size = 32,
             subgroup = "nutrients",
@@ -42,6 +43,7 @@ data:extend(
         {
             type = "item",
             name = "nutrient2",
+            localised_name = {"nutrient-name.nutrient2"},
             icon = "__baketorio__/graphics/nutrient2.png",
             icon_size = 32,
             subgroup = "nutrients",
@@ -50,6 +52,7 @@ data:extend(
         {
             type = "item",
             name = "nutrient3",
+            localised_name = {"nutrient-name.nutrient3"},
             icon = "__baketorio__/graphics/nutrient3.png",
             icon_size = 32,
             subgroup = "nutrients",
@@ -58,6 +61,7 @@ data:extend(
         {
             type = "item",
             name = "nutrient4",
+            localised_name = {"nutrient-name.nutrient4"},
             icon = "__baketorio__/graphics/nutrient4.png",
             icon_size = 32,
             subgroup = "nutrients",
@@ -66,6 +70,7 @@ data:extend(
         {
             type = "item",
             name = "nutrient5",
+            localised_name = {"nutrient-name.nutrient5"},
             icon = "__baketorio__/graphics/nutrient5.png",
             icon_size = 32,
             subgroup = "nutrients",
@@ -74,6 +79,7 @@ data:extend(
         {
             type = "item",
             name = "nutrient6",
+            localised_name = {"nutrient-name.nutrient6"},
             icon = "__baketorio__/graphics/nutrient6.png",
             icon_size = 32,
             subgroup = "nutrients",
@@ -82,6 +88,7 @@ data:extend(
         {
             type = "item",
             name = "nutrient7",
+            localised_name = {"nutrient-name.nutrient7"},
             icon = "__baketorio__/graphics/nutrient7.png",
             icon_size = 32,
             subgroup = "nutrients",
@@ -94,6 +101,7 @@ data:extend{
     {
         type = "technology",
         name = "nutrient2",
+        localised_name= {"nutrient-name.nutrient2"},
         icon_size = 128,
         icon = "__baketorio__/graphics/n2_tech.png",
         prerequisites = {"leavening"},
@@ -110,6 +118,7 @@ data:extend{
     {
         type = "technology",
         name = "nutrient3",
+        localised_name= {"nutrient-name.nutrient3"},
         icon_size = 128,
         icon = "__baketorio__/graphics/n3_tech.png",
         prerequisites = {"leavening"},
@@ -126,6 +135,7 @@ data:extend{
     {
         type = "technology",
         name = "nutrient4",
+        localised_name= {"nutrient-name.nutrient4"},
         icon_size = 128,
         icon = "__baketorio__/graphics/n4_tech.png",
         prerequisites = {"logistic-science-pack"},
@@ -143,6 +153,7 @@ data:extend{
     {
         type = "technology",
         name = "nutrient5",
+        localised_name= {"nutrient-name.nutrient5"},
         icon_size = 128,
         icon = "__baketorio__/graphics/n5_tech.png",
         prerequisites = {"chemical-science-pack"},
@@ -161,6 +172,7 @@ data:extend{
     {
         type = "technology",
         name = "nutrient6",
+        localised_name= {"nutrient-name.nutrient6"},
         icon_size = 128,
         icon = "__baketorio__/graphics/n6_tech.png",
         prerequisites = {"production-science-pack"},
@@ -180,6 +192,7 @@ data:extend{
     {
         type = "technology",
         name = "nutrient7",
+        localised_name= {"nutrient-name.nutrient7"},
         icon_size = 128,
         icon = "__baketorio__/graphics/n7_tech.png",
         prerequisites = {"rocket-silo"},
