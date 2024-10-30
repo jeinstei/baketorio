@@ -290,7 +290,6 @@ for key,shape in pairs(shapes) do
             capsule_action=capsule_action(0),
             name=b.name .. "-" .. shape.name .. "-cooked-frosted",
             subgroup = b.subgroup,
-            enabled = false,
             tastiness = shape.tastiness + shape.frosted_mod,
             stack_size = 100,
             cant_mix_with=cooked_shape.name,

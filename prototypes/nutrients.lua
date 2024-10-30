@@ -21,7 +21,7 @@ function makeRecipe(name,amount,ingredients,c)
     }
 	baketorio_add_to_prod_mod(recipe_name)
     if(name ~= "nutrient1") then
-        log(name);
+        -- log(name);
         table.insert(data.raw.technology[name].effects,{
             type = "unlock-recipe",
             recipe = "recipe-".. name.."-" .. c
