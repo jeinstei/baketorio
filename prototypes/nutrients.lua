@@ -280,7 +280,7 @@ end
 
 for key,value in pairs(foods) do
     if (value.type == "capsule") then
-        value.capsule_action = capsule_action(value.tastiness*5)
+        value.capsule_action = capsule_action(value.tastiness*10)
     end
 end
 
