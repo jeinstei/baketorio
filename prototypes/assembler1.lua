@@ -4,7 +4,7 @@ local a = {
     type = "assembling-machine",
     name = "assembling-machine-1",
     icon = "__base__/graphics/icons/assembling-machine-1.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64,
     flags = {"placeable-neutral","placeable-player", "player-creation"},
     minable = {mining_time = 0.2, result = "assembling-machine-1"},
     max_health = 300,
