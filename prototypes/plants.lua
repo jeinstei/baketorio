@@ -90,7 +90,7 @@ data:extend(
         },
         {
             type = "item",
-            name = "blueberries-seeds",
+            name = "blueberry-seeds",
             icon = "__baketorio__/graphics/seeds-blueberries.png",
             icon_size = 32,
             subgroup = "seeds",
@@ -127,7 +127,7 @@ local prod_recipes = {
   "cocoa-beans-recipe",
   "cinnamon-seeds",
   "cinnamon-recipe",
-  "blueberries-seeds",
+  "blueberry-seeds",
   "blueberries-recipe",
   "strawberry-seeds",
   "strawberries-recipe",
@@ -141,6 +141,7 @@ data:extend{
     {
         type = "recipe",
         name = "wheat-seeds",
+        localised_name = {"item-name.wheat-seeds"},
         category = "organic-synth-recipes",
         subgroup = "seeds",
         order="a",
@@ -158,6 +159,7 @@ data:extend{
     {
         type = "recipe",
         name = "wheat-recipe",
+        localised_name = {"item-name.wheat"},
         category = "greenhouse-recipes",
         subgroup = "ingredient",
         order="a",
@@ -177,6 +179,7 @@ data:extend{
     {
         type = "recipe",
         name = "flour-recipe",
+        localised_name = {"item-name.flour"},
         order="b",
         category = "crafting",
         subgroup = "ingredient",
@@ -194,6 +197,7 @@ data:extend{
     {
         type = "recipe",
         name = "sugar-recipe",
+        localised_name = {"item-name.sugar"},
         order="d",
         category = "crafting",
         subgroup = "ingredient",
@@ -211,6 +215,7 @@ data:extend{
     {
         type = "recipe",
         name = "sugarcane-recipe",
+        localised_name = {"item-name.sugarcane"},
         order="c",
         category = "greenhouse-recipes",
         subgroup = "ingredient",
@@ -231,6 +236,7 @@ data:extend{
     {
         type = "recipe",
         name = "sugarcane-seeds",
+        localised_name = {"item-name.sugarcane-seeds"},
         order="b",
         category = "organic-synth-recipes",
         subgroup = "seeds",
@@ -248,6 +254,7 @@ data:extend{
     {
         type = "recipe",
         name = "cocoa-bean-seeds",
+        localised_name = {"item-name.cocoa-bean-seeds"},
         order="g",
         category = "organic-synth-recipes",
         subgroup = "seeds",
@@ -265,6 +272,7 @@ data:extend{
     {
         type = "recipe",
         name = "cocoa-beans-recipe",
+        localised_name = {"item-name.cocoa-beans"},
         order="h",
         category = "greenhouse-recipes",
         subgroup = "ingredient",
@@ -285,6 +293,7 @@ data:extend{
     {
         type = "recipe",
         name = "cinnamon-seeds",
+        localised_name = {"item-name.cinnamon-seeds"},
         order="h",
         category = "organic-synth-recipes",
         subgroup = "seeds",
@@ -302,6 +311,7 @@ data:extend{
     {
         type = "recipe",
         name = "cinnamon-recipe",
+        localised_name = {"item-name.cinnamon"},
         category = "greenhouse-recipes",
         subgroup = "ingredient",
         order="j",
@@ -321,7 +331,8 @@ data:extend{
     },
     {
         type = "recipe",
-        name = "blueberries-seeds",
+        name = "blueberry-seeds",
+        localised_name = {"item-name.blueberry-seeds"},
         order="j",
         category = "organic-synth-recipes",
         subgroup = "seeds",
@@ -331,7 +342,7 @@ data:extend{
             {type="item",name="nutrient5",amount=1}
         },
         results = {
-            {type="item",name="blueberries-seeds",amount=1}
+            {type="item",name="blueberry-seeds",amount=1}
         },
         icon = "__baketorio__/graphics/seeds-blueberries.png",
         icon_size = 32,
@@ -339,18 +350,19 @@ data:extend{
     {
         type = "recipe",
         name = "blueberries-recipe",
+        localised_name = {"item-name.blueberries"},
         category = "greenhouse-recipes",
         subgroup = "ingredient",
         order="l",
         energy_required = 10,
         enabled = false,
         ingredients ={
-            {type="item",name="blueberries-seeds",amount=1},
+            {type="item",name="blueberry-seeds",amount=1},
             {type="item",name="nutrient5",amount=1}
         },
         results = {
-            {type="item",name="blueberries-seeds",amount=1,probability = 0.02},
-            {type="item",name="blueberries-seeds",amount=1},
+            {type="item",name="blueberry-seeds",amount=1,probability = 0.02},
+            {type="item",name="blueberry-seeds",amount=1},
             {type="item",name="blueberries",amount=1}
         },
         icon = "__baketorio__/graphics/blueberries.png",
@@ -359,6 +371,7 @@ data:extend{
     {
         type = "recipe",
         name = "strawberry-seeds",
+        localised_name = {"item-name.strawberry-seeds"},
         order="m",
         category = "organic-synth-recipes",
         subgroup = "seeds",
@@ -376,6 +389,7 @@ data:extend{
     {
         type = "recipe",
         name = "strawberries-recipe",
+        localised_name = {"item-name.strawberries"},
         category = "greenhouse-recipes",
         subgroup = "ingredient",
         order="m",
