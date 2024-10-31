@@ -1,13 +1,20 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.0.7
+Date: 2024.10.30
+  Features:
+    - Added thumbnail.png
+  Changes:
+    - Reformatted changelog.txt and rename to be picked up properly
+---------------------------------------------------------------------------------------------------
 Version: 2.0.6
 Date: 2024.10.30
   Features:
     - Added space-age optional dependency
     - Added changelog
+    - Added auto-translate script for locale generation using google translate
+  Changes:
     - Major refactor of locale handling for simplicity of translation
     - Bump buff from tastiness 2x
-    - Added auto-translate script for locale generation using google translate
-  Bugfix:
     - Added .gitattributes file
     - Removed some excess code from assembling-machine-1 definition
     - Commented out nutrientizer
@@ -20,7 +27,7 @@ Date: 2024.10.30
   Features:
     - Scaled greenhouse and synthesizer sprites down a little bit
     - Added proper capsule handling to consume food and tastiness
-  Bugfix:
+  Bugfixes:
     - Fixed greenhouse pipe layout
     - Fixed proper capsule handling to consume food and tastiness
     - Added some missing locale entries
@@ -28,7 +35,7 @@ Date: 2024.10.30
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.3
 Date: 2019.03.01
-  Bugfix:
+  Bugfixes:
     - Fix for missed function port to 2.0 used in GUI handling
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.2
@@ -50,9 +57,9 @@ Version: 1.3.2
 Date: 2019.03.01
   Features:
     - Added README
-  License:
+  Changes:
     - Added MIT license
-  Bugfix:
+  Bugfixes:
     - Fixed strawberry pie production bug
     - Added eggs_greenhouse image
 
