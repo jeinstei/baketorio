@@ -84,8 +84,10 @@ local batter = {
     }
 }
 
+-- Add batter prototypes to data
 data:extend(batter);
 
+-- Add batter recipes
 for key,value in pairs(batter) do
     data:extend ({
         {
@@ -107,6 +109,7 @@ for key,value in pairs(batter) do
     )
 end
 
+-- Add shapes (muffins, cakes, etc)
 local shapes = {
     {
         name="cake",
@@ -281,6 +284,7 @@ for key,shape in pairs(shapes) do
         cooked_shape,
         cooked_shape_recipe
     })
+
 	baketorio_add_to_prod_mod(uncooked_shape_recipe.name)
 	baketorio_add_to_prod_mod(cooked_shape_recipe.name)
 

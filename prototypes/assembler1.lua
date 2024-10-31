@@ -1,5 +1,3 @@
-local hit_effects = require("__base__.prototypes.entity.hit-effects")
-
 -- Modifications to base assembling machine
 local a = {
     type = "assembling-machine",
@@ -26,8 +24,9 @@ local a = {
     fluid_boxes_off_when_no_fluid_recipe = true,
   }
 
-
+-- Add fluid boxes and flag to base assembling machine prototype
 data.raw["assembling-machine"]["assembling-machine-1"].fluid_boxes = a.fluid_boxes
 data.raw["assembling-machine"]["assembling-machine-1"].fluid_boxes_off_when_no_fluid_recipe = true
 
+-- Add fluid recipes to base assembling machine prototype
 table.insert(data.raw["assembling-machine"]["assembling-machine-1"].crafting_categories, "crafting-with-fluid")

@@ -1,0 +1,57 @@
+---------------------------------------------------------------------------------------------------
+Version: 2.0.6
+Date: 2024.10.30
+  Features:
+    - Added space-age optional dependency
+    - Added changelog
+    - Major refactor of locale handling for simplicity of translation
+    - Bump buff from tastiness 2x
+  Locale:
+    - Added ru, uk, es
+---------------------------------------------------------------------------------------------------
+Version: 2.0.5
+Date: 2024.10.30
+  Features:
+    - Scaled greenhouse and synthesizer sprites down a little bit
+  Bugfix:
+    - Fixed greenhouse pipe layout
+---------------------------------------------------------------------------------------------------
+Version: 2.0.3
+Date: 2019.03.01
+  Bugfix:
+    - Fix for missed function port to 2.0 used in GUI handling
+---------------------------------------------------------------------------------------------------
+Version: 2.0.2
+Date: 2019.03.01
+  Features:
+    - Fix for assembling machine fluid intake pipe positions
+---------------------------------------------------------------------------------------------------
+Version: 2.0.1
+Date: 2019.03.01
+  Features:
+    - Added base module dependency
+---------------------------------------------------------------------------------------------------
+Version: 2.0.0
+Date: 2019.03.01
+  Features:
+    - Initial update to run on Factorio 2.0
+---------------------------------------------------------------------------------------------------
+Version: 1.3.2
+Date: 2019.03.01
+  Features:
+    - Added README
+  License:
+    - Added MIT license
+  Bugfix:
+    - Fixed strawberry pie unable to be produced
+
+---------------------------------------------------------------------------------------------------
+Version: 1.3.1
+Date: 2019.03.01
+  Features:
+    - Added support for productivity modules
+---------------------------------------------------------------------------------------------------
+Version: 1.2.1
+Date: 2019.01.31
+  Features:
+    - Initial git commit
