@@ -1,0 +1,75 @@
+---------------------------------------------------------------------------------------------------
+Version: 2.0.7
+Date: 2024.10.30
+  Features:
+    - Added thumbnail.png
+  Changes:
+    - Reformatted changelog.txt and rename to be picked up properly
+---------------------------------------------------------------------------------------------------
+Version: 2.0.6
+Date: 2024.10.30
+  Features:
+    - Added space-age optional dependency
+    - Added changelog
+    - Added auto-translate script for locale generation using google translate
+  Changes:
+    - Major refactor of locale handling for simplicity of translation
+    - Bump buff from tastiness 2x
+    - Added .gitattributes file
+    - Removed some excess code from assembling-machine-1 definition
+    - Commented out nutrientizer
+    - Renamed blueberries-seeds back to blueberry-seeds
+  Locale:
+    - Added ru, uk, es
+---------------------------------------------------------------------------------------------------
+Version: 2.0.5
+Date: 2024.10.30
+  Features:
+    - Scaled greenhouse and synthesizer sprites down a little bit
+    - Added proper capsule handling to consume food and tastiness
+  Bugfixes:
+    - Fixed greenhouse pipe layout
+    - Fixed proper capsule handling to consume food and tastiness
+    - Added some missing locale entries
+    - Fixed typo for butter-solidification
+---------------------------------------------------------------------------------------------------
+Version: 2.0.3
+Date: 2019.03.01
+  Bugfixes:
+    - Fix for missed function port to 2.0 used in GUI handling
+---------------------------------------------------------------------------------------------------
+Version: 2.0.2
+Date: 2019.03.01
+  Features:
+    - Fix for assembling machine fluid intake pipe positions
+---------------------------------------------------------------------------------------------------
+Version: 2.0.1
+Date: 2019.03.01
+  Features:
+    - Added base module dependency
+---------------------------------------------------------------------------------------------------
+Version: 2.0.0
+Date: 2019.03.01
+  Features:
+    - Initial update to run on Factorio 2.0
+---------------------------------------------------------------------------------------------------
+Version: 1.3.2
+Date: 2019.03.01
+  Features:
+    - Added README
+  Changes:
+    - Added MIT license
+  Bugfixes:
+    - Fixed strawberry pie production bug
+    - Added eggs_greenhouse image
+
+---------------------------------------------------------------------------------------------------
+Version: 1.3.1
+Date: 2019.03.01
+  Features:
+    - Added support for productivity modules
+---------------------------------------------------------------------------------------------------
+Version: 1.2.1
+Date: 2019.01.31
+  Features:
+    - Initial git commit

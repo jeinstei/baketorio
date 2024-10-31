@@ -1,6 +1,6 @@
 -- Add recipe names here to add them to productivity modules
 local prod_recipes = {
-  "butter-solification",
+  "butter-solidification",
   "cheese-recipe",
   "greenhouse-recipe",
   "organic-synthesizer-recipe",
@@ -36,7 +36,7 @@ data:extend(
     {
         {
             type = "recipe",
-            name = "butter-solification",
+            name = "butter-solidification",
             order="f",
             category = "chemistry",
             subgroup = "ingredient",
@@ -54,6 +54,7 @@ data:extend(
         {
             type = "recipe",
             name = "cheese-recipe",
+            localised_name = {"item-name.cheese"},
             subgroup = "ingredient",
             category = "chemistry",
             order="g",
@@ -72,6 +73,7 @@ data:extend(
         {
             type = "recipe",
             name = "greenhouse-recipe",
+            localised_name = {"item-name.greenhouse"},
             category = "crafting",
             subgroup = "production-machine",
             energy_required = 5,
@@ -90,6 +92,7 @@ data:extend(
         {
             type = "recipe",
             name = "organic-synthesizer-recipe",
+            localised_name = {"item-name.organic-synthesizer"},
             category = "crafting",
             subgroup = "production-machine",
             energy_required = 5,
@@ -108,6 +111,7 @@ data:extend(
         {
             type = "recipe",
             name = "hardtack-recipe",
+            localised_name = {"item-name.hardtack"},
             category = "smelting",
             subgroup = "bread",
             energy_required = 2,
@@ -123,6 +127,7 @@ data:extend(
         },{
             type = "recipe",
             name = "salted-hardtack-recipe",
+            localised_name = {"item-name.salted-hardtack"},
             category = "crafting",
             subgroup = "bread",
             energy_required = 2,
@@ -143,6 +148,7 @@ data:extend(
         {
             type = "recipe",
             name = "chicken-recipe",
+            localised_name = {"item-name.chicken"},
             order = "c",
             category = "organic-synth-recipes",
             subgroup = "seeds",
@@ -180,6 +186,7 @@ data:extend(
         {
             type = "recipe",
             name = "egg-recipe",
+            localised_name = {"item-name.egg"},
             order = "e",
             category = "greenhouse-recipes",
             subgroup = "ingredient",
@@ -199,6 +206,7 @@ data:extend(
         {
             type = "recipe",
             name = "cow-recipe",
+            localised_name = {"item-name.cow"},
             order = "e",
             category = "organic-synth-recipes",
             subgroup = "seeds",
@@ -234,6 +242,7 @@ data:extend(
         {
             type = "recipe",
             name = "frosting-recipe",
+            localised_name = {"item-name.frosting"},
             category = "crafting-with-fluid",
             subgroup = "ingredient",
             order="ea",
@@ -252,6 +261,7 @@ data:extend(
         {
             type = "recipe",
             name = "cocoa-powder-recipe",
+            localised_name = {"item-name.cocoa-powder"},
             category = "crafting",
             subgroup = "ingredient",
             order="i",
@@ -269,6 +279,7 @@ data:extend(
         {
             type = "recipe",
             name = "brownie-recipe",
+            localised_name = {"item-name.brownie"},
             category = "smelting",
             subgroup = "chocolate",
             energy_required = 2,
@@ -285,6 +296,7 @@ data:extend(
         {
             type = "recipe",
             name = "cinnamon-sugar-recipe",
+            localised_name = {"item-name.cinnamon-sugar"},
             category = "crafting",
             subgroup = "ingredient",
             order="k",
@@ -303,6 +315,7 @@ data:extend(
         {
             type = "recipe",
             name = "cinnamon-sugar-doughnut-recipe",
+            localised_name = {"item-name.cinnamon-sugar-doughnut"},
             category = "crafting",
             subgroup = "bread",
             energy_required = 20,
@@ -328,6 +341,7 @@ data:extend(
         {
             type = "recipe",
             name = "chocolate-chip-batter-recipe",
+            localised_name = {"item-name.chocolate-chip-batter"},
             category = "crafting",
             subgroup = "chocolate",
             energy_required = 5,
@@ -345,6 +359,7 @@ data:extend(
         {
             type = "recipe",
             name = "chocolate-chip-cookie-recipe",
+            localised_name = {"item-name.chocolate-chip-cookie"},
             category = "smelting",
             subgroup = "chocolate",
             energy_required = 6,
@@ -361,6 +376,7 @@ data:extend(
         {
             type = "recipe",
             name = "blueberry-pie-recipe",
+            localised_name = {"item-name.blueberry-pie"},
             category = "crafting",
             subgroup = "fruit",
             energy_required = 5,
@@ -376,6 +392,7 @@ data:extend(
         {
             type = "recipe",
             name = "blueberry-pie-cooked-recipe",
+            localised_name = {"item-name.blueberry-pie-cooked"},
             category = "smelting",
             subgroup = "fruit",
             energy_required = 10,
@@ -390,6 +407,7 @@ data:extend(
         {
             type = "recipe",
             name = "strawberry-pie-recipe",
+            localised_name = {"item-name.strawberry-pie"},
             category = "crafting",
             subgroup = "fruit",
             energy_required = 5,
@@ -405,6 +423,7 @@ data:extend(
         {
             type = "recipe",
             name = "strawberry-pie-cooked-recipe",
+            localised_name = {"item-name.strawberry-pie-cooked"},
             category = "smelting",
             subgroup = "fruit",
             energy_required = 10,
@@ -419,6 +438,7 @@ data:extend(
         {
             type = "recipe",
             name = "soda-ash",
+            localised_name = {"item-name.soda-ash"},
             category = "smelting",
             subgroup = "raw-material",
             energy_required = 10,
@@ -433,6 +453,7 @@ data:extend(
         {
             type = "recipe",
             name = "baking-soda",
+            localised_name = {"item-name.baking-soda"},
             category = "crafting-with-fluid",
             subgroup = "raw-material",
             energy_required = 5,
@@ -449,6 +470,7 @@ data:extend(
         {
             type = "recipe",
             name = "plain-ice-cream",
+            localised_name = {"item-name.plain-ice-cream"},
             category = "crafting-with-fluid",
             subgroup = "ingredient",
             order="ec",
@@ -465,6 +487,7 @@ data:extend(
         {
             type = "recipe",
             name = "brownies-with-ice-cream",
+            localised_name = {"item-name.brownies-with-ice-cream"},
             category = "crafting-with-fluid",
             subgroup = "chocolate",
             energy_required = 2,

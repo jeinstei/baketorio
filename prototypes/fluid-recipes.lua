@@ -15,6 +15,7 @@ data:extend(
         {
             type = "recipe",
             name = "u-milk-recipe",
+            localised_name = {"fluid-name.unpasteurized-milk"},
             category = "greenhouse-recipes",
             subgroup = "fluid-recipes",
             energy_required = 10,

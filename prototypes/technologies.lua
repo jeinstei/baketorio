@@ -136,7 +136,7 @@ data:extend {
       },
       {
         type = "unlock-recipe",
-        recipe = "butter-solification"
+        recipe = "butter-solidification"
       },
       {
         type = "unlock-recipe",
@@ -257,7 +257,7 @@ data:extend {
     effects =
     {
       {type = "unlock-recipe",recipe = "blueberries-recipe"},
-      {type = "unlock-recipe",recipe = "blueberries-seeds"},
+      {type = "unlock-recipe",recipe = "blueberry-seeds"},
       {type = "unlock-recipe",recipe = "blueberry-batter-recipe"},
       {type = "unlock-recipe",recipe = "blueberry-batter-doughnut-recipe"},
       {type = "unlock-recipe",recipe = "blueberry-batter-doughnut-cooked-recipe"},

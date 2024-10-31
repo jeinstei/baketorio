@@ -1,10 +1,10 @@
 {
 	"name":"baketorio",
-	"version":"2.0.4",
+	"version":"2.0.7",
 	"title":"Baketorio",
 	"author":"ButteredCoffee",
 	"factorio_version":"2.0",
-	"dependencies": ["base >= 2.0.0"],
+	"dependencies": ["base >= 2.0.0", "? space-age"],
 	"description":"adds baking",
 	"spoiling_required": true
 }

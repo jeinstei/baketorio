@@ -1,3 +1,5 @@
+local sounds = require("__base__.prototypes.entity.sounds")
+
 function capsule_action(health)
     return
     {
@@ -5,12 +7,12 @@ function capsule_action(health)
       attack_parameters =
       {
         type = "projectile",
+        activation_type = "consume",
         ammo_category = "capsule",
-        cooldown = 120,
+        cooldown = 30,
         range = 0,
         ammo_type =
         {
-          category = "capsule",
           target_type = "position",
           action =
           {
@@ -22,8 +24,13 @@ function capsule_action(health)
               {
                 {
                   type = "damage",
-                  damage = {type = "physical", amount = -health}
+                  damage = {type = "physical", amount = -health},
+                  use_substitute = false
                 },
+                {
+                  type = "play-sound",
+                  sound = sounds.eat_fish
+                }
               }
             }
           }

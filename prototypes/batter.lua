@@ -2,8 +2,6 @@ function get_png(name)
     return "__baketorio__/graphics/"..name..".png"
 end
 
-
-
 local batter = {
     {
         type = "item",
@@ -86,13 +84,16 @@ local batter = {
     }
 }
 
+-- Add batter prototypes to data
 data:extend(batter);
 
+-- Add batter recipes
 for key,value in pairs(batter) do
-    data:extend {
+    data:extend ({
         {
             type="recipe",
             name= (value.name .. "-recipe"),
+            localised_name = {"item-name." .. value.name},
             category = "crafting-with-fluid",
             subgroup = value.subgroup,
             energy_required = 1,
@@ -103,10 +104,12 @@ for key,value in pairs(batter) do
             },
             icon = value.icon,
             icon_size = 32
-        }
+        },
     }
+    )
 end
 
+-- Add shapes (muffins, cakes, etc)
 local shapes = {
     {
         name="cake",
@@ -228,6 +231,7 @@ for key,shape in pairs(shapes) do
     local uncooked_shape_recipe = {
         type="recipe",
         name= (uncooked_shape.name .. "-recipe"),
+        localised_name = {"item-name." .. uncooked_shape.name},
         category = "crafting",
         subgroup = b.subgroup,
         energy_required = 2,
@@ -247,7 +251,8 @@ for key,shape in pairs(shapes) do
     end
 
     local cooked_shape = {
-        type="item",
+        type = "capsule",
+        capsule_action=capsule_action(0),
         name=b.name .. "-" .. shape.name .. "-cooked",
         subgroup = b.subgroup,
         enabled = false,
@@ -259,6 +264,7 @@ for key,shape in pairs(shapes) do
     local cooked_shape_recipe = {
         type="recipe",
         name= cooked_shape.name .. "-recipe",
+        localised_name = {"item-name." .. cooked_shape.name},
         category = "smelting",
         subgroup = b.subgroup,
         energy_required = 10,
@@ -278,15 +284,16 @@ for key,shape in pairs(shapes) do
         cooked_shape,
         cooked_shape_recipe
     })
+
 	baketorio_add_to_prod_mod(uncooked_shape_recipe.name)
 	baketorio_add_to_prod_mod(cooked_shape_recipe.name)
 
     if(shape.frosted_mod ~= nil) then
         local cooked_shape_frosted = {
-            type="item",
+            type = "capsule",
+            capsule_action=capsule_action(0),
             name=b.name .. "-" .. shape.name .. "-cooked-frosted",
             subgroup = b.subgroup,
-            enabled = false,
             tastiness = shape.tastiness + shape.frosted_mod,
             stack_size = 100,
             cant_mix_with=cooked_shape.name,
@@ -296,6 +303,7 @@ for key,shape in pairs(shapes) do
         local cooked_shape_frosted_recipe = {
             type="recipe",
             name= cooked_shape_frosted.name .. "-recipe",
+            localised_name = {"item-name." .. cooked_shape_frosted.name},
             category = "crafting",
             subgroup = b.subgroup,
             energy_required = 2,

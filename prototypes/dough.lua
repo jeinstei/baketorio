@@ -105,6 +105,7 @@ for key,value in pairs(doughs) do
     local dough_recipe = {
         type="recipe",
         name= (value.name .. "-recipe"),
+        localised_name = {"item-name." .. value.name},
         category = "crafting-with-fluid",
         subgroup = "bread",
         energy_required = 1,
@@ -117,7 +118,8 @@ for key,value in pairs(doughs) do
         
     }
     local item = {
-        type="item",
+        type = "capsule",
+        capsule_action=capsule_action(0),
         name=(value.prefix .. "-bread"),
         subgroup = "bread",
         tastiness = value.tastiness,
@@ -129,6 +131,7 @@ for key,value in pairs(doughs) do
     local bread_recipe = {
         type="recipe",
         name= (item.name .. "-recipe"),
+        localised_name = {"item-name." .. item.name},
         category = "smelting",
         subgroup = "bread",
         energy_required = 2,
