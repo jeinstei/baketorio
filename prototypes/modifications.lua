@@ -1,3 +1,5 @@
+local food = {}
+
 for key,value in pairs(food) do
     if(value.salt_mod ~= nil) then
         data:extend( {
@@ -27,6 +29,6 @@ for key,value in pairs(food) do
             icon = "__baketorio__/graphics/hardtack.png",
             icon_size = 32,
         })
-        
-    end 
+
+    end
 end

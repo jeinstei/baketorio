@@ -1,4 +1,3 @@
-
 data.raw["recipe"]["hardtack-recipe"].order = "a";
 data.raw["recipe"]["salted-hardtack-recipe"].order = "b";
 data.raw["recipe"]["basic-dough-recipe"].order = "c";

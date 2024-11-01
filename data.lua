@@ -54,7 +54,7 @@ function baketorio_add_to_prod_mod(name)
   end
 end
 
-food = {};
+nutrient_food_groups = {"basic", "bread", "milk", "chocolate", "fruit", "advanced"}
 
 -- Tips and Tricks note
 data:extend({
