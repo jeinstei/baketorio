@@ -1,10 +1,10 @@
-function set_gui_data(elem,prop,value) 
+function set_gui_data(elem,prop,value)
     if (not storage.gui_data) then storage.gui_data = {} end
     if (not storage.gui_data[elem.index]) then storage.gui_data[elem.index] = {} end
     storage.gui_data[elem.index][prop] = value
 end
 
-function get_gui_data(elem,prop) 
+function get_gui_data(elem,prop)
     if (not storage.gui_data) then return false end
     if (not storage.gui_data[elem.index]) then return false end
     return storage.gui_data[elem.index][prop];
@@ -15,11 +15,19 @@ script.on_event(defines.events.on_gui_opened,function(event)
     local player = game.players[event.player_index]
     if(event.entity ~= nil and (event.entity.name == "assembling-machine-1" or event.entity.name == "assembling-machine-2" or event.entity.name == "assembling-machine-3")) then
         if(player == nil or player.gui.top.recipe_chooser ~= nil) then
-            return;
+            return
         end
-        player.gui.top.add{type = "frame",name="recipe_chooser", caption="Nutrients"}
-        local item1 = player.gui.top.recipe_chooser.add{type = "choose-elem-button",name="item1",elem_type="item",entity=event.entity,nchooser=true}
-        local item2 = player.gui.top.recipe_chooser.add{type = "choose-elem-button",name="item2",elem_type="item",entity=event.entity,nchooser=true}
+        player.gui.top.add{type = "frame",name="recipe_chooser", caption={"ui-elements.nutrigen"}}
+        local filter = {
+            {filter="subgroup", subgroup="basic"},
+            {filter="subgroup", subgroup="bread"},
+            {filter="subgroup", subgroup="milk"},
+            {filter="subgroup", subgroup="chocolate"},
+            {filter="subgroup", subgroup="fruit"},
+            {filter="subgroup", subgroup="advanced"},
+        }
+        local item1 = player.gui.top.recipe_chooser.add{type = "choose-elem-button",name="item1",elem_type="item",caption={"ui-elements.nutrigen-i1"},elem_filters=filter}
+        local item2 = player.gui.top.recipe_chooser.add{type = "choose-elem-button",name="item2",elem_type="item",caption={"ui-elements.nutrigen-i2"},elem_filters=filter}
         set_gui_data(item1,"nchooser",true)
         set_gui_data(item1,"other",item2)
         set_gui_data(item1,"entity",event.entity)
@@ -72,13 +80,16 @@ script.on_event(defines.events.on_gui_elem_changed,function(event)
                 }
             }
         end
-        
+
         local list = prototypes.get_recipe_filtered(filter)
+        if (list == nil and i1 ~= nil and i2 ~= nil) then
+            log("No nutrient recipe selected for: " .. i1 .. " and " .. i2)
+        end
         for key,value in pairs(list) do
             get_gui_data(event.element,"entity").set_recipe(value.name);
             break;
         end
-        
+
     end
 end)
 

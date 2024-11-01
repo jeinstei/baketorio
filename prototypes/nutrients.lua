@@ -1,5 +1,5 @@
 --local serpent = require("serpent")
-function makeRecipe(name,amount,ingredients,c) 
+function makeRecipe(name,amount,ingredients,c)
 	local recipe_name = "recipe-".. name.."-" .. c
     data:extend{
         {
@@ -276,7 +276,7 @@ for key,value in pairs(data.raw["capsule"]) do
     end
 end
 
--- If not edible, should really just do damage if you eat it to -tastiness
+-- Supports negative tastiness setting
 
 for key,value in pairs(foods) do
     if (value.type == "capsule") then
@@ -286,6 +286,7 @@ end
 
 local c = 0
 
+-- Build nutrient ingredients for tasty recipes
 for i=1,#foods-1 do
     local t;
     local ingredient1 = foods[i].name

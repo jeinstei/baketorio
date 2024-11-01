@@ -56,6 +56,29 @@ end
 
 food = {};
 
+-- Tips and Tricks note
+data:extend({
+  {
+    type="tips-and-tricks-item-category",
+    name="baketorio",
+    order="d"
+  },
+  {
+    type="tips-and-tricks-item",
+    name="baketorio-nutrient-setting",
+    category="baketorio",
+    icon="__baketorio__/graphics/nutrient1.png",
+    icon_size=32,
+    image="__baketorio__/graphics/nutrient-assistant.png",
+    trigger={
+     type="build-entity",
+     entity="assembling-machine-1"
+    }
+  }
+}
+)
+
+
 require("prototypes.fluids")
 require("prototypes.fluid-recipes")
 require("prototypes.items")

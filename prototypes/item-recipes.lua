@@ -343,7 +343,7 @@ data:extend(
             name = "chocolate-chip-batter-recipe",
             localised_name = {"item-name.chocolate-chip-batter"},
             category = "crafting",
-            subgroup = "chocolate",
+            subgroup = "ingredient",
             energy_required = 5,
             enabled = false,
             ingredients ={
@@ -378,7 +378,7 @@ data:extend(
             name = "blueberry-pie-recipe",
             localised_name = {"item-name.blueberry-pie"},
             category = "crafting",
-            subgroup = "fruit",
+            subgroup = "ingredient",
             energy_required = 5,
             enabled = false,
             ingredients ={
@@ -409,7 +409,7 @@ data:extend(
             name = "strawberry-pie-recipe",
             localised_name = {"item-name.strawberry-pie"},
             category = "crafting",
-            subgroup = "fruit",
+            subgroup = "ingredient",
             energy_required = 5,
             enabled = false,
             ingredients ={
@@ -440,7 +440,7 @@ data:extend(
             name = "soda-ash",
             localised_name = {"item-name.soda-ash"},
             category = "smelting",
-            subgroup = "raw-material",
+            subgroup = "ingredient",
             energy_required = 10,
             enabled = false,
             ingredients ={
@@ -455,7 +455,7 @@ data:extend(
             name = "baking-soda",
             localised_name = {"item-name.baking-soda"},
             category = "crafting-with-fluid",
-            subgroup = "raw-material",
+            subgroup = "ingredient",
             energy_required = 5,
             enabled = false,
             ingredients ={

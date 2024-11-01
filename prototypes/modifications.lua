@@ -8,14 +8,14 @@ for key,value in pairs(food) do
                 {icon = "__baketorio__/graphics/salt-mod.png", icon_size=32}
             },
             icon_size = 32,
-            subgroup = "raw-material",
+            subgroup = value.subgroup,
             stack_size = 50
         })
         data:extend( {
             type = "recipe",
             name = "salted-" + value.name + "-recipe",
             category = "crafting",
-            subgroup = "raw-material",
+            subgroup = value.subgroup,
             energy_required = 1,
             enabled = true,
             ingredients ={

@@ -3,8 +3,9 @@ Version: 2.0.7
 Date: 2024.10.30
   Features:
     - Added thumbnail.png
+    - Added tips & tricks for NutroGen
   Changes:
-    - Reformatted changelog.txt and rename to be picked up properly
+    - Reformatted changelog.txt and renamed to be picked up properly
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.6
 Date: 2024.10.30

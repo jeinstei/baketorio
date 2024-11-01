@@ -75,7 +75,7 @@ data:extend {
     prerequisites = {"animal-husbandry"},
     effects =
     {
-      
+
       {type = "unlock-recipe",recipe = "fryer-dough-recipe"},
       {type = "unlock-recipe",recipe = "fryer-dough-doughnut-recipe"},
       {type = "unlock-recipe",recipe = "fryer-dough-doughnut-cooked-recipe"},
@@ -403,7 +403,8 @@ data:extend {
   },
 }
 
-
+-- Adding alternative recipe unlock
+table.insert(data.raw.technology["automation-science-pack"].effects, {type="unlock-recipe", recipe="automation-science-pack-hardtack"})
 
 local baking_science = data.raw.technology["logistic-science-pack"];
 baking_science.prerequisites = {"baking"};

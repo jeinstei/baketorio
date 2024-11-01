@@ -33,12 +33,12 @@ data:extend(
 	  base_spots_per_km2 = 1.0,
 	  random_spot_size_minimum = 0.5,
       random_spot_size_maximum = 3,
-      has_starting_area_placement = false,
+      has_starting_area_placement = true,
       regular_rq_factor_multiplier = 1.10,
       starting_rq_factor_multiplier = 1.2,
       candidate_spot_count =22,
     },
-	
+
     stage_counts = {1000, 600, 200, 50},
 	stages =
 	{
@@ -58,7 +58,7 @@ data:extend(
   	type = "item",
   	name = "salt",
   	icon = "__baketorio__/graphics/salt.png",
-  	subgroup = "raw-material",
+  	subgroup = "raw-resource",
   	icon_size = 32;
   	stack_size = 200
   	},
@@ -119,7 +119,7 @@ data:extend(
     type = "item",
     name = "trona",
     icon = "__baketorio__/graphics/trona.png",
-    subgroup = "raw-material",
+    subgroup = "raw-resource",
     icon_size = 32;
     stack_size = 200
 }

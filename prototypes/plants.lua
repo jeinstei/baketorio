@@ -81,11 +81,12 @@ data:extend(
             stack_size = 100
         },
         {
-            type = "item",
+            type = "capsule",
+            capsule_action = capsule_action(0),
             name = "blueberries",
             icon = "__baketorio__/graphics/blueberries.png",
             icon_size = 32,
-            subgroup = "ingredient",
+            subgroup = "fruit",
             stack_size = 100
         },
         {
@@ -105,11 +106,12 @@ data:extend(
             stack_size = 100
         },
         {
-            type = "item",
+            type = "capsule",
+            capsule_action = capsule_action(0),
             name = "strawberries",
             icon = "__baketorio__/graphics/strawberries.png",
             icon_size = 32,
-            subgroup = "seeds",
+            subgroup = "fruit",
             stack_size = 100
         }
     }

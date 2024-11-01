@@ -23,7 +23,7 @@ end
 local DOUGH_ICON = "__baketorio__/graphics/dough.png"
 local BREAD_ICON = "__baketorio__/graphics/bread.png"
 
-local doughs = 
+local doughs =
 {
     {
         type = "item",
@@ -35,13 +35,13 @@ local doughs =
         not_edible=true,
         salt_mod = 1;
         icon_size = 32,
-        subgroup = "bread",
+        subgroup = "ingredient",
         stack_size = 100,
         ingredients = {
             {type="item", name="flour", amount=2},
             {type="fluid", name="water", amount=5}
         }
-        
+
     },
     {
         type = "item",
@@ -52,7 +52,7 @@ local doughs =
         tastiness = 4;
         not_edible=true,
         icon_size = 32,
-        subgroup = "bread",
+        subgroup = "ingredient",
         stack_size = 100,
         ingredients = {
             {type="item", name="flour", amount=2},
@@ -69,7 +69,7 @@ local doughs =
         tastiness = 3;
         not_edible=true,
         icon_size = 32,
-        subgroup = "bread",
+        subgroup = "ingredient",
         stack_size = 100,
         ingredients = {
             {type="item", name="flour", amount=2},
@@ -87,14 +87,14 @@ local doughs =
         not_edible=true,
         salt_mod = 1;
         icon_size = 32,
-        subgroup = "bread",
+        subgroup = "ingredient",
         stack_size = 100,
         ingredients = {
             {type="item", name="cinnamon-sugar", amount=1},
             {type="item", name="flour", amount=2},
             {type="fluid", name="water", amount=5}
         }
-        
+
     },
 }
 
@@ -107,7 +107,7 @@ for key,value in pairs(doughs) do
         name= (value.name .. "-recipe"),
         localised_name = {"item-name." .. value.name},
         category = "crafting-with-fluid",
-        subgroup = "bread",
+        subgroup = "ingredient",
         energy_required = 1,
         enabled = false,
         ingredients = value.ingredients,
@@ -115,7 +115,7 @@ for key,value in pairs(doughs) do
             {type="item", name=value.name, amount=1}
         },
         icons = getIcons(DOUGH_ICON,value.sub_icon)
-        
+
     }
     local item = {
         type = "capsule",
@@ -126,7 +126,7 @@ for key,value in pairs(doughs) do
         salt_mod = value.salt_mod,
         stack_size = 100,
         icons = getIcons(BREAD_ICON,value.sub_icon)
-        
+
     }
     local bread_recipe = {
         type="recipe",
