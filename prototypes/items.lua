@@ -58,7 +58,7 @@ data:extend(
                 {icon = "__baketorio__/graphics/salt-mod.png", icon_size=32}
             },
             icon_size = 32,
-            tastiness = 1,
+            tastiness = 2,
             subgroup = "bread",
             stack_size = 50,
         },

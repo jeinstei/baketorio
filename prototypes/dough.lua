@@ -147,7 +147,7 @@ for key,value in pairs(doughs) do
     dataToAdd[#dataToAdd+1] = bread_recipe;
     dataToAdd[#dataToAdd+1] = dough_recipe;
     dataToAdd[#dataToAdd+1] = item;
-    food[#food+1] = item;
+
 	baketorio_add_to_prod_mod(bread_recipe.name);
 	baketorio_add_to_prod_mod(dough_recipe.name);
 end

@@ -65,10 +65,25 @@ data:extend({
   },
   {
     type="tips-and-tricks-item",
+    name="baketorio-tips-category",
+    category="baketorio",
+    is_title=true,
+    icon="__baketorio__/graphics/advanced-cake-batter-cupcake-cooked.png",
+    icon_size=32,
+    order="baketorio",
+    skip_trigger={
+     type="build-entity",
+     entity="assembling-machine-1"
+    }
+  },
+  {
+    type="tips-and-tricks-item",
     name="baketorio-nutrient-setting",
     category="baketorio",
+    order="baketorio-a",
     icon="__baketorio__/graphics/nutrient1.png",
     icon_size=32,
+    indent=1,
     image="__baketorio__/graphics/nutrient-assistant.png",
     trigger={
      type="build-entity",
@@ -77,7 +92,6 @@ data:extend({
   }
 }
 )
-
 
 require("prototypes.fluids")
 require("prototypes.fluid-recipes")
