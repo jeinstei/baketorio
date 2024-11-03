@@ -93,17 +93,3 @@ script.on_event(defines.events.on_gui_elem_changed,function(event)
 end)
 
 -- https://lua-api.factorio.com/latest/prototypes/UseItemAchievementPrototype.html
-
--- script.on_event(defines.events.on_research_finished,function(event)
-
---     if (event.research.name == "automation-science-pack") then
---       event.research.
---       log(game.player.force.technologies[event.research.name].enabled)
---     end
-
--- end)
--- on_research_finished:
---    for a in event.technology.effects:
---        if a.type == "unlock-recipe":
---           for ingredient in a.recipe.ingredients:
---              for r in get_recipe_filtered(has-ingredient-item)
