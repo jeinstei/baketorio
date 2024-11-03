@@ -1,4 +1,4 @@
-data:extend{
+data:extend({
     {
     type = "assembling-machine",
     name = "greenhouse",
@@ -19,7 +19,7 @@ data:extend{
       type = "electric",
       usage_priority = "secondary-input",
     },
-    energy_usage = "250kW",
+    energy_usage = "75kW",
     module_slots = 3,
     allowed_effects = {"consumption", "speed", "productivity", "pollution"},
     graphics_set =
@@ -80,7 +80,7 @@ data:extend{
         type = "electric",
         usage_priority = "secondary-input",
       },
-      energy_usage = "350kW",
+      energy_usage = "250kW",
       module_slots = 2,
       allowed_effects = {"consumption", "speed", "productivity", "pollution"},
       graphics_set =
@@ -99,19 +99,21 @@ data:extend{
       open_sound = { filename = "__base__/sound/machine-open.ogg", volume = 0.85 },
       close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 },
       impact_category = "metal"
-    },
+      }
     -- {
-    --   type = "assembling-machine",
+    --   type = "furnace",
     --   name = "nutrientizer",
     --   inventory_size=3,
     --   icon = "__baketorio__/graphics/organic-synth-item.png",
     --   icon_size = 32,
+    --   source_inventory_size=1,
+    --   result_inventory_size=5,
     --   flags = {"placeable-neutral", "placeable-player", "player-creation"},
     --   minable = {hardness = 0.2, mining_time = 0.5, result = "organic-synthesizer"},
     --   max_health = 250,
     --   corpse = "big-remnants",
     --   dying_explosion = "medium-explosion",
-    --   crafting_categories = {"crafting"},
+    --   crafting_categories = {"nutrient"},
     --   crafting_speed = 1,
     --   collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
     --   selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
@@ -139,3 +141,4 @@ data:extend{
     --   impact_category = "metal"
     -- }
   }
+)

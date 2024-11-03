@@ -1,5 +1,7 @@
-for key,value in pairs(foods) do
-    if(value.salt_mod ~= nul) then
+local food = {}
+
+for key,value in pairs(food) do
+    if(value.salt_mod ~= nil) then
         data:extend( {
             type = "item",
             name = "salted-"+value.name,
@@ -8,14 +10,14 @@ for key,value in pairs(foods) do
                 {icon = "__baketorio__/graphics/salt-mod.png", icon_size=32}
             },
             icon_size = 32,
-            subgroup = "raw-material",
+            subgroup = value.subgroup,
             stack_size = 50
         })
         data:extend( {
             type = "recipe",
             name = "salted-" + value.name + "-recipe",
             category = "crafting",
-            subgroup = "raw-material",
+            subgroup = value.subgroup,
             energy_required = 1,
             enabled = true,
             ingredients ={
@@ -27,6 +29,6 @@ for key,value in pairs(foods) do
             icon = "__baketorio__/graphics/hardtack.png",
             icon_size = 32,
         })
-        
-    end 
+
+    end
 end

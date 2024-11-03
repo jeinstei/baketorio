@@ -84,18 +84,25 @@ local batter = {
     }
 }
 
--- Add batter prototypes to data
-data:extend(batter);
-
 -- Add batter recipes
 for key,value in pairs(batter) do
+    -- Adding manually to get proper subgroups and still have a local batter table for reference
     data:extend ({
+        {
+            type = value.type,
+            name = value.name,
+            icon = value.icon,
+            icon_size = value.icon_size,
+            subgroup = "ingredient",
+            stack_size = value.stack_size,
+            ingredients = value.ingredients
+        },
         {
             type="recipe",
             name= (value.name .. "-recipe"),
             localised_name = {"item-name." .. value.name},
             category = "crafting-with-fluid",
-            subgroup = value.subgroup,
+            subgroup = "ingredient",
             energy_required = 1,
             enabled = false,
             ingredients = value.ingredients,
@@ -109,7 +116,7 @@ for key,value in pairs(batter) do
     )
 end
 
--- Add shapes (muffins, cakes, etc)
+-- Add batter shapes (muffins, cakes, etc)
 local shapes = {
     {
         name="cake",
@@ -218,11 +225,23 @@ local shapes = {
 local dataToAdd = {}
 
 for key,shape in pairs(shapes) do
-    local b = data.raw["item"][shape.batter];
+    local b = nil
+    for _,value in pairs(batter) do
+        if value.name == shape.batter then
+            b = value
+            break
+        end
+
+    end
+
+    if b == nil then
+        log("Shape requested non-existent batter: " .. shape.batter)
+    end
+
     local uncooked_shape = {
         type="item",
         name=b.name .. "-" .. shape.name,
-        subgroup = b.subgroup,
+        subgroup = "ingredient",
         enabled = false,
         stack_size = 100,
         icon = get_png(b.name .. "-" .. shape.name);
@@ -233,7 +252,7 @@ for key,shape in pairs(shapes) do
         name= (uncooked_shape.name .. "-recipe"),
         localised_name = {"item-name." .. uncooked_shape.name},
         category = "crafting",
-        subgroup = b.subgroup,
+        subgroup = "ingredient",
         energy_required = 2,
         enabled = false,
         ingredients = {
@@ -244,7 +263,7 @@ for key,shape in pairs(shapes) do
         },
         icon = uncooked_shape.icon;
         icon_size = 32;
-        
+
     }
     if(shape.topping ~= nil) then
         uncooked_shape_recipe.ingredients[2] = {type="item", name=shape.topping,amount=1};

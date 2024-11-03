@@ -58,7 +58,7 @@ data:extend(
                 {icon = "__baketorio__/graphics/salt-mod.png", icon_size=32}
             },
             icon_size = 32,
-            tastiness = 1,
+            tastiness = 2,
             subgroup = "bread",
             stack_size = 50,
         },
@@ -117,7 +117,7 @@ data:extend(
             name = "cinnamon-sugar",
             icon = "__baketorio__/graphics/cinnamon-sugar.png",
             icon_size = 32,
-            subgroup = "chocolate",
+            subgroup = "ingredient",
             stack_size = 50
         },
         {
@@ -131,11 +131,13 @@ data:extend(
             stack_size = 50
         },
         {
-            type = "item",
+            type = "capsule",
+            capsule_action = capsule_action(0),
+            tastiness = -2,
             name = "chocolate-chip-batter",
             icon = "__baketorio__/graphics/chocolate-chip-batter.png",
             icon_size = 32,
-            subgroup = "chocolate",
+            subgroup = "ingredient",
             stack_size = 50
         },
         {
@@ -153,7 +155,7 @@ data:extend(
             name = "blueberry-pie",
             icon = "__baketorio__/graphics/blueberry-pie.png",
             icon_size = 32,
-            subgroup = "fruit",
+            subgroup = "ingredient",
             stack_size = 50
         },
         {
@@ -171,7 +173,7 @@ data:extend(
             name = "strawberry-pie",
             icon = "__baketorio__/graphics/strawberry-pie.png",
             icon_size = 32,
-            subgroup = "fruit",
+            subgroup = "ingredient",
             stack_size = 50
         },
         {
@@ -189,7 +191,7 @@ data:extend(
             name = "soda-ash",
             icon = "__baketorio__/graphics/soda-ash.png",
             icon_size = 32,
-            subgroup = "raw-material",
+            subgroup = "ingredient",
             stack_size = 100
         },
         {
@@ -197,7 +199,7 @@ data:extend(
             name = "baking-soda",
             icon = "__baketorio__/graphics/baking-soda.png",
             icon_size = 32,
-            subgroup = "raw-material",
+            subgroup = "ingredient",
             stack_size = 100
         },
         {
@@ -207,7 +209,7 @@ data:extend(
             tastiness=5,
             icon = "__baketorio__/graphics/plain-ice-cream.png",
             icon_size = 32,
-            subgroup = "raw-material",
+            subgroup = "milk",
             stack_size = 100
         },
         {
@@ -220,7 +222,7 @@ data:extend(
                 {icon = "__baketorio__/graphics/plain-ice-cream-sub.png", icon_size=32}
             },
             icon_size = 32,
-            subgroup = "raw-material",
+            subgroup = "chocolate",
             stack_size = 50
         }
         -- {

@@ -91,7 +91,7 @@ data:extend(
         name = "automation-science-pack-hardtack",
         energy_required = 1,
         category = "crafting",
-        enabled = true,
+        enabled = false,
         ingredients =
         {
           {type="item", name="salted-hardtack", amount=5}
@@ -144,6 +144,3 @@ data.raw["recipe"]["rocket-part"].ingredients =
 }
 
 data.raw["recipe"]["chemical-plant"].enabled = true;
-
-
-
