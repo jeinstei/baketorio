@@ -1,4 +1,19 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.0.8
+Date: 2024.11.02
+  Features:
+    - Added Tips and Tricks entry
+  Bugfix:
+    - Hardtack red science pack now unlocks at proper time with other red science pack
+  Changes:
+    - Added salt as starting resource area placement
+    - Blueberries and strawberries are now edible
+    - Nutrient selector now only shows active recipes nad has been renamed to NutriGen
+    - Lowered power usage of greenhouse and nutrient synthesizer
+    - Intermediate recipes (ie batters) are now "ingredients" instead of the final food category
+  Locale:
+    - Removed nutrientizer from locale strings
+---------------------------------------------------------------------------------------------------
 Version: 2.0.7
 Date: 2024.10.30
   Features:
