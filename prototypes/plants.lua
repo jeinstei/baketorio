@@ -22,7 +22,9 @@ data:extend(
             icon = "__baketorio__/graphics/sugarcane-seeds.png",
             icon_size = 32,
             subgroup = "seeds",
-            stack_size = 100
+            stack_size = 100,
+            fuel_category = "chemical",
+            fuel_value = "10kJ"
         },
         {
             type = "item",
@@ -38,7 +40,9 @@ data:extend(
             icon = "__baketorio__/graphics/seeds-wheat.png",
             icon_size = 32,
             subgroup = "seeds",
-            stack_size = 100
+            stack_size = 100,
+            fuel_category = "chemical",
+            fuel_value = "10kJ"
         },
         {
             type = "item",
@@ -62,7 +66,9 @@ data:extend(
             icon = "__baketorio__/graphics/seeds-cocoa-beans.png",
             icon_size = 32,
             subgroup = "seeds",
-            stack_size = 100
+            stack_size = 100,
+            fuel_category = "chemical",
+            fuel_value = "10kJ"
         },
         {
             type = "item",
@@ -78,7 +84,9 @@ data:extend(
             icon = "__baketorio__/graphics/seeds-cinnamon.png",
             icon_size = 32,
             subgroup = "seeds",
-            stack_size = 100
+            stack_size = 100,
+            fuel_category = "chemical",
+            fuel_value = "10kJ"
         },
         {
             type = "capsule",
@@ -95,7 +103,9 @@ data:extend(
             icon = "__baketorio__/graphics/seeds-blueberries.png",
             icon_size = 32,
             subgroup = "seeds",
-            stack_size = 100
+            stack_size = 100,
+            fuel_category = "chemical",
+            fuel_value = "10kJ"
         },
         {
             type = "item",
@@ -103,7 +113,9 @@ data:extend(
             icon = "__baketorio__/graphics/seeds-strawberries.png",
             icon_size = 32,
             subgroup = "seeds",
-            stack_size = 100
+            stack_size = 100,
+            fuel_category = "chemical",
+            fuel_value = "10kJ"
         },
         {
             type = "capsule",
