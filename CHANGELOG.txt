@@ -1,5 +1,5 @@
 ---------------------------------------------------------------------------------------------------
-Version: 2.0.9
+Version: 2.0.10
 Date: 2024.12.30
   Locale:
     - Numerous changes from crowdin for uk, ru, zh-CN, nl, and others
