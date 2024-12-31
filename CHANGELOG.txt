@@ -1,8 +1,12 @@
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.9
-Date: 2024.11.12
+Date: 2024.12.30
   Locale:
-    - Numerous changes from crowdin for uk, ru, zh-CN, and others
+    - Numerous changes from crowdin for uk, ru, zh-CN, nl, and others
+  Changes:
+    - Made seeds burnable, but not enough to power a burner inserter themselves
+  Bugfix:
+    - Removed spoilage requirement for mod to remove SA requirement
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.8
 Date: 2024.11.02
