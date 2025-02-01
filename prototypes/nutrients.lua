@@ -11,6 +11,7 @@ function makeRecipe(name,amount,ingredients,c)
             order= name .."-".. amount,
             subgroup="nutrients",
             enabled = (name == "nutrient1"),
+            allow_productivity = true,
             ingredients = ingredients,
             results = {
                 {type="item", name=name, amount=amount*2}
