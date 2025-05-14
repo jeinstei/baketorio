@@ -90,7 +90,7 @@ data:extend(
         },
         {
             type = "capsule",
-            capsule_action = capsule_action(0),
+            capsule_action = baketorio.capsule_action(0),
             name = "blueberries",
             icon = "__baketorio__/graphics/blueberries.png",
             icon_size = 32,
@@ -119,7 +119,7 @@ data:extend(
         },
         {
             type = "capsule",
-            capsule_action = capsule_action(0),
+            capsule_action = baketorio.capsule_action(0),
             name = "strawberries",
             icon = "__baketorio__/graphics/strawberries.png",
             icon_size = 32,
@@ -148,7 +148,7 @@ local prod_recipes = {
 }
 
 for _, v in ipairs(prod_recipes) do
-	baketorio_add_to_prod_mod(v)
+	baketorio.add_to_prod_mod(v)
 end
 
 data:extend{

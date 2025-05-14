@@ -10,7 +10,7 @@ local lowerRight = {adjustSize,adjustSize}
 
 local overlayOffsets = {upperLeft, upperRight, lowerLeft, lowerRight}
 
-function makeRecipe(name,amount,ingredients,c)
+local makeRecipe = function(name,amount,ingredients,c)
     local recipe_name = "recipe-".. name.."-" .. c
     data:extend{
         {
@@ -26,11 +26,11 @@ function makeRecipe(name,amount,ingredients,c)
             results = {
                 {type="item", name=name, amount=amount*2}
             },
-            icons = makeIconLayered(name,ingredients),
+            icons = baketorio.makeIconLayered(name,ingredients),
             icon_size=iconSize
         }
     }
-    baketorio_add_to_prod_mod(recipe_name)
+    baketorio.add_to_prod_mod(recipe_name)
     if(name ~= "nutrient1") then
         -- log(name);
         table.insert(data.raw.technology[name].effects,{
@@ -42,9 +42,9 @@ end
 
 --Failed to load mods: Error while loading recipe prototype "recipe-nutrient1-0" (recipe): Value must be a dictionary in property tree at ROOT.recipe.recipe-nutrient1-0.icons[0]
 
-function makeIconLayered(name,ingredients)
+function baketorio.makeIconLayered(name,ingredients)
     local icon_list = {
-        {icon = "__baketorio__/graphics/"..name..".png", icon_size=iconSize},
+        {icon = baketorio.get_png(name), icon_size=iconSize},
     }
 
     -- For each ingredient, find item and choo
@@ -274,7 +274,7 @@ data:extend{
     },
 }
 
-function get_nutrient(tastiness)
+local get_nutrient = function(tastiness)
     if(tastiness >= 30) then
         return {
             name = "nutrient7",
@@ -341,7 +341,7 @@ end
 
 for key,value in pairs(foods) do
     if (value.type == "capsule") then
-        value.capsule_action = capsule_action(value.tastiness*10)
+        value.capsule_action = baketorio.capsule_action(value.tastiness*10)
     end
 end
 

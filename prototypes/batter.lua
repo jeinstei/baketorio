@@ -1,12 +1,10 @@
-function get_png(name)
-    return "__baketorio__/graphics/"..name..".png"
-end
+
 
 local batter = {
     {
         type = "item",
         name = "basic-batter",
-        icon = get_png("cakebatter"),
+        icon = baketorio.get_png("cakebatter"),
         icon_size = 32,
         subgroup = "basic",
         stack_size = 100,
@@ -21,7 +19,7 @@ local batter = {
     {
         type = "item",
         name = "chocolate-batter",
-        icon = get_png("chocolate-batter"),
+        icon = baketorio.get_png("chocolate-batter"),
         icon_size = 32,
         subgroup = "chocolate",
         stack_size = 100,
@@ -33,7 +31,7 @@ local batter = {
     {
         type = "item",
         name = "fryer-dough",
-        icon = get_png("fryer-dough"),
+        icon = baketorio.get_png("fryer-dough"),
         icon_size = 32,
         subgroup = "bread",
         stack_size = 100,
@@ -47,7 +45,7 @@ local batter = {
     {
         type = "item",
         name = "cheese-batter",
-        icon = get_png("cheese-batter"),
+        icon = baketorio.get_png("cheese-batter"),
         icon_size = 32,
         subgroup = "milk",
         stack_size = 100,
@@ -59,7 +57,7 @@ local batter = {
     {
         type = "item",
         name = "blueberry-batter",
-        icon = get_png("blueberry-batter"),
+        icon = baketorio.get_png("blueberry-batter"),
         icon_size = 32,
         subgroup = "fruit",
         stack_size = 100,
@@ -71,7 +69,7 @@ local batter = {
     {
         type = "item",
         name = "advanced-cake-batter",
-        icon = get_png("advanced-cake-batter"),
+        icon = baketorio.get_png("advanced-cake-batter"),
         icon_size = 32,
         subgroup = "advanced",
         stack_size = 100,
@@ -244,7 +242,7 @@ for key,shape in pairs(shapes) do
         subgroup = "ingredient",
         enabled = false,
         stack_size = 100,
-        icon = get_png(b.name .. "-" .. shape.name);
+        icon = baketorio.get_png(b.name .. "-" .. shape.name);
         icon_size = 32;
     }
     local uncooked_shape_recipe = {
@@ -271,13 +269,13 @@ for key,shape in pairs(shapes) do
 
     local cooked_shape = {
         type = "capsule",
-        capsule_action=capsule_action(0),
+        capsule_action=baketorio.capsule_action(0),
         name=b.name .. "-" .. shape.name .. "-cooked",
         subgroup = b.subgroup,
         enabled = false,
         tastiness = shape.tastiness,
         stack_size = 100,
-        icon = get_png(b.name .. "-" .. shape.name .. "-cooked");
+        icon = baketorio.get_png(b.name .. "-" .. shape.name .. "-cooked");
         icon_size = 32;
     }
     local cooked_shape_recipe = {
@@ -304,19 +302,19 @@ for key,shape in pairs(shapes) do
         cooked_shape_recipe
     })
 
-	baketorio_add_to_prod_mod(uncooked_shape_recipe.name)
-	baketorio_add_to_prod_mod(cooked_shape_recipe.name)
+	baketorio.add_to_prod_mod(uncooked_shape_recipe.name)
+	baketorio.add_to_prod_mod(cooked_shape_recipe.name)
 
     if(shape.frosted_mod ~= nil) then
         local cooked_shape_frosted = {
             type = "capsule",
-            capsule_action=capsule_action(0),
+            capsule_action=baketorio.capsule_action(0),
             name=b.name .. "-" .. shape.name .. "-cooked-frosted",
             subgroup = b.subgroup,
             tastiness = shape.tastiness + shape.frosted_mod,
             stack_size = 100,
             cant_mix_with=cooked_shape.name,
-            icon = get_png(b.name .. "-" .. shape.name .. "-cooked-frosted");
+            icon = baketorio.get_png(b.name .. "-" .. shape.name .. "-cooked-frosted");
             icon_size = 32;
         }
         local cooked_shape_frosted_recipe = {
@@ -341,6 +339,6 @@ for key,shape in pairs(shapes) do
             cooked_shape_frosted,
             cooked_shape_frosted_recipe
         })
-		baketorio_add_to_prod_mod(cooked_shape_frosted_recipe.name)
+		baketorio.add_to_prod_mod(cooked_shape_frosted_recipe.name)
     end
 end

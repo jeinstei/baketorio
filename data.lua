@@ -1,20 +1,12 @@
 local sounds = require("__base__.prototypes.entity.sounds")
 
--- Utility function for dumping tables
-function dump(o)
-  if type(o) == 'table' then
-     local s = '{ '
-     for k,v in pairs(o) do
-        if type(k) ~= 'number' then k = '"'..k..'"' end
-        s = s .. '['..k..'] = ' .. dump(v) .. ','
-     end
-     return s .. '} '
-  else
-     return tostring(o)
-  end
+baketorio = {}
+
+function baketorio.get_png(name)
+  return "__baketorio__/graphics/"..name..".png"
 end
 
-function capsule_action(health)
+function baketorio.capsule_action(health)
     return
     {
       type = "use-on-self",
@@ -62,13 +54,13 @@ for _, v in pairs(data.raw.module) do
 end
 
 -- Get productivity module tables to add recipes
-function baketorio_add_to_prod_mod(name)
+function baketorio.add_to_prod_mod(name)
   for _, v in pairs(baketorio_prod_mods) do
     table.insert(v,name)
   end
 end
 
-nutrient_food_groups = {"basic", "bread", "milk", "chocolate", "fruit", "advanced"}
+local nutrient_food_groups = {"basic", "bread", "milk", "chocolate", "fruit", "advanced"}
 
 -- Tips and Tricks note
 data:extend({
