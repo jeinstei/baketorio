@@ -42,6 +42,7 @@ data:extend(
             subgroup = "ingredient",
             energy_required = 0.1,
             enabled = false,
+            allow_productivity = true,
             ingredients ={
                 {type="fluid",name="liquid-butter",amount=5}
             },
@@ -60,6 +61,7 @@ data:extend(
             order="g",
             energy_required = 30,
             enabled = false,
+            allow_productivity = true,
             ingredients ={
                 {type="fluid",name="milk",amount=30},
                 {type="fluid",name="cream",amount=2}
@@ -78,6 +80,7 @@ data:extend(
             subgroup = "production-machine",
             energy_required = 5,
             enabled = true,
+            allow_productivity = true,
             ingredients ={
 
                 {type="item",name="iron-plate",amount=20},
@@ -97,6 +100,7 @@ data:extend(
             subgroup = "production-machine",
             energy_required = 5,
             enabled = true,
+            allow_productivity = true,
             ingredients ={
 
                 {type="item",name="iron-plate",amount=10},
@@ -116,6 +120,7 @@ data:extend(
             subgroup = "bread",
             energy_required = 2,
             enabled = true,
+            allow_productivity = true,
             ingredients ={
                 {type="item",name="flour",amount=2}
             },
@@ -132,6 +137,7 @@ data:extend(
             subgroup = "bread",
             energy_required = 2,
             enabled = true,
+            allow_productivity = true,
             ingredients ={
                 {type="item",name="hardtack",amount=3},
                 {type="item",name="salt",amount=1}
@@ -154,6 +160,7 @@ data:extend(
             subgroup = "seeds",
             energy_required = 40,
             enabled = false,
+            allow_productivity = true,
             ingredients ={
                 {type="item",name="nutrient2",amount=40},
             },
@@ -171,6 +178,7 @@ data:extend(
             subgroup = "seeds",
             energy_required = 20,
             enabled = false,
+            allow_productivity = true,
             ingredients ={
                 {type="item",name="egg",amount=1},
             },
@@ -192,6 +200,7 @@ data:extend(
             subgroup = "ingredient",
             energy_required = 10,
             enabled = false,
+            allow_productivity = true,
             ingredients ={
                 {type="item",name="chicken",amount=1},
                 {type="item",name="nutrient1",amount=5}
@@ -212,6 +221,7 @@ data:extend(
             subgroup = "seeds",
             energy_required = 20,
             enabled = false,
+            allow_productivity = true,
             ingredients ={
                 {type="item",name="nutrient3",amount=10},
             },
@@ -229,6 +239,7 @@ data:extend(
             subgroup = "seeds",
             energy_required = 100,
             enabled = false,
+            allow_productivity = true,
             ingredients ={
                 {type="item",name="cow",amount=2},
                 {type="item",name="nutrient2",amount=10},
@@ -248,6 +259,7 @@ data:extend(
             order="ea",
             energy_required = 3,
             enabled = false,
+            allow_productivity = true,
             ingredients ={
                 {type="fluid",name="cream",amount=10},
                 {type="item",name="sugar",amount=1}
@@ -267,6 +279,7 @@ data:extend(
             order="i",
             energy_required = 20,
             enabled = false,
+            allow_productivity = true,
             ingredients ={
                 {type="item",name="cocoa-beans",amount=3}
             },
@@ -284,6 +297,7 @@ data:extend(
             subgroup = "chocolate",
             energy_required = 2,
             enabled = false,
+            allow_productivity = true,
             ingredients ={
                 {type="item",name="chocolate-batter",amount=1}
             },
@@ -302,6 +316,7 @@ data:extend(
             order="k",
             energy_required = 20,
             enabled = false,
+            allow_productivity = true,
             ingredients ={
                 {type="item",name="cinnamon",amount=1},
                 {type="item",name="sugar",amount=1}
@@ -320,6 +335,7 @@ data:extend(
             subgroup = "bread",
             energy_required = 20,
             enabled = false,
+            allow_productivity = true,
             ingredients ={
                 {type="item",name="fryer-dough-doughnut-cooked",amount=1},
                 {type="item",name="cinnamon-sugar",amount=1}
@@ -346,6 +362,7 @@ data:extend(
             subgroup = "ingredient",
             energy_required = 5,
             enabled = false,
+            allow_productivity = true,
             ingredients ={
                 {type="item",name="basic-batter",amount=1},
                 {type="item",name="cocoa-powder",amount=1}
@@ -364,6 +381,7 @@ data:extend(
             subgroup = "chocolate",
             energy_required = 6,
             enabled = false,
+            allow_productivity = true,
             ingredients ={
                 {type="item",name="chocolate-chip-batter",amount=1},
             },
@@ -381,6 +399,7 @@ data:extend(
             subgroup = "ingredient",
             energy_required = 5,
             enabled = false,
+            allow_productivity = true,
             ingredients ={
                 {type="item",name="fryer-dough",amount=1},
                 {type="item",name="blueberries",amount=10},
@@ -397,6 +416,7 @@ data:extend(
             subgroup = "fruit",
             energy_required = 10,
             enabled = false,
+            allow_productivity = true,
             ingredients ={
                 {type="item",name="blueberry-pie",amount=1},
             },
@@ -412,6 +432,7 @@ data:extend(
             subgroup = "ingredient",
             energy_required = 5,
             enabled = false,
+            allow_productivity = true,
             ingredients ={
                 {type="item",name="fryer-dough",amount=1},
                 {type="item",name="strawberries",amount=3},
@@ -428,6 +449,7 @@ data:extend(
             subgroup = "fruit",
             energy_required = 10,
             enabled = false,
+            allow_productivity = true,
             ingredients ={
                 {type="item",name="strawberry-pie",amount=1},
             },
@@ -443,6 +465,7 @@ data:extend(
             subgroup = "ingredient",
             energy_required = 10,
             enabled = false,
+            allow_productivity = true,
             ingredients ={
                 {type="item",name="trona",amount=5},
             },
@@ -458,6 +481,7 @@ data:extend(
             subgroup = "ingredient",
             energy_required = 5,
             enabled = false,
+            allow_productivity = true,
             ingredients ={
                 {type="item",name="soda-ash",amount=2},
                 {type="item",name="coal",amount=1},
@@ -476,6 +500,7 @@ data:extend(
             order="ec",
             energy_required = 120,
             enabled = false,
+            allow_productivity = true,
             ingredients ={
                 {type="item",name="sugar",amount=1},
                 {type="fluid",name="milk",amount=5},
@@ -492,6 +517,7 @@ data:extend(
             subgroup = "chocolate",
             energy_required = 2,
             enabled = false,
+            allow_productivity = true,
             ingredients ={
                 {type="item",name="brownie",amount=1},
                 {type="item",name="plain-ice-cream",amount=1},

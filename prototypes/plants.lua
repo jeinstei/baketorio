@@ -161,6 +161,7 @@ data:extend{
         order="a",
         energy_required = 30,
         enabled = true,
+        allow_productivity = true,
         ingredients ={
             {type="item",name="wood",amount=100}
         },
@@ -179,6 +180,7 @@ data:extend{
         order="a",
         energy_required = 10,
         enabled = true,
+        allow_productivity = true,
         ingredients ={
             {type="item",name="wheat-seeds",amount=1}
         },
@@ -199,6 +201,7 @@ data:extend{
         subgroup = "ingredient",
         energy_required = 1,
         enabled = true,
+        allow_productivity = true,
         ingredients ={
             {type="item",name="wheat",amount=2}
         },
@@ -217,6 +220,7 @@ data:extend{
         subgroup = "ingredient",
         energy_required = 1,
         enabled = false,
+        allow_productivity = true,
         ingredients ={
             {type="item",name="sugarcane",amount=2}
         },
@@ -235,6 +239,7 @@ data:extend{
         subgroup = "ingredient",
         energy_required = 10,
         enabled = false,
+        allow_productivity = true,
         ingredients ={
             {type="item",name="sugarcane-seeds",amount=1},
             {type="item",name="nutrient1",amount=1}
@@ -256,6 +261,7 @@ data:extend{
         subgroup = "seeds",
         energy_required = 30,
         enabled = false,
+        allow_productivity = true,
         ingredients ={
             {type="item",name="nutrient1",amount=10}
         },
@@ -274,6 +280,7 @@ data:extend{
         subgroup = "seeds",
         energy_required = 30,
         enabled = false,
+        allow_productivity = true,
         ingredients ={
             {type="item",name="nutrient4",amount=1}
         },
@@ -292,6 +299,7 @@ data:extend{
         subgroup = "ingredient",
         energy_required = 10,
         enabled = false,
+        allow_productivity = true,
         ingredients ={
             {type="item",name="cocoa-bean-seeds",amount=1},
             {type="item",name="nutrient3",amount=1}
@@ -313,6 +321,7 @@ data:extend{
         subgroup = "seeds",
         energy_required = 120,
         enabled = false,
+        allow_productivity = true,
         ingredients ={
             {type="item",name="nutrient4",amount=100}
         },
@@ -331,6 +340,7 @@ data:extend{
         order="j",
         energy_required = 10,
         enabled = false,
+        allow_productivity = true,
         ingredients ={
             {type="item",name="cinnamon-seeds",amount=1},
             {type="item",name="nutrient4",amount=1}
@@ -352,6 +362,7 @@ data:extend{
         subgroup = "seeds",
         energy_required = 360,
         enabled = false,
+        allow_productivity = true,
         ingredients ={
             {type="item",name="nutrient5",amount=1}
         },
@@ -370,6 +381,7 @@ data:extend{
         order="l",
         energy_required = 10,
         enabled = false,
+        allow_productivity = true,
         ingredients ={
             {type="item",name="blueberry-seeds",amount=1},
             {type="item",name="nutrient5",amount=1}
@@ -391,6 +403,7 @@ data:extend{
         subgroup = "seeds",
         energy_required = 500,
         enabled = false,
+        allow_productivity = true,
         ingredients ={
             {type="item",name="nutrient5",amount=25}
         },
@@ -409,6 +422,7 @@ data:extend{
         order="m",
         energy_required = 10,
         enabled = false,
+        allow_productivity = true,
         ingredients ={
             {type="item",name="strawberry-seeds",amount=1},
             {type="item",name="nutrient5",amount=5}

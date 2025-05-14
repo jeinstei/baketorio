@@ -110,6 +110,7 @@ for key,value in pairs(doughs) do
         subgroup = "ingredient",
         energy_required = 1,
         enabled = false,
+        allow_productivity = true,
         ingredients = value.ingredients,
         results = {
             {type="item", name=value.name, amount=1}
@@ -136,6 +137,7 @@ for key,value in pairs(doughs) do
         subgroup = "bread",
         energy_required = 2,
         enabled = false,
+        allow_productivity = true,
         ingredients = {
             {type="item", name=value.name, amount=1}
         },

@@ -253,6 +253,7 @@ for key,shape in pairs(shapes) do
         subgroup = "ingredient",
         energy_required = 2,
         enabled = false,
+        allow_productivity = true,
         ingredients = {
             {type="item", name=b.name, amount=shape.batter_amount},
         },
@@ -286,6 +287,7 @@ for key,shape in pairs(shapes) do
         subgroup = b.subgroup,
         energy_required = 10,
         enabled = false,
+        allow_productivity = true,
         ingredients = {
             {type="item", name=uncooked_shape.name, amount=1}
         },
@@ -325,6 +327,7 @@ for key,shape in pairs(shapes) do
             subgroup = b.subgroup,
             energy_required = 2,
             enabled = false,
+            allow_productivity = true,
             ingredients = {
                 {type="item", name=cooked_shape.name, amount=1},
                 {type="item", name="frosting", amount=1},
