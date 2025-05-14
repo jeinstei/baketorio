@@ -1,10 +1,10 @@
-function set_gui_data(elem,prop,value)
+local set_gui_data = function(elem,prop,value)
     if (not storage.gui_data) then storage.gui_data = {} end
     if (not storage.gui_data[elem.index]) then storage.gui_data[elem.index] = {} end
     storage.gui_data[elem.index][prop] = value
 end
 
-function get_gui_data(elem,prop)
+local get_gui_data = function(elem,prop)
     if (not storage.gui_data) then return false end
     if (not storage.gui_data[elem.index]) then return false end
     return storage.gui_data[elem.index][prop];

@@ -119,7 +119,7 @@ for key,value in pairs(doughs) do
     }
     local item = {
         type = "capsule",
-        capsule_action=capsule_action(0),
+        capsule_action=baketorio.capsule_action(0),
         name=(value.prefix .. "-bread"),
         subgroup = "bread",
         tastiness = value.tastiness,
@@ -148,8 +148,8 @@ for key,value in pairs(doughs) do
     dataToAdd[#dataToAdd+1] = dough_recipe;
     dataToAdd[#dataToAdd+1] = item;
 
-	baketorio_add_to_prod_mod(bread_recipe.name);
-	baketorio_add_to_prod_mod(dough_recipe.name);
+	baketorio.add_to_prod_mod(bread_recipe.name);
+	baketorio.add_to_prod_mod(dough_recipe.name);
 end
 
 data:extend(dataToAdd)

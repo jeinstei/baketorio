@@ -7,7 +7,7 @@ local prod_recipes = {
 }
 
 for _, v in ipairs(prod_recipes) do
-	baketorio_add_to_prod_mod(v)
+	baketorio.add_to_prod_mod(v)
 end
 
 data:extend(

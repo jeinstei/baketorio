@@ -29,7 +29,7 @@ local prod_recipes = {
 }
 
 for _, v in ipairs(prod_recipes) do
-	baketorio_add_to_prod_mod(v)
+	baketorio.add_to_prod_mod(v)
 end
 
 data:extend(
@@ -79,7 +79,7 @@ data:extend(
             energy_required = 5,
             enabled = true,
             ingredients ={
-                
+
                 {type="item",name="iron-plate",amount=20},
                 {type="item",name="copper-cable",amount=5}
             },
@@ -98,7 +98,7 @@ data:extend(
             energy_required = 5,
             enabled = true,
             ingredients ={
-                
+
                 {type="item",name="iron-plate",amount=10},
                 {type="item",name="electronic-circuit",amount=2}
             },
