@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.0.11
+Date: 2025.05.14
+  Locale:
+    - Numerous changes from crowdin for de, nl
+  Features:
+    - Nutrient icons now show ingredients required to make them
+  Changes:
+    - Mod functions are now scoped locally or in a baketorio global
+---------------------------------------------------------------------------------------------------
 Version: 2.0.10
 Date: 2024.12.30
   Locale:
