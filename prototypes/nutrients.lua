@@ -1,6 +1,17 @@
 --local serpent = require("serpent")
+local iconSize = 32
+local overlayScale = 0.5
+
+local adjustSize = iconSize / 4
+local upperLeft = {-adjustSize,-adjustSize}
+local upperRight = {adjustSize,-adjustSize}
+local lowerLeft = {-adjustSize,adjustSize}
+local lowerRight = {adjustSize,adjustSize}
+
+local overlayOffsets = {upperLeft, upperRight, lowerLeft, lowerRight}
+
 function makeRecipe(name,amount,ingredients,c)
-	local recipe_name = "recipe-".. name.."-" .. c
+    local recipe_name = "recipe-".. name.."-" .. c
     data:extend{
         {
             type="recipe",
@@ -15,11 +26,11 @@ function makeRecipe(name,amount,ingredients,c)
             results = {
                 {type="item", name=name, amount=amount*2}
             },
-            icon = "__baketorio__/graphics/"..name..".png",
-            icon_size=32
+            icons = makeIconLayered(name,ingredients),
+            icon_size=iconSize
         }
     }
-	baketorio_add_to_prod_mod(recipe_name)
+    baketorio_add_to_prod_mod(recipe_name)
     if(name ~= "nutrient1") then
         -- log(name);
         table.insert(data.raw.technology[name].effects,{
@@ -27,6 +38,56 @@ function makeRecipe(name,amount,ingredients,c)
             recipe = "recipe-".. name.."-" .. c
         });
     end
+end
+
+--Failed to load mods: Error while loading recipe prototype "recipe-nutrient1-0" (recipe): Value must be a dictionary in property tree at ROOT.recipe.recipe-nutrient1-0.icons[0]
+
+function makeIconLayered(name,ingredients)
+    local icon_list = {
+        {icon = "__baketorio__/graphics/"..name..".png", icon_size=iconSize},
+    }
+
+    -- For each ingredient, find item and choo
+    for idx, ingredient in ipairs(ingredients) do
+
+        -- Test for where to get icon data from and then use it
+        local ingredientIcons = nil
+        local rawItem = {}
+        if rawget(data.raw["item"],ingredient.name) then
+            if rawget(data.raw["item"][ingredient.name], "icon") then
+                rawItem = data.raw["item"][ingredient.name]
+            else
+                ingredientIcons = data.raw["capsule"][ingredient.name].icons
+            end
+        end
+        if rawget(data.raw["capsule"],ingredient.name) then
+            if rawget(data.raw["capsule"][ingredient.name], "icon") then
+                rawItem = data.raw["capsule"][ingredient.name]
+            else
+                ingredientIcons = data.raw["capsule"][ingredient.name].icons
+            end
+        end
+
+        -- Add icons to list
+        if ingredientIcons then
+            for _, ii in ipairs(ingredientIcons) do
+                table.insert(icon_list,
+                {icon = ii.icon,
+                icon_size = ii.icon_size,
+                scale = overlayScale,
+                shift = overlayOffsets[idx]
+                })
+            end
+        else
+            table.insert(icon_list,
+            {icon = rawItem.icon,
+            icon_size = rawItem.icon_size,
+            scale = overlayScale,
+            shift = overlayOffsets[idx]
+            })
+        end
+    end
+    return icon_list;
 end
 
 data:extend(
