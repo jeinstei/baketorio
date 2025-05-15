@@ -10,7 +10,7 @@ local lowerRight = {adjustSize,adjustSize}
 
 local overlayOffsets = {upperLeft, upperRight, lowerLeft, lowerRight}
 
-local makeRecipe = function(name,amount,ingredients,c)
+function baketorio.makeRecipe(name,amount,ingredients,c)
     local recipe_name = "recipe-".. name.."-" .. c
     data:extend{
         {
@@ -274,7 +274,7 @@ data:extend{
     },
 }
 
-local get_nutrient = function(tastiness)
+function baketorio.get_nutrient(tastiness)
     if(tastiness >= 30) then
         return {
             name = "nutrient7",
@@ -351,9 +351,9 @@ local c = 0
 for i=1,#foods-1 do
     local t;
     local ingredient1 = foods[i].name
-    local nutrientData = get_nutrient(foods[i].tastiness)
+    local nutrientData = baketorio.get_nutrient(foods[i].tastiness)
     if(nutrientData.name ~= "none") then
-        makeRecipe(nutrientData.name,nutrientData.amount,{{type="item", name=ingredient1, amount=1}},c);
+        baketorio.makeRecipe(nutrientData.name,nutrientData.amount,{{type="item", name=ingredient1, amount=1}},c);
     end
     for j=i+1,#foods do
         local ingredient2 = foods[j].name
@@ -371,9 +371,9 @@ for i=1,#foods-1 do
             goto continue
         end
         c = c+1
-        nutrientData = get_nutrient(t)
+        nutrientData = baketorio.get_nutrient(t)
         if(nutrientData.name ~= "none") then
-            makeRecipe(nutrientData.name,nutrientData.amount,{{type="item", name=ingredient1, amount=1},{type="item", name=ingredient2, amount=1}},c);
+            baketorio.makeRecipe(nutrientData.name,nutrientData.amount,{{type="item", name=ingredient1, amount=1},{type="item", name=ingredient2, amount=1}},c);
         end
         ::continue::
     end
