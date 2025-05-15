@@ -77,7 +77,7 @@ data:extend({
     icon="__baketorio__/graphics/advanced-cake-batter-cupcake-cooked.png",
     icon_size=32,
     order="baketorio",
-    skip_trigger={
+    trigger={
      type="build-entity",
      entity="assembling-machine-1"
     }

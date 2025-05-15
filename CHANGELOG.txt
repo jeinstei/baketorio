@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.0.12
+Date: 2025.05.15
+  Changes:
+    - Moved makeRecipe in nutrients.lua back to a global
+  Bugfix:
+    - Added key for tips and tricks category to locale
+---------------------------------------------------------------------------------------------------
 Version: 2.0.11
 Date: 2025.05.14
   Locale:
