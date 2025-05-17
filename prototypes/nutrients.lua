@@ -31,13 +31,13 @@ function baketorio.makeRecipe(name,amount,ingredients,c)
         }
     }
     baketorio.add_to_prod_mod(recipe_name)
-    if(name ~= "nutrient1") then
-        -- log(name);
-        table.insert(data.raw.technology[name].effects,{
-            type = "unlock-recipe",
-            recipe = "recipe-".. name.."-" .. c
-        });
-    end
+
+    table.insert(data.raw.technology[name].effects,{
+        type = "unlock-recipe",
+        recipe = "recipe-".. name.."-" .. c
+    });
+
+    return recipe_name
 end
 
 --Failed to load mods: Error while loading recipe prototype "recipe-nutrient1-0" (recipe): Value must be a dictionary in property tree at ROOT.recipe.recipe-nutrient1-0.icons[0]
@@ -96,7 +96,7 @@ data:extend(
             type = "item",
             name = "nutrient1",
             localised_name = {"nutrient-name.nutrient1"},
-            icon = "__baketorio__/graphics/nutrient1.png",
+            icon = baketorio.get_png("nutrient1"),
             icon_size = 32,
             subgroup = "nutrients",
             stack_size = 100
@@ -105,7 +105,7 @@ data:extend(
             type = "item",
             name = "nutrient2",
             localised_name = {"nutrient-name.nutrient2"},
-            icon = "__baketorio__/graphics/nutrient2.png",
+            icon = baketorio.get_png("nutrient2"),
             icon_size = 32,
             subgroup = "nutrients",
             stack_size = 100
@@ -114,7 +114,7 @@ data:extend(
             type = "item",
             name = "nutrient3",
             localised_name = {"nutrient-name.nutrient3"},
-            icon = "__baketorio__/graphics/nutrient3.png",
+            icon = baketorio.get_png("nutrient3"),
             icon_size = 32,
             subgroup = "nutrients",
             stack_size = 100
@@ -123,7 +123,7 @@ data:extend(
             type = "item",
             name = "nutrient4",
             localised_name = {"nutrient-name.nutrient4"},
-            icon = "__baketorio__/graphics/nutrient4.png",
+            icon = baketorio.get_png("nutrient4"),
             icon_size = 32,
             subgroup = "nutrients",
             stack_size = 100
@@ -132,7 +132,7 @@ data:extend(
             type = "item",
             name = "nutrient5",
             localised_name = {"nutrient-name.nutrient5"},
-            icon = "__baketorio__/graphics/nutrient5.png",
+            icon = baketorio.get_png("nutrient5"),
             icon_size = 32,
             subgroup = "nutrients",
             stack_size = 100
@@ -141,7 +141,7 @@ data:extend(
             type = "item",
             name = "nutrient6",
             localised_name = {"nutrient-name.nutrient6"},
-            icon = "__baketorio__/graphics/nutrient6.png",
+            icon = baketorio.get_png("nutrient6"),
             icon_size = 32,
             subgroup = "nutrients",
             stack_size = 100
@@ -150,7 +150,7 @@ data:extend(
             type = "item",
             name = "nutrient7",
             localised_name = {"nutrient-name.nutrient7"},
-            icon = "__baketorio__/graphics/nutrient7.png",
+            icon = baketorio.get_png("nutrient7"),
             icon_size = 32,
             subgroup = "nutrients",
             stack_size = 100
@@ -161,10 +161,27 @@ data:extend(
 data:extend{
     {
         type = "technology",
+        name = "nutrient1",
+        localised_name= {"nutrient-name.nutrient1"},
+        icon_size = 128,
+        icon = baketorio.get_png("n1_tech"),
+        prerequisites = {"leavening"},
+        effects = {},
+        unit =
+        {
+          count = 10,
+          ingredients = {
+            {"automation-science-pack", 1}
+        },
+          time = 30
+        },
+    },
+    {
+        type = "technology",
         name = "nutrient2",
         localised_name= {"nutrient-name.nutrient2"},
         icon_size = 128,
-        icon = "__baketorio__/graphics/n2_tech.png",
+        icon = baketorio.get_png("n2_tech"),
         prerequisites = {"leavening"},
         effects = {},
         unit =
@@ -181,7 +198,7 @@ data:extend{
         name = "nutrient3",
         localised_name= {"nutrient-name.nutrient3"},
         icon_size = 128,
-        icon = "__baketorio__/graphics/n3_tech.png",
+        icon = baketorio.get_png("n3_tech"),
         prerequisites = {"leavening"},
         effects = {},
         unit =
@@ -198,7 +215,7 @@ data:extend{
         name = "nutrient4",
         localised_name= {"nutrient-name.nutrient4"},
         icon_size = 128,
-        icon = "__baketorio__/graphics/n4_tech.png",
+        icon = baketorio.get_png("n4_tech"),
         prerequisites = {"logistic-science-pack"},
         effects = {},
         unit =
@@ -216,7 +233,7 @@ data:extend{
         name = "nutrient5",
         localised_name= {"nutrient-name.nutrient5"},
         icon_size = 128,
-        icon = "__baketorio__/graphics/n5_tech.png",
+        icon = baketorio.get_png("n5_tech"),
         prerequisites = {"chemical-science-pack"},
         effects = {},
         unit =
@@ -235,7 +252,7 @@ data:extend{
         name = "nutrient6",
         localised_name= {"nutrient-name.nutrient6"},
         icon_size = 128,
-        icon = "__baketorio__/graphics/n6_tech.png",
+        icon = baketorio.get_png("n6_tech"),
         prerequisites = {"production-science-pack"},
         effects = {},
         unit =
@@ -255,7 +272,7 @@ data:extend{
         name = "nutrient7",
         localised_name= {"nutrient-name.nutrient7"},
         icon_size = 128,
-        icon = "__baketorio__/graphics/n7_tech.png",
+        icon = baketorio.get_png("n7_tech"),
         prerequisites = {"rocket-silo"},
         effects = {},
         unit =

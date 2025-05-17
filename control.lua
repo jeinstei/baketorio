@@ -92,4 +92,14 @@ script.on_event(defines.events.on_gui_elem_changed,function(event)
     end
 end)
 
+-- Enable nutrient1 tech by default
+script.on_init(function()
+    for _,tech in pairs(game.forces['player'].technologies) do
+        if (tech.enabled and tech.name == "nutrient1") then
+            tech.researched = true
+            break
+        end
+    end
+end)
+
 -- https://lua-api.factorio.com/latest/prototypes/UseItemAchievementPrototype.html
