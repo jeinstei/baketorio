@@ -340,59 +340,88 @@ function baketorio.get_nutrient(tastiness)
     };
 end
 
-local foods = {}
+function baketorio.build_nutrient_recipes()
+    local foods = {}
 
-for key,value in pairs(data.raw["item"]) do
-    if(value.tastiness ~= nil and value.not_edible ~= true) then
-        foods[#foods+1] = value;
-    end
-end
-
-for key,value in pairs(data.raw["capsule"]) do
-    if(value.tastiness ~= nil and value.not_edible ~= true) then
-        foods[#foods+1] = value;
-    end
-end
-
--- Supports negative tastiness setting
-
-for key,value in pairs(foods) do
-    if (value.type == "capsule") then
-        value.capsule_action = baketorio.capsule_action(value.tastiness*10)
-    end
-end
-
-local c = 0
-
--- Build nutrient ingredients for tasty recipes
-for i=1,#foods-1 do
-    local t;
-    local ingredient1 = foods[i].name
-    local nutrientData = baketorio.get_nutrient(foods[i].tastiness)
-    if(nutrientData.name ~= "none") then
-        baketorio.makeRecipe(nutrientData.name,nutrientData.amount,{{type="item", name=ingredient1, amount=1}},c);
-        c = c + 1
-    end
-    for j=i+1,#foods do
-        local ingredient2 = foods[j].name
-        t = foods[i].tastiness + foods[j].tastiness
-        if(foods[j].tastiness < t/5) then
-            goto continue
+    for key,value in pairs(data.raw["item"]) do
+        if(value.tastiness ~= nil and value.not_edible ~= true) then
+            foods[#foods+1] = value;
         end
-        if(foods[i].tastiness < t/5) then
-            goto continue
+    end
+
+    for key,value in pairs(data.raw["capsule"]) do
+        if(value.tastiness ~= nil and value.not_edible ~= true) then
+            foods[#foods+1] = value;
         end
-        if(foods[i].cant_mix_with == foods[j].name) then
-            goto continue
+    end
+
+    -- Supports negative tastiness setting
+
+    for key,value in pairs(foods) do
+        if (value.type == "capsule") then
+            value.capsule_action = baketorio.capsule_action(value.tastiness*10)
         end
-        if(foods[j].cant_mix_with == foods[i].name) then
-            goto continue
-        end
-        nutrientData = baketorio.get_nutrient(t)
+    end
+
+    local c = 0
+
+    -- Build nutrient ingredients for tasty recipes
+    for i=1,#foods-1 do
+        local t;
+        local ingredient1 = foods[i].name
+        local nutrientData = baketorio.get_nutrient(foods[i].tastiness)
         if(nutrientData.name ~= "none") then
-            baketorio.makeRecipe(nutrientData.name,nutrientData.amount,{{type="item", name=ingredient1, amount=1},{type="item", name=ingredient2, amount=1}},c);
+            baketorio.makeRecipe(nutrientData.name,nutrientData.amount,{{type="item", name=ingredient1, amount=1}},c);
             c = c + 1
         end
-        ::continue::
+        for j=i+1,#foods do
+            local ingredient2 = foods[j].name
+            t = foods[i].tastiness + foods[j].tastiness
+            if(foods[j].tastiness < t/5) then
+                goto continue
+            end
+            if(foods[i].tastiness < t/5) then
+                goto continue
+            end
+            if(foods[i].cant_mix_with == foods[j].name) then
+                goto continue
+            end
+            if(foods[j].cant_mix_with == foods[i].name) then
+                goto continue
+            end
+            nutrientData = baketorio.get_nutrient(t)
+            if(nutrientData.name ~= "none") then
+                baketorio.makeRecipe(nutrientData.name,nutrientData.amount,{{type="item", name=ingredient1, amount=1},{type="item", name=ingredient2, amount=1}},c);
+                c = c + 1
+            end
+            ::continue::
+        end
     end
 end
+
+function baketorio.clear_nutrient_recipes()
+    -- Remove recipe unlocks from nutrient technologies for clean slate
+    nlist = {"nutrient1", "nutrient2", "nutrient3", "nutrient4", "nutrient5", "nutrient6", "nutrient7"}
+    for _,v in ipairs(nlist) do
+        data.raw["technology"][v].effects = {}
+    end
+
+    -- Remove all old nutrient recipes
+    to_remove = {}
+    for k, recipe in pairs(data.raw["recipe"]) do
+        if recipe.subgroup == "nutrients" then
+            table.insert(to_remove, recipe.name)
+        end
+    end
+
+    for _,v in ipairs(to_remove) do
+        for k, recipe in ipairs(data.raw["recipe"]) do
+            if recipe.name == v then
+                table.remove(data.raw["recipe"], k)
+                break
+            end
+        end
+    end
+end
+
+baketorio.build_nutrient_recipes()
