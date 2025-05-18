@@ -142,5 +142,3 @@ data.raw["recipe"]["rocket-part"].ingredients =
 {
     {type="item", name="nutrient6", amount=10},
 }
-
-data.raw["recipe"]["chemical-plant"].enabled = true;

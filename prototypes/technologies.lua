@@ -100,6 +100,10 @@ data:extend {
     {
       {
         type = "unlock-recipe",
+        recipe = "chemical-plant"
+      },
+      {
+        type = "unlock-recipe",
         recipe = "egg-recipe"
       },
       {
