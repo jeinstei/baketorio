@@ -1,9 +1,15 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.0.14
+Date: 2025.05.17
+  Bugfix:
+    - Fixed typo in changelog
+    - Fixed bad logic in nutrients.lua given other changes
+---------------------------------------------------------------------------------------------------
 Version: 2.0.13
 Date: 2025.05.17
   Changes:
     - Changed nutrient1 to be enabled by a tech and added the nutrient1 tech
-    - Updated makeRecipe to be nutrient-level agnostic and return the recip name
+    - Updated makeRecipe to be nutrient-level agnostic and return the recipe name
     - Chemical plant now unlocked with animal husbandry instead of at beginning of game
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.12

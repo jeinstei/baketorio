@@ -21,7 +21,7 @@ function baketorio.makeRecipe(name,amount,ingredients,c)
             category = "crafting",
             order= name .."-".. amount,
             subgroup="nutrients",
-            enabled = (name == "nutrient1"),
+            enabled = false,
             ingredients = ingredients,
             results = {
                 {type="item", name=name, amount=amount*2}
@@ -371,6 +371,7 @@ for i=1,#foods-1 do
     local nutrientData = baketorio.get_nutrient(foods[i].tastiness)
     if(nutrientData.name ~= "none") then
         baketorio.makeRecipe(nutrientData.name,nutrientData.amount,{{type="item", name=ingredient1, amount=1}},c);
+        c = c + 1
     end
     for j=i+1,#foods do
         local ingredient2 = foods[j].name
@@ -387,10 +388,10 @@ for i=1,#foods-1 do
         if(foods[j].cant_mix_with == foods[i].name) then
             goto continue
         end
-        c = c+1
         nutrientData = baketorio.get_nutrient(t)
         if(nutrientData.name ~= "none") then
             baketorio.makeRecipe(nutrientData.name,nutrientData.amount,{{type="item", name=ingredient1, amount=1},{type="item", name=ingredient2, amount=1}},c);
+            c = c + 1
         end
         ::continue::
     end
