@@ -10,6 +10,12 @@ local lowerRight = {adjustSize,adjustSize}
 
 local overlayOffsets = {upperLeft, upperRight, lowerLeft, lowerRight}
 
+local nlist = {"nutrient1", "nutrient2", "nutrient3", "nutrient4", "nutrient5", "nutrient6", "nutrient7"}
+
+function baketorio.getNutrientList()
+    return nlist
+end
+
 function baketorio.makeRecipe(name,amount,ingredients,c)
     local recipe_name = "recipe-".. name.."-" .. c
     data:extend{
@@ -401,25 +407,15 @@ end
 
 function baketorio.clear_nutrient_recipes()
     -- Remove recipe unlocks from nutrient technologies for clean slate
-    nlist = {"nutrient1", "nutrient2", "nutrient3", "nutrient4", "nutrient5", "nutrient6", "nutrient7"}
+
     for _,v in ipairs(nlist) do
         data.raw["technology"][v].effects = {}
     end
 
     -- Remove all old nutrient recipes
-    to_remove = {}
     for k, recipe in pairs(data.raw["recipe"]) do
         if recipe.subgroup == "nutrients" then
-            table.insert(to_remove, recipe.name)
-        end
-    end
-
-    for _,v in ipairs(to_remove) do
-        for k, recipe in ipairs(data.raw["recipe"]) do
-            if recipe.name == v then
-                table.remove(data.raw["recipe"], k)
-                break
-            end
+            data.raw["recipe"][k] = nil
         end
     end
 end
