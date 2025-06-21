@@ -12,7 +12,7 @@ end
 
 script.on_event(defines.events.on_gui_opened,function(event)
     local player = game.players[event.player_index]
-    if(event.entity ~= nil and (event.entity.name == "assembling-machine-1" or event.entity.name == "assembling-machine-2" or event.entity.name == "assembling-machine-3")) then
+    if(event.entity ~= nil and string.sub(event.entity.name, 1, 18) == "assembling-machine") then
         if(player == nil or player.gui.top.recipe_chooser ~= nil) then
             return
         end
