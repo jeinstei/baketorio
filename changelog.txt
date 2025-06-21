@@ -1,4 +1,14 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.0.15
+Date: 2025.06.21
+  Locale:
+    - Updates to Russian translations from CrowdIn
+  Bugfix:
+    - Fixed circuit wires and greenhouses
+    - Added space-age back in as an optional dependency to fix any load order issues
+    - Change to NutriGen string check for aseembling-machines being open to be more flexible
+    - Added cheese tech as dependency for flavour-science (chemical-science).
+---------------------------------------------------------------------------------------------------
 Version: 2.0.14
 Date: 2025.05.17
   Bugfix:
