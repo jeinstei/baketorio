@@ -13,6 +13,8 @@ data:extend({
     icon_draw_specification = {shift = {0, -0.3}},
     alert_icon_shift = util.by_pixel(0, -12),
     crafting_speed = 1,
+    circuit_wire_max_distance = assembling_machine_circuit_wire_max_distance,
+    circuit_connector = circuit_connector_definitions["assembling-machine"],
 
     energy_source =
     {

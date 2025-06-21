@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.0.15
+Date: 2025.06.10
+  Bugfix:
+    - Fixed circuit wires and greenhouses
+    - Added space-age back in as an optional dependency to fix any load order issues
+---------------------------------------------------------------------------------------------------
 Version: 2.0.14
 Date: 2025.05.17
   Bugfix:
