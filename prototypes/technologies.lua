@@ -414,7 +414,7 @@ local baking_science = data.raw.technology["logistic-science-pack"];
 baking_science.prerequisites = {"baking"};
 
 local flavour_science = data.raw.technology["chemical-science-pack"];
-flavour_science.prerequisites = {"cocoa","frying"};
+flavour_science.prerequisites = {"cocoa","frying","cheese"};
 
 local utility_science = data.raw.technology["utility-science-pack"];
 utility_science.prerequisites = {"cinnamon","blueberries"};
