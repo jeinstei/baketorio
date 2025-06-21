@@ -1,6 +1,8 @@
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.15
 Date: 2025.06.10
+  Locale:
+    - Updates to Russian translations from CrowdIn
   Bugfix:
     - Fixed circuit wires and greenhouses
     - Added space-age back in as an optional dependency to fix any load order issues
