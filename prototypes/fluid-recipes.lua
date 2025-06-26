@@ -1,6 +1,6 @@
 -- Add recipe names here to add them to productivity modules
 local prod_recipes = {
-  "u-milk-recipe",
+  "u-milk",
   "milk-filtering",
   "milk-pasteurization",
   "butter-churning",
@@ -14,7 +14,7 @@ data:extend(
     {
         {
             type = "recipe",
-            name = "u-milk-recipe",
+            name = "u-milk",
             localised_name = {"fluid-name.unpasteurized-milk"},
             category = "greenhouse-recipes",
             subgroup = "fluid-recipes",

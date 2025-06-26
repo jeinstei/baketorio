@@ -132,19 +132,19 @@ data:extend(
 -- Add recipe names here to add them to productivity modules
 local prod_recipes = {
   "wheat-seeds",
-  "wheat-recipe",
-  "flour-recipe",
-  "sugar-recipe",
-  "sugarcane-recipe",
+  "wheat",
+  "flour",
+  "sugar",
+  "sugarcane",
   "sugarcane-seeds",
   "cocoa-bean-seeds",
-  "cocoa-beans-recipe",
+  "cocoa-beans",
   "cinnamon-seeds",
-  "cinnamon-recipe",
+  "cinnamon",
   "blueberry-seeds",
-  "blueberries-recipe",
+  "blueberries",
   "strawberry-seeds",
-  "strawberries-recipe",
+  "strawberries",
 }
 
 for _, v in ipairs(prod_recipes) do
@@ -172,7 +172,7 @@ data:extend{
     },
     {
         type = "recipe",
-        name = "wheat-recipe",
+        name = "wheat",
         localised_name = {"item-name.wheat"},
         category = "greenhouse-recipes",
         subgroup = "ingredient",
@@ -192,7 +192,7 @@ data:extend{
     },
     {
         type = "recipe",
-        name = "flour-recipe",
+        name = "flour",
         localised_name = {"item-name.flour"},
         order="b",
         category = "crafting",
@@ -210,7 +210,7 @@ data:extend{
     },
     {
         type = "recipe",
-        name = "sugar-recipe",
+        name = "sugar",
         localised_name = {"item-name.sugar"},
         order="d",
         category = "crafting",
@@ -228,7 +228,7 @@ data:extend{
     },
     {
         type = "recipe",
-        name = "sugarcane-recipe",
+        name = "sugarcane",
         localised_name = {"item-name.sugarcane"},
         order="c",
         category = "greenhouse-recipes",
@@ -285,7 +285,7 @@ data:extend{
     },
     {
         type = "recipe",
-        name = "cocoa-beans-recipe",
+        name = "cocoa-beans",
         localised_name = {"item-name.cocoa-beans"},
         order="h",
         category = "greenhouse-recipes",
@@ -324,7 +324,7 @@ data:extend{
     },
     {
         type = "recipe",
-        name = "cinnamon-recipe",
+        name = "cinnamon",
         localised_name = {"item-name.cinnamon"},
         category = "greenhouse-recipes",
         subgroup = "ingredient",
@@ -363,7 +363,7 @@ data:extend{
     },
     {
         type = "recipe",
-        name = "blueberries-recipe",
+        name = "blueberries",
         localised_name = {"item-name.blueberries"},
         category = "greenhouse-recipes",
         subgroup = "ingredient",
@@ -402,7 +402,7 @@ data:extend{
     },
     {
         type = "recipe",
-        name = "strawberries-recipe",
+        name = "strawberries",
         localised_name = {"item-name.strawberries"},
         category = "greenhouse-recipes",
         subgroup = "ingredient",
