@@ -104,7 +104,7 @@ for key,value in pairs(doughs) do
     value.icons = getIcons(DOUGH_ICON,value.sub_icon)
     local dough_recipe = {
         type="recipe",
-        name= (value.name .. "-recipe"),
+        name = value.name,
         localised_name = {"item-name." .. value.name},
         category = "crafting-with-fluid",
         subgroup = "ingredient",
@@ -130,7 +130,7 @@ for key,value in pairs(doughs) do
     }
     local bread_recipe = {
         type="recipe",
-        name= (item.name .. "-recipe"),
+        name = item.name,
         localised_name = {"item-name." .. item.name},
         category = "smelting",
         subgroup = "bread",
