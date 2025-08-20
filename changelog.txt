@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.0.16
+Date: 2025.07.
+  Changes:
+    - Added build_nutrient_recipes and cleaar_nutrient_recipes function for ease of use
+    - README.md updates
+---------------------------------------------------------------------------------------------------
 Version: 2.0.15
 Date: 2025.06.21
   Locale:
