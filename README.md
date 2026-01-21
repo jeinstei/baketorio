@@ -4,6 +4,12 @@ Baking! in Factorio!
 
 Overhauls game to be all about baking. All science packs are changed to be things you must bake.
 
+## 
+
+An expansion on the expansion called baketorio+ is also available. This expansion adds complexity and is written by [Edenstudent](https://mods.factorio.com/user/Edenstudent)
+
+[Baketorio+](https://mods.factorio.com/mod/baketorio_plus)
+
 ## FAQ
 
 Q: How do I select the right nutrient recipe?

@@ -92,6 +92,7 @@ data:extend(
         energy_required = 1,
         category = "crafting",
         enabled = false,
+        allow_productivity = true,
         ingredients =
         {
           {type="item", name="salted-hardtack", amount=5}

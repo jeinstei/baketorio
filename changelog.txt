@@ -1,4 +1,14 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.0.16
+Date: 2026.01.21
+  Locale:
+    - Updates to German, French, Hungarian, Dutch, and Ukraniant translations from CrowdIn
+  Changes:
+    - Updates to README mentioning Baketorio+
+  Bugfix:
+    - Fix for chocolate doughnuts creating three doughnuts from one shape.
+    - Fix for NutriGen typo in mod-locale
+---------------------------------------------------------------------------------------------------
 Version: 2.0.15
 Date: 2025.06.21
   Locale:
