@@ -15,7 +15,7 @@ for key,value in pairs(food) do
         })
         data:extend( {
             type = "recipe",
-            name = "salted-" + value.name + "-recipe",
+            name = "salted-" + value.name,
             category = "crafting",
             subgroup = value.subgroup,
             energy_required = 1,
