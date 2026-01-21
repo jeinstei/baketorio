@@ -146,7 +146,7 @@ local shapes = {
         tastiness=6,
         frosted_mod=1,
         batter_amount=2,
-        result=3,
+        result=1,
     },
     {
         name="cake",
