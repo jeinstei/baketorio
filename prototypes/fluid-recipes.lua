@@ -16,7 +16,7 @@ data:extend(
             type = "recipe",
             name = "u-milk-recipe",
             localised_name = {"fluid-name.unpasteurized-milk"},
-            category = "greenhouse-recipes",
+            categories = {"greenhouse-recipes"}, 
             subgroup = "fluid-recipes",
             energy_required = 10,
             enabled = false,
@@ -34,7 +34,7 @@ data:extend(
         {
             type = "recipe",
             name = "milk-pasteurization",
-            category = "chemistry",
+            categories = {"chemistry"}, 
             subgroup = "fluid-recipes",
             energy_required = 2,
             enabled = false,
@@ -52,7 +52,7 @@ data:extend(
         {
             type = "recipe",
             name = "milk-filtering",
-            category = "chemistry",
+            categories = {"chemistry"}, 
             subgroup = "fluid-recipes",
             energy_required = 2,
             enabled = false,
@@ -70,7 +70,7 @@ data:extend(
         {
             type = "recipe",
             name = "butter-churning",
-            category = "chemistry",
+            categories = {"chemistry"}, 
             subgroup = "fluid-recipes",
             energy_required = 5,
             enabled = false,

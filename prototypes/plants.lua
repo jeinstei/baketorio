@@ -156,7 +156,7 @@ data:extend{
         type = "recipe",
         name = "wheat-seeds",
         localised_name = {"item-name.wheat-seeds"},
-        category = "organic-synth-recipes",
+        categories = {"organic-synth-recipes"}, 
         subgroup = "seeds",
         order="a",
         energy_required = 30,
@@ -174,7 +174,7 @@ data:extend{
         type = "recipe",
         name = "wheat-recipe",
         localised_name = {"item-name.wheat"},
-        category = "greenhouse-recipes",
+        categories = {"greenhouse-recipes"}, 
         subgroup = "ingredient",
         order="a",
         energy_required = 10,
@@ -183,7 +183,7 @@ data:extend{
             {type="item",name="wheat-seeds",amount=1}
         },
         results = {
-            {type="item",name="wheat-seeds",amount=1,probability = 0.1},
+            {type="item",name="wheat-seeds",amount=1,independent_probability = 0.1},
             {type="item",name="wheat-seeds",amount=1},
             {type="item",name="wheat",amount_min=3,amount_max=5}
         },
@@ -195,7 +195,7 @@ data:extend{
         name = "flour-recipe",
         localised_name = {"item-name.flour"},
         order="b",
-        category = "crafting",
+        categories = {"crafting"}, 
         subgroup = "ingredient",
         energy_required = 1,
         enabled = true,
@@ -213,7 +213,7 @@ data:extend{
         name = "sugar-recipe",
         localised_name = {"item-name.sugar"},
         order="d",
-        category = "crafting",
+        categories = {"crafting"}, 
         subgroup = "ingredient",
         energy_required = 1,
         enabled = false,
@@ -231,7 +231,7 @@ data:extend{
         name = "sugarcane-recipe",
         localised_name = {"item-name.sugarcane"},
         order="c",
-        category = "greenhouse-recipes",
+        categories = {"greenhouse-recipes"}, 
         subgroup = "ingredient",
         energy_required = 10,
         enabled = false,
@@ -240,7 +240,7 @@ data:extend{
             {type="item",name="nutrient1",amount=1}
         },
         results = {
-            {type="item",name="sugarcane-seeds",amount=1,probability = 0.15},
+            {type="item",name="sugarcane-seeds",amount=1,independent_probability = 0.15},
             {type="item",name="sugarcane-seeds",amount=1},
             {type="item",name="sugarcane",amount_min=3,amount_max=4}
         },
@@ -252,7 +252,7 @@ data:extend{
         name = "sugarcane-seeds",
         localised_name = {"item-name.sugarcane-seeds"},
         order="b",
-        category = "organic-synth-recipes",
+        categories = {"organic-synth-recipes"}, 
         subgroup = "seeds",
         energy_required = 30,
         enabled = false,
@@ -270,7 +270,7 @@ data:extend{
         name = "cocoa-bean-seeds",
         localised_name = {"item-name.cocoa-bean-seeds"},
         order="g",
-        category = "organic-synth-recipes",
+        categories = {"organic-synth-recipes"}, 
         subgroup = "seeds",
         energy_required = 30,
         enabled = false,
@@ -288,7 +288,7 @@ data:extend{
         name = "cocoa-beans-recipe",
         localised_name = {"item-name.cocoa-beans"},
         order="h",
-        category = "greenhouse-recipes",
+        categories = {"greenhouse-recipes"}, 
         subgroup = "ingredient",
         energy_required = 10,
         enabled = false,
@@ -297,7 +297,7 @@ data:extend{
             {type="item",name="nutrient3",amount=1}
         },
         results = {
-            {type="item",name="cocoa-bean-seeds",amount=1,probability = 0.05},
+            {type="item",name="cocoa-bean-seeds",amount=1,independent_probability = 0.05},
             {type="item",name="cocoa-bean-seeds",amount=1},
             {type="item",name="cocoa-beans",amount_min=2,amount_max=5}
         },
@@ -309,7 +309,7 @@ data:extend{
         name = "cinnamon-seeds",
         localised_name = {"item-name.cinnamon-seeds"},
         order="h",
-        category = "organic-synth-recipes",
+        categories = {"organic-synth-recipes"}, 
         subgroup = "seeds",
         energy_required = 120,
         enabled = false,
@@ -326,7 +326,7 @@ data:extend{
         type = "recipe",
         name = "cinnamon-recipe",
         localised_name = {"item-name.cinnamon"},
-        category = "greenhouse-recipes",
+        categories = {"greenhouse-recipes"}, 
         subgroup = "ingredient",
         order="j",
         energy_required = 10,
@@ -336,7 +336,7 @@ data:extend{
             {type="item",name="nutrient4",amount=1}
         },
         results = {
-            {type="item",name="cinnamon-seeds",amount=1,probability = 0.01},
+            {type="item",name="cinnamon-seeds",amount=1,independent_probability = 0.01},
             {type="item",name="cinnamon-seeds",amount=1},
             {type="item",name="cinnamon",amount_min=2,amount_max=4}
         },
@@ -348,7 +348,7 @@ data:extend{
         name = "blueberry-seeds",
         localised_name = {"item-name.blueberry-seeds"},
         order="j",
-        category = "organic-synth-recipes",
+        categories = {"organic-synth-recipes"}, 
         subgroup = "seeds",
         energy_required = 360,
         enabled = false,
@@ -365,7 +365,7 @@ data:extend{
         type = "recipe",
         name = "blueberries-recipe",
         localised_name = {"item-name.blueberries"},
-        category = "greenhouse-recipes",
+        categories = {"greenhouse-recipes"}, 
         subgroup = "ingredient",
         order="l",
         energy_required = 10,
@@ -375,7 +375,7 @@ data:extend{
             {type="item",name="nutrient5",amount=1}
         },
         results = {
-            {type="item",name="blueberry-seeds",amount=1,probability = 0.02},
+            {type="item",name="blueberry-seeds",amount=1,independent_probability = 0.02},
             {type="item",name="blueberry-seeds",amount=1},
             {type="item",name="blueberries",amount=1}
         },
@@ -387,7 +387,7 @@ data:extend{
         name = "strawberry-seeds",
         localised_name = {"item-name.strawberry-seeds"},
         order="m",
-        category = "organic-synth-recipes",
+        categories = {"organic-synth-recipes"}, 
         subgroup = "seeds",
         energy_required = 500,
         enabled = false,
@@ -404,7 +404,7 @@ data:extend{
         type = "recipe",
         name = "strawberries-recipe",
         localised_name = {"item-name.strawberries"},
-        category = "greenhouse-recipes",
+        categories = {"greenhouse-recipes"}, 
         subgroup = "ingredient",
         order="m",
         energy_required = 10,
@@ -414,7 +414,7 @@ data:extend{
             {type="item",name="nutrient5",amount=5}
         },
         results = {
-            {type="item",name="strawberry-seeds",amount=1,probability = 0.04},
+            {type="item",name="strawberry-seeds",amount=1,independent_probability = 0.04},
             {type="item",name="strawberry-seeds",amount=1},
             {type="item",name="strawberries",amount=1}
         },

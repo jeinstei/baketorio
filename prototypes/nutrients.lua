@@ -18,7 +18,7 @@ function baketorio.makeRecipe(name,amount,ingredients,c)
             name= recipe_name,
             localised_name = {"nutrient-name." .. name},
             energy_required = 2,
-            category = "crafting",
+            categories = {"crafting"}, 
             order= name .."-".. amount,
             subgroup="nutrients",
             enabled = false,
