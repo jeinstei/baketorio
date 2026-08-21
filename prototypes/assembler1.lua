@@ -1,3 +1,6 @@
+local a2p = require("__base__.prototypes.entity.assembler-pictures").assembler2pipepictures
+local pcp = require("__base__.prototypes.entity.assembler-pictures").pipecoverspictures
+
 -- Modifications to base assembling machine
 local a = {
     type = "assembling-machine",
@@ -6,16 +9,16 @@ local a = {
     {
       {
         production_type = "input",
-        pipe_picture = assembler2pipepictures(),
-        pipe_covers = pipecoverspictures(),
+        pipe_picture = a2p,
+        pipe_covers = pcp,
         volume = 1000,
         pipe_connections = {{ flow_direction="input", direction = defines.direction.north, position = {0, -1} }},
         secondary_draw_orders = { north = -1 }
       },
       {
         production_type = "output",
-        pipe_picture = assembler2pipepictures(),
-        pipe_covers = pipecoverspictures(),
+        pipe_picture = a2p,
+        pipe_covers = pcp,
         volume = 1000,
         pipe_connections = {{ flow_direction="output", direction = defines.direction.south, position = {0, 1} }},
         secondary_draw_orders = { north = -1 }

@@ -90,7 +90,7 @@ data:extend(
         type = "recipe",
         name = "automation-science-pack-hardtack",
         energy_required = 1,
-        category = "crafting",
+        categories = {"crafting"}, 
         enabled = false,
         allow_productivity = true,
         ingredients =
