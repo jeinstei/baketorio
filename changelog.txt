@@ -1,9 +1,23 @@
 ---------------------------------------------------------------------------------------------------
-Version: 2.0.16
-Date: 2025.07.
+Version: 2.0.17
+Date: 2026.08.21
+  Locale:
+    - Updates to Finnish and French translations from CrowdIn
   Changes:
-    - Added build_nutrient_recipes and cleaar_nutrient_recipes function for ease of use
-    - README.md updates
+    - Updated to handle 2.1 release including notes below
+    - Updated pipe pictures to use base pictures instead of removed assembler2pipepictures() and pipecoverpictures()
+    - Updated probability to independent_probability
+    - Updated category field to categories as a table
+---------------------------------------------------------------------------------------------------
+Version: 2.0.16
+Date: 2026.01.21
+  Locale:
+    - Updates to German, French, Hungarian, Dutch, and Ukraniant translations from CrowdIn
+  Changes:
+    - Updates to README mentioning Baketorio+
+  Bugfix:
+    - Fix for chocolate doughnuts creating three doughnuts from one shape.
+    - Fix for NutriGen typo in mod-locale
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.15
 Date: 2025.06.21
