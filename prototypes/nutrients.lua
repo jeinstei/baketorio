@@ -101,26 +101,27 @@ nutrient_tech_table_lookup["nutrient7"] = {
 -- Helper function to verify that the nutrient definition table meets some minimum requirements
 function baketorio.verify_nutrient_table(nutrient_table)
     -- Should toss a bad key error if nutrient names don't match as well
-    local last_tasty
+    local last_tasty = 0
     local curr_tasty
     local tsize = table_size(nutrient_table)
-    for i=tsize,1,-1
+    local i = 1
+    -- factorio tables are deterministic; using this to our advantage unless
+    for k, value in pairs(nutrient_table)
     do
-        name = "nutrient" .. tostring(i)
-        curr_tasty = nutrient_table[name]["tastiness"]
+        curr_tasty = value["tastiness"]
         if curr_tasty <= 2 then
             error("Nutrient tastiness must be > 2")
         end
         if i == tsize then
             last_tasty = curr_tasty
         else
-            curr_tasty = nutrient_table[name]["tastiness"]
-            if last_tasty <= curr_tasty then
-                error("Nutrient_table requires tastiness to decrease with nutrient level")
+            if last_tasty > curr_tasty then
+                error("Nutrient_table requires tastiness to increase with nutrient level")
             else
                 last_tasty = curr_tasty
             end
         end
+        i = i + 1
     end
 end
 
@@ -208,15 +209,15 @@ end
 
 -- Add nutrient items to prototypes
 function baketorio.build_nutrient_items(nutrient_table)
-    for i=1,table_size(nutrient_table),1
+    for k, v in pairs(nutrient_table)
     do
         data:extend(
             {
                 {
                     type = "item",
-                    name = "nutrient" .. tostring(i),
-                    localised_name = {"nutrient-name.nutrient" .. tostring(i)},
-                    icon = baketorio.get_png("nutrient" .. tostring(i)),
+                    name = k,
+                    localised_name = {"nutrient-name." .. k},
+                    icon = baketorio.get_png(k),
                     icon_size = 32,
                     subgroup = "nutrients",
                     stack_size = 100
@@ -386,12 +387,13 @@ end
 -- Used primarily to allow for a rebuild based on other mods that might use the tastiness field
 function baketorio.clear_nutrient_recipes(max_level)
     -- Remove recipe unlocks from nutrient technologies for clean slate
-    for i=1,max_level,1 do
-        data.raw["technology"]["nutrient" .. tostring(i)].effects = {}
+    for k, v in pairs(nutrient_tech_table_lookup)
+    do
+        data.raw["technology"][k].effects = {}
     end
 
     -- Remove all old nutrient recipes
-    for k, recipe in ipairs(data.raw["recipe"]) do
+    for k, recipe in pairs(data.raw["recipe"]) do
         if recipe.subgroup == "nutrients" then
             data.raw["recipe"][k] = nil
         end
