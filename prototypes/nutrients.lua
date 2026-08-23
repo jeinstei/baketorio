@@ -21,6 +21,7 @@ function baketorio.makeRecipe(name,amount,ingredients,c)
             categories = {"crafting"}, 
             order= name .."-".. amount,
             subgroup="nutrients",
+            allow_productivity = true,
             enabled = false,
             ingredients = ingredients,
             results = {
@@ -30,7 +31,7 @@ function baketorio.makeRecipe(name,amount,ingredients,c)
             icon_size=iconSize
         }
     }
-    baketorio.add_to_prod_mod(recipe_name)
+    -- baketorio.add_to_prod_mod(recipe_name)
 
     table.insert(data.raw.technology[name].effects,{
         type = "unlock-recipe",
@@ -165,7 +166,7 @@ data:extend{
         localised_name= {"nutrient-name.nutrient1"},
         icon_size = 128,
         icon = baketorio.get_png("n1_tech"),
-        prerequisites = {"leavening"},
+        prerequisites = {"automation-science-pack"},
         effects = {},
         unit =
         {

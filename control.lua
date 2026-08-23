@@ -1,3 +1,7 @@
+local string_starts_with = function (s, start)
+    return s:find(start, 1, true) == 1
+end
+
 local set_gui_data = function(elem,prop,value)
     if (not storage.gui_data) then storage.gui_data = {} end
     if (not storage.gui_data[elem.index]) then storage.gui_data[elem.index] = {} end
@@ -9,6 +13,78 @@ local get_gui_data = function(elem,prop)
     if (not storage.gui_data[elem.index]) then return false end
     return storage.gui_data[elem.index][prop];
 end
+
+
+-- Hook on_research_finished to check for unlocks
+script.on_event(defines.events.on_research_finished,function(event)
+    -- Get force and get reference to all recipes force has enabled
+    -- If a nutrient tech, loop through all recipes and unhide all recipes where the ingredients
+    --   are enabled and unhidden
+    -- Otherwise loop through effects of the prototype of the tech
+    -- Determine list of all ingredients for all unlocked recipes
+    -- and unhide all nutrient recipes that are enabled that use those ingredients
+
+    -- Create global storage to speed up processing
+    if (not storage.missingIngredientNutrients) then storage.missingIngredientNutrients = {} end
+
+    local rforce = event.research.force
+    local reffects = event.research.prototype.effects
+    local frecipes = rforce.recipes
+
+    local ingredients = {}
+
+    if string_starts_with(event.research.name, "nutrient") then
+        local unlocks = {}
+        for _,effect in ipairs(reffects)
+        do
+            -- Check all recipe unlocks and build set of ingredients
+            if effect.type == "unlock-recipe" then
+                -- handle recipe; store ingredient states if good
+                -- BReak out 
+                local rrecipe = rforce.recipes[effect.recipe]
+                local ringredients = rrecipe.ingredients
+                local ringsize = table_size(ringredients)
+                local numGood = 0
+                for _,ing in ipairs(ringredients)
+                do
+                    if rforce.is_visible({type="item", name=ing.name}) then
+                        numGood = numGood + 1
+                    else
+                        break
+                    end
+                end
+                if numGood == ringsize then
+                    rrecipe.enabled = true
+                    storage.missingIngredientNutrients[rrecipe.name] = nil
+                else
+                    rrecipe.enabled = false
+                    storage.missingIngredientNutrients[rrecipe.name] = true
+                end
+            end
+        end
+    else
+            -- If not a nutrient recipe, check if any deactivated nutrinent recipes are now valid
+        for nutrRecipe,v in pairs(storage.missingIngredientNutrients)
+        do
+            local rrecipe = rforce.recipes[nutrRecipe]
+            local ringredients = rrecipe.ingredients
+            local ringsize = table_size(ringredients)
+            local numGood = 0
+            for _,ing in ipairs(ringredients)
+            do
+                if rforce.is_visible({type="item", name=ing.name}) then
+                    numGood = numGood + 1
+                else
+                    break
+                end
+            end
+            if numGood == ringsize then
+                rrecipe.enabled = true
+                storage.missingIngredientNutrients[rrecipe.name] = nil
+            end
+        end
+    end
+end)
 
 script.on_event(defines.events.on_gui_opened,function(event)
     local player = game.players[event.player_index]
@@ -92,14 +168,14 @@ script.on_event(defines.events.on_gui_elem_changed,function(event)
     end
 end)
 
--- Enable nutrient1 tech by default
-script.on_init(function()
-    for _,tech in pairs(game.forces['player'].technologies) do
-        if (tech.enabled and tech.name == "nutrient1") then
-            tech.researched = true
-            break
-        end
-    end
-end)
+-- -- Enable nutrient1 tech by default
+-- script.on_init(function()
+--     for _,tech in pairs(game.forces['player'].technologies) do
+--         if (tech.enabled and tech.name == "nutrient1") then
+--             tech.researched = true
+--             break
+--         end
+--     end
+-- end)
 
 -- https://lua-api.factorio.com/latest/prototypes/UseItemAchievementPrototype.html
