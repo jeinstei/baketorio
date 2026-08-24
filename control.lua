@@ -2,13 +2,13 @@ local string_starts_with = function (s, start)
     return s:find(start, 1, true) == 1
 end
 
-local set_gui_data = function(elem,prop,value)
+local set_gui_data = function (elem, prop, value)
     if (not storage.gui_data) then storage.gui_data = {} end
     if (not storage.gui_data[elem.index]) then storage.gui_data[elem.index] = {} end
     storage.gui_data[elem.index][prop] = value
 end
 
-local get_gui_data = function(elem,prop)
+local get_gui_data = function (elem, prop)
     if (not storage.gui_data) then return false end
     if (not storage.gui_data[elem.index]) then return false end
     return storage.gui_data[elem.index][prop];
@@ -16,7 +16,7 @@ end
 
 
 -- Hook on_research_finished to check for unlocks
-script.on_event(defines.events.on_research_finished,function(event)
+script.on_event(defines.events.on_research_finished, function (event)
     -- Get force and get reference to all recipes force has enabled
     -- If a nutrient tech, loop through all recipes and unhide all recipes where the ingredients
     --   are enabled and unhidden
@@ -35,7 +35,7 @@ script.on_event(defines.events.on_research_finished,function(event)
 
     if string_starts_with(event.research.name, "nutrient") then
         local unlocks = {}
-        for _,effect in ipairs(reffects)
+        for _, effect in ipairs(reffects)
         do
             -- Check all recipe unlocks and build set of ingredients
             if effect.type == "unlock-recipe" then
@@ -45,9 +45,9 @@ script.on_event(defines.events.on_research_finished,function(event)
                 local ringredients = rrecipe.ingredients
                 local ringsize = table_size(ringredients)
                 local numGood = 0
-                for _,ing in ipairs(ringredients)
+                for _, ing in ipairs(ringredients)
                 do
-                    if rforce.is_visible({type="item", name=ing.name}) then
+                    if rforce.is_visible({ type = "item", name = ing.name }) then
                         numGood = numGood + 1
                     else
                         break
@@ -63,16 +63,16 @@ script.on_event(defines.events.on_research_finished,function(event)
             end
         end
     else
-            -- If not a nutrient recipe, check if any deactivated nutrinent recipes are now valid
-        for nutrRecipe,v in pairs(storage.missingIngredientNutrients)
+        -- If not a nutrient recipe, check if any deactivated nutrinent recipes are now valid
+        for nutrRecipe, v in pairs(storage.missingIngredientNutrients)
         do
             local rrecipe = rforce.recipes[nutrRecipe]
             local ringredients = rrecipe.ingredients
             local ringsize = table_size(ringredients)
             local numGood = 0
-            for _,ing in ipairs(ringredients)
+            for _, ing in ipairs(ringredients)
             do
-                if rforce.is_visible({type="item", name=ing.name}) then
+                if rforce.is_visible({ type = "item", name = ing.name }) then
                     numGood = numGood + 1
                 else
                     break
@@ -86,42 +86,42 @@ script.on_event(defines.events.on_research_finished,function(event)
     end
 end)
 
-script.on_event(defines.events.on_gui_opened,function(event)
+script.on_event(defines.events.on_gui_opened, function (event)
     local player = game.players[event.player_index]
-    if(event.entity ~= nil and string.sub(event.entity.name, 1, 18) == "assembling-machine") then
-        if(player == nil or player.gui.top.recipe_chooser ~= nil) then
+    if (event.entity ~= nil and string.sub(event.entity.name, 1, 18) == "assembling-machine") then
+        if (player == nil or player.gui.top.recipe_chooser ~= nil) then
             return
         end
-        player.gui.top.add{type = "frame",name="recipe_chooser", caption={"ui-elements.nutrigen"}}
+        player.gui.top.add { type = "frame", name = "recipe_chooser", caption = { "ui-elements.nutrigen" } }
         local filter = {
-            {filter="subgroup", subgroup="basic"},
-            {filter="subgroup", subgroup="bread"},
-            {filter="subgroup", subgroup="milk"},
-            {filter="subgroup", subgroup="chocolate"},
-            {filter="subgroup", subgroup="fruit"},
-            {filter="subgroup", subgroup="advanced"},
+            {filter = "subgroup", subgroup = "basic" },
+            {filter = "subgroup", subgroup = "bread" },
+            {filter = "subgroup", subgroup = "milk" },
+            {filter = "subgroup", subgroup = "chocolate" },
+            {filter = "subgroup", subgroup = "fruit" },
+            {filter = "subgroup", subgroup = "advanced" },
         }
-        local item1 = player.gui.top.recipe_chooser.add{type = "choose-elem-button",name="item1",elem_type="item",caption={"ui-elements.nutrigen-i1"},elem_filters=filter}
-        local item2 = player.gui.top.recipe_chooser.add{type = "choose-elem-button",name="item2",elem_type="item",caption={"ui-elements.nutrigen-i2"},elem_filters=filter}
-        set_gui_data(item1,"nchooser",true)
-        set_gui_data(item1,"other",item2)
-        set_gui_data(item1,"entity",event.entity)
-        set_gui_data(item2,"nchooser",true)
-        set_gui_data(item2,"other",item1)
-        set_gui_data(item2,"entity",event.entity)
+        local item1 = player.gui.top.recipe_chooser.add { type = "choose-elem-button", name = "item1", elem_type = "item", caption = { "ui-elements.nutrigen-i1" }, elem_filters = filter }
+        local item2 = player.gui.top.recipe_chooser.add { type = "choose-elem-button", name = "item2", elem_type = "item", caption = { "ui-elements.nutrigen-i2" }, elem_filters = filter }
+        set_gui_data(item1, "nchooser", true)
+        set_gui_data(item1, "other", item2)
+        set_gui_data(item1, "entity", event.entity)
+        set_gui_data(item2, "nchooser", true)
+        set_gui_data(item2, "other", item1)
+        set_gui_data(item2, "entity", event.entity)
     end
 end)
 
-script.on_event(defines.events.on_gui_closed,function(event)
+script.on_event(defines.events.on_gui_closed, function (event)
     local player = game.players[event.player_index]
-    if(player == nil or player.gui.top.recipe_chooser == nil) then
+    if (player == nil or player.gui.top.recipe_chooser == nil) then
         return;
     end
     player.gui.top.recipe_chooser.destroy()
 end)
 
-script.on_event(defines.events.on_gui_elem_changed,function(event)
-    if(event.element ~= nil and get_gui_data(event.element,"nchooser")) then
+script.on_event(defines.events.on_gui_elem_changed, function (event)
+    if (event.element ~= nil and get_gui_data(event.element, "nchooser")) then
         local i1 = nil;
         local i2 = nil;
         local filter = {
@@ -129,29 +129,29 @@ script.on_event(defines.events.on_gui_elem_changed,function(event)
                 filter = "has-product-item",
                 elem_filters = {
                     {
-                        filter="subgroup",
-                        subgroup="nutrients"
+                        filter = "subgroup",
+                        subgroup = "nutrients"
                     }
                 }
             }
         }
-        if(event.element.elem_value ~= nil) then
+        if (event.element.elem_value ~= nil) then
             i1 = event.element.elem_value
-            filter[#filter+1] = {
+            filter[#filter + 1] = {
                 filter = "has-ingredient-item",
-                mode="and",
+                mode = "and",
                 elem_filters = {
-                    {filter="name",name=i1}
+                    { filter = "name", name = i1 }
                 }
             }
         end
-        if(get_gui_data(event.element,"other").elem_value ~= nil) then
-            i2 = get_gui_data(event.element,"other").elem_value
-            filter[#filter+1] = {
+        if (get_gui_data(event.element, "other").elem_value ~= nil) then
+            i2 = get_gui_data(event.element, "other").elem_value
+            filter[#filter + 1] = {
                 filter = "has-ingredient-item",
-                mode="and",
+                mode = "and",
                 elem_filters = {
-                    {filter="name",name=i2}
+                    { filter = "name", name = i2 }
                 }
             }
         end
@@ -160,8 +160,8 @@ script.on_event(defines.events.on_gui_elem_changed,function(event)
         if (list == nil and i1 ~= nil and i2 ~= nil) then
             log("No nutrient recipe selected for: " .. i1 .. " and " .. i2)
         end
-        for key,value in pairs(list) do
-            get_gui_data(event.element,"entity").set_recipe(value.name);
+        for _, value in pairs(list) do
+            get_gui_data(event.element, "entity").set_recipe(value.name);
             break;
         end
 
