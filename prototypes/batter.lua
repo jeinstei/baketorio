@@ -97,7 +97,7 @@ for key,value in pairs(batter) do
         },
         {
             type="recipe",
-            name= (value.name .. "-recipe"),
+            name= (value.name),
             localised_name = {"item-name." .. value.name},
             categories = {"crafting-with-fluid"},
             subgroup = "ingredient",
@@ -247,7 +247,7 @@ for key,shape in pairs(shapes) do
     }
     local uncooked_shape_recipe = {
         type="recipe",
-        name= (uncooked_shape.name .. "-recipe"),
+        name= (uncooked_shape.name),
         localised_name = {"item-name." .. uncooked_shape.name},
         categories = {"crafting"},
         subgroup = "ingredient",
@@ -281,7 +281,7 @@ for key,shape in pairs(shapes) do
     }
     local cooked_shape_recipe = {
         type="recipe",
-        name= cooked_shape.name .. "-recipe",
+        name= cooked_shape.name,
         localised_name = {"item-name." .. cooked_shape.name},
         categories = {"smelting"}, 
         subgroup = b.subgroup,
@@ -321,7 +321,7 @@ for key,shape in pairs(shapes) do
         }
         local cooked_shape_frosted_recipe = {
             type="recipe",
-            name= cooked_shape_frosted.name .. "-recipe",
+            name= cooked_shape_frosted.name,
             localised_name = {"item-name." .. cooked_shape_frosted.name},
             categories = {"crafting"}, 
             subgroup = b.subgroup,
