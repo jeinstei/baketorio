@@ -24,63 +24,63 @@ script.on_event(defines.events.on_research_finished, function (event)
     -- Determine list of all ingredients for all unlocked recipes
     -- and unhide all nutrient recipes that are enabled that use those ingredients
 
+    local rForce = event.research.force
+
     -- Create global storage to speed up processing
     if (not storage.missingIngredientNutrients) then storage.missingIngredientNutrients = {} end
+    if (not storage.missingIngredientNutrients[rForce]) then storage.missingIngredientNutrients[rforce] = {} end
 
-    local rforce = event.research.force
-    local reffects = event.research.prototype.effects
-    local frecipes = rforce.recipes
-
-    local ingredients = {}
+    -- Local reference to global storage
+    local fMissing = storage.missingIngredientNutrients[rForce]
 
     if string_starts_with(event.research.name, "nutrient") then
-        local unlocks = {}
-        for _, effect in ipairs(reffects)
+        local rEffects = event.research.prototype.effects
+        for _, effect in ipairs(rEffects)
         do
             -- Check all recipe unlocks and build set of ingredients
             if effect.type == "unlock-recipe" then
                 -- handle recipe; store ingredient states if good
                 -- BReak out 
-                local rrecipe = rforce.recipes[effect.recipe]
-                local ringredients = rrecipe.ingredients
-                local ringsize = table_size(ringredients)
+                local rRecipe = rForce.recipes[effect.recipe]
+                local rIngredients = rRecipe.ingredients
+                local rIngSize = table_size(rIngredients)
                 local numGood = 0
-                for _, ing in ipairs(ringredients)
+                for _, ing in ipairs(rIngredients)
                 do
-                    if rforce.is_visible({ type = "item", name = ing.name }) then
+                    if rForce.is_visible({ type = "item", name = ing.name }) then
                         numGood = numGood + 1
                     else
                         break
                     end
                 end
-                if numGood == ringsize then
-                    rrecipe.enabled = true
-                    storage.missingIngredientNutrients[rrecipe.name] = nil
+                if numGood == rIngSize then
+                    rRecipe.enabled = true
+                    fMissing[rRecipe.name] = nil
                 else
-                    rrecipe.enabled = false
-                    storage.missingIngredientNutrients[rrecipe.name] = true
+                    rRecipe.enabled = false
+                    fMissing[rRecipe.name] = true
                 end
             end
         end
     else
         -- If not a nutrient recipe, check if any deactivated nutrinent recipes are now valid
-        for nutrRecipe, v in pairs(storage.missingIngredientNutrients)
+        for nutrRecipe, v in pairs(fMissing)
         do
-            local rrecipe = rforce.recipes[nutrRecipe]
-            local ringredients = rrecipe.ingredients
-            local ringsize = table_size(ringredients)
+            local rRecipe = rForce.recipes[nutrRecipe]
+            local rIngredients = rRecipe.ingredients
+            local rIngSize = table_size(rIngredients)
             local numGood = 0
-            for _, ing in ipairs(ringredients)
+            for _, ing in ipairs(rIngredients)
             do
-                if rforce.is_visible({ type = "item", name = ing.name }) then
+                if rForce.is_visible({ type = "item", name = ing.name }) then
                     numGood = numGood + 1
                 else
                     break
                 end
             end
-            if numGood == ringsize then
-                rrecipe.enabled = true
-                storage.missingIngredientNutrients[rrecipe.name] = nil
+            if numGood == rIngSize then
+                rRecipe.enabled = true
+                fMissing[nutrRecipe] = nil
             end
         end
     end
