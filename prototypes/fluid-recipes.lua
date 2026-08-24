@@ -14,7 +14,7 @@ data:extend(
     {
         {
             type = "recipe",
-            name = "unpasteurized-milk"
+            name = "unpasteurized-milk",
             localised_name = {"fluid-name.unpasteurized-milk"},
             categories = {"greenhouse-recipes"}, 
             subgroup = "fluid-recipes",
@@ -39,11 +39,11 @@ data:extend(
             energy_required = 2,
             enabled = false,
             ingredients = {
-                {type="fluid",name="unpasteurized-milk",amount=20,catalyst_amount=18},
+                {type="fluid",name="unpasteurized-milk", amount=20, catalyst_amount=18},
                 {type="fluid",name="water",amount=5}
             },
             results = {
-                {type="fluid", name="milk", amount=18,catalyst_amount=18},
+                {type="fluid", name="milk", amount=18, catalyst_amount=18},
                 {type="fluid", name="cream", amount=2},
             },
             icon = "__baketorio__/graphics/milk.png",

@@ -1,27 +1,27 @@
 -- Add recipe names here to add them to productivity modules
 local prod_recipes = {
   "butter-solidification",
-  "cheese"
-  "greenhouse"
-  "organic-synthesizer"
-  "hardtack"
-  "salted-hardtack"
-  "chicken"
+  "cheese",
+  "greenhouse",
+  "organic-synthesizer",
+  "hardtack",
+  "salted-hardtack",
+  "chicken",
   "chicken-recipe-egg",
-  "egg"
-  "cow"
-  "breed-cow"
-  "frosting"
-  "cocoa-powder"
-  "brownie"
-  "cinnamon-sugar"
-  "cinnamon-sugar-doughnut"
-  "chocolate-chip-batter"
-  "chocolate-chip-cookie"
-  "blueberry-pie"
-  "blueberry-pie-cooked"
-  "strawberry-pie"
-  "strawberry-pie-cooked"
+  "egg",
+  "cow",
+  "breed-cow",
+  "frosting",
+  "cocoa-powder",
+  "brownie",
+  "cinnamon-sugar",
+  "cinnamon-sugar-doughnut",
+  "chocolate-chip-batter",
+  "chocolate-chip-cookie",
+  "blueberry-pie",
+  "blueberry-pie-cooked",
+  "strawberry-pie",
+  "strawberry-pie-cooked",
   "soda-ash",
   "baking-soda",
   "plain-ice-cream",
@@ -53,7 +53,7 @@ data:extend(
         },
         {
             type = "recipe",
-            name = "cheese"
+            name = "cheese",
             localised_name = {"item-name.cheese"},
             subgroup = "ingredient",
             categories = {"chemistry"}, 
@@ -72,7 +72,7 @@ data:extend(
         },
         {
             type = "recipe",
-            name = "greenhouse"
+            name = "greenhouse",
             localised_name = {"item-name.greenhouse"},
             categories = {"crafting"}, 
             subgroup = "production-machine",
@@ -91,7 +91,7 @@ data:extend(
         },
         {
             type = "recipe",
-            name = "organic-synthesizer"
+            name = "organic-synthesizer",
             localised_name = {"item-name.organic-synthesizer"},
             categories = {"crafting"}, 
             subgroup = "production-machine",
@@ -110,7 +110,7 @@ data:extend(
         },
         {
             type = "recipe",
-            name = "hardtack"
+            name = "hardtack",
             localised_name = {"item-name.hardtack"},
             categories = {"smelting"}, 
             subgroup = "bread",
@@ -126,7 +126,7 @@ data:extend(
             icon_size = 32,
         },{
             type = "recipe",
-            name = "salted-hardtack"
+            name = "salted-hardtack",
             localised_name = {"item-name.salted-hardtack"},
             categories = {"crafting"}, 
             subgroup = "bread",
@@ -147,7 +147,7 @@ data:extend(
         },
         {
             type = "recipe",
-            name = "chicken"
+            name = "chicken",
             localised_name = {"item-name.chicken"},
             order = "c",
             categories = {"organic-synth-recipes"}, 
@@ -185,7 +185,7 @@ data:extend(
         },
         {
             type = "recipe",
-            name = "egg"
+            name = "egg",
             localised_name = {"item-name.egg"},
             order = "e",
             categories = {"greenhouse-recipes"}, 
@@ -205,7 +205,7 @@ data:extend(
         },
         {
             type = "recipe",
-            name = "cow"
+            name = "cow",
             localised_name = {"item-name.cow"},
             order = "e",
             categories = {"organic-synth-recipes"}, 
@@ -223,7 +223,7 @@ data:extend(
         },
         {
             type = "recipe",
-            name = "breed-cow"
+            name = "breed-cow",
             order = "f",
             categories = {"organic-synth-recipes"}, 
             subgroup = "seeds",
@@ -241,7 +241,7 @@ data:extend(
         },
         {
             type = "recipe",
-            name = "frosting"
+            name = "frosting",
             localised_name = {"item-name.frosting"},
             categories = {"crafting-with-fluid"}, 
             subgroup = "ingredient",
@@ -260,7 +260,7 @@ data:extend(
         },
         {
             type = "recipe",
-            name = "cocoa-powder"
+            name = "cocoa-powder",
             localised_name = {"item-name.cocoa-powder"},
             categories = {"crafting"}, 
             subgroup = "ingredient",
@@ -278,7 +278,7 @@ data:extend(
         },
         {
             type = "recipe",
-            name = "brownie"
+            name = "brownie",
             localised_name = {"item-name.brownie"},
             categories = {"smelting"}, 
             subgroup = "chocolate",
@@ -295,7 +295,7 @@ data:extend(
         },
         {
             type = "recipe",
-            name = "cinnamon-sugar"
+            name = "cinnamon-sugar",
             localised_name = {"item-name.cinnamon-sugar"},
             categories = {"crafting"}, 
             subgroup = "ingredient",
@@ -314,7 +314,7 @@ data:extend(
         },
         {
             type = "recipe",
-            name = "cinnamon-sugar-doughnut"
+            name = "cinnamon-sugar-doughnut",
             localised_name = {"item-name.cinnamon-sugar-doughnut"},
             categories = {"crafting"}, 
             subgroup = "bread",
@@ -340,7 +340,7 @@ data:extend(
         },
         {
             type = "recipe",
-            name = "chocolate-chip-batter"
+            name = "chocolate-chip-batter",
             localised_name = {"item-name.chocolate-chip-batter"},
             categories = {"crafting"}, 
             subgroup = "ingredient",
@@ -358,7 +358,7 @@ data:extend(
         },
         {
             type = "recipe",
-            name = "chocolate-chip-cookie"
+            name = "chocolate-chip-cookie",
             localised_name = {"item-name.chocolate-chip-cookie"},
             categories = {"smelting"}, 
             subgroup = "chocolate",
@@ -375,7 +375,7 @@ data:extend(
         },
         {
             type = "recipe",
-            name = "blueberry-pie"
+            name = "blueberry-pie",
             localised_name = {"item-name.blueberry-pie"},
             categories = {"crafting"}, 
             subgroup = "ingredient",
@@ -391,7 +391,7 @@ data:extend(
         },
         {
             type = "recipe",
-            name = "blueberry-pie-cooked"
+            name = "blueberry-pie-cooked",
             localised_name = {"item-name.blueberry-pie-cooked"},
             categories = {"smelting"}, 
             subgroup = "fruit",
@@ -406,7 +406,7 @@ data:extend(
         },
         {
             type = "recipe",
-            name = "strawberry-pie"
+            name = "strawberry-pie",
             localised_name = {"item-name.strawberry-pie"},
             categories = {"crafting"}, 
             subgroup = "ingredient",
@@ -422,7 +422,7 @@ data:extend(
         },
         {
             type = "recipe",
-            name = "strawberry-pie-cooked"
+            name = "strawberry-pie-cooked",
             localised_name = {"item-name.strawberry-pie-cooked"},
             categories = {"smelting"}, 
             subgroup = "fruit",

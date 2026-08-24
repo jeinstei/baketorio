@@ -172,7 +172,7 @@ data:extend{
     },
     {
         type = "recipe",
-        name = "wheat"
+        name = "wheat",
         localised_name = {"item-name.wheat"},
         categories = {"greenhouse-recipes"}, 
         subgroup = "ingredient",
@@ -192,7 +192,7 @@ data:extend{
     },
     {
         type = "recipe",
-        name = "flour"
+        name = "flour",
         localised_name = {"item-name.flour"},
         order="b",
         categories = {"crafting"}, 
@@ -210,7 +210,7 @@ data:extend{
     },
     {
         type = "recipe",
-        name = "sugar"
+        name = "sugar",
         localised_name = {"item-name.sugar"},
         order="d",
         categories = {"crafting"}, 
@@ -228,7 +228,7 @@ data:extend{
     },
     {
         type = "recipe",
-        name = "sugarcane"
+        name = "sugarcane",
         localised_name = {"item-name.sugarcane"},
         order="c",
         categories = {"greenhouse-recipes"}, 
@@ -285,7 +285,7 @@ data:extend{
     },
     {
         type = "recipe",
-        name = "cocoa-beans"
+        name = "cocoa-beans",
         localised_name = {"item-name.cocoa-beans"},
         order="h",
         categories = {"greenhouse-recipes"}, 
@@ -324,7 +324,7 @@ data:extend{
     },
     {
         type = "recipe",
-        name = "cinnamon"
+        name = "cinnamon",
         localised_name = {"item-name.cinnamon"},
         categories = {"greenhouse-recipes"}, 
         subgroup = "ingredient",
@@ -363,7 +363,7 @@ data:extend{
     },
     {
         type = "recipe",
-        name = "blueberries"
+        name = "blueberries",
         localised_name = {"item-name.blueberries"},
         categories = {"greenhouse-recipes"}, 
         subgroup = "ingredient",
@@ -402,7 +402,7 @@ data:extend{
     },
     {
         type = "recipe",
-        name = "strawberries"
+        name = "strawberries",
         localised_name = {"item-name.strawberries"},
         categories = {"greenhouse-recipes"}, 
         subgroup = "ingredient",

@@ -7,8 +7,8 @@ data:extend {
     prerequisites = {"automation"},
     effects =
     {
-      {type = "unlock-recipe",recipe = "basic-dough",
-      {type = "unlock-recipe",recipe = "basic-bread",
+      {type = "unlock-recipe",recipe = "basic-dough"},
+      {type = "unlock-recipe",recipe = "basic-bread"},
     },
     unit =
     {
@@ -27,11 +27,11 @@ data:extend {
     prerequisites = {"leavening"},
     effects =
     {
-      {type = "unlock-recipe",recipe = "sugarcane",
+      {type = "unlock-recipe",recipe = "sugarcane"},
       {type = "unlock-recipe",recipe = "sugarcane-seeds"},
-      {type = "unlock-recipe",recipe = "sugar",
-      {type = "unlock-recipe",recipe = "sugar-dough",
-      {type = "unlock-recipe",recipe = "sugar-bread",
+      {type = "unlock-recipe",recipe = "sugar"},
+      {type = "unlock-recipe",recipe = "sugar-dough"},
+      {type = "unlock-recipe",recipe = "sugar-bread"},
     },
     unit =
     {
@@ -50,13 +50,13 @@ data:extend {
     prerequisites = {"animal-husbandry","sugar"},
     effects =
     {
-      {type = "unlock-recipe",recipe = "basic-batter",
-      {type = "unlock-recipe",recipe = "basic-batter-cake",
-      {type = "unlock-recipe",recipe = "basic-batter-cake-cooked",
-      {type = "unlock-recipe",recipe = "basic-batter-cake-cooked-frosted",
-      {type = "unlock-recipe",recipe = "basic-batter-cupcake",
-      {type = "unlock-recipe",recipe = "basic-batter-cupcake-cooked",
-      {type = "unlock-recipe",recipe = "basic-batter-cupcake-cooked-frosted",
+      {type = "unlock-recipe",recipe = "basic-batter"},
+      {type = "unlock-recipe",recipe = "basic-batter-cake"},
+      {type = "unlock-recipe",recipe = "basic-batter-cake-cooked"},
+      {type = "unlock-recipe",recipe = "basic-batter-cake-cooked-frosted"},
+      {type = "unlock-recipe",recipe = "basic-batter-cupcake"},
+      {type = "unlock-recipe",recipe = "basic-batter-cupcake-cooked"},
+      {type = "unlock-recipe",recipe = "basic-batter-cupcake-cooked-frosted"},
     },
     unit =
     {
@@ -76,10 +76,10 @@ data:extend {
     effects =
     {
 
-      {type = "unlock-recipe",recipe = "fryer-dough",
-      {type = "unlock-recipe",recipe = "fryer-dough-doughnut",
-      {type = "unlock-recipe",recipe = "fryer-dough-doughnut-cooked",
-      {type = "unlock-recipe",recipe = "fryer-dough-doughnut-cooked-frosted",
+      {type = "unlock-recipe",recipe = "fryer-dough"},
+      {type = "unlock-recipe",recipe = "fryer-dough-doughnut"},
+      {type = "unlock-recipe",recipe = "fryer-dough-doughnut-cooked"},
+      {type = "unlock-recipe",recipe = "fryer-dough-doughnut-cooked-frosted"},
     },
     unit =
     {
@@ -146,8 +146,8 @@ data:extend {
         type = "unlock-recipe",
         recipe = "breed-cow"
       },
-      {type = "unlock-recipe",recipe = "egg-dough",
-      {type = "unlock-recipe",recipe = "egg-bread",
+      {type = "unlock-recipe",recipe = "egg-dough"},
+      {type = "unlock-recipe",recipe = "egg-bread"},
 
     },
     unit =
@@ -179,17 +179,17 @@ data:extend {
         type = "unlock-recipe",
         recipe = "cocoa-powder"
       },
-      {type = "unlock-recipe",recipe = "chocolate-batter",
-      {type = "unlock-recipe",recipe = "chocolate-batter-cake",
-      {type = "unlock-recipe",recipe = "chocolate-batter-cake-cooked",
-      {type = "unlock-recipe",recipe = "chocolate-batter-cake-cooked-frosted",
-      {type = "unlock-recipe",recipe = "chocolate-batter-cupcake",
-      {type = "unlock-recipe",recipe = "chocolate-batter-cupcake-cooked",
-      {type = "unlock-recipe",recipe = "chocolate-batter-cupcake-cooked-frosted",
-      {type = "unlock-recipe",recipe = "chocolate-batter-doughnut",
-      {type = "unlock-recipe",recipe = "chocolate-batter-doughnut-cooked",
-      {type = "unlock-recipe",recipe = "chocolate-batter-doughnut-cooked-frosted",
-      {type = "unlock-recipe",recipe = "brownie",
+      {type = "unlock-recipe",recipe = "chocolate-batter"},
+      {type = "unlock-recipe",recipe = "chocolate-batter-cake"},
+      {type = "unlock-recipe",recipe = "chocolate-batter-cake-cooked"},
+      {type = "unlock-recipe",recipe = "chocolate-batter-cake-cooked-frosted"},
+      {type = "unlock-recipe",recipe = "chocolate-batter-cupcake"},
+      {type = "unlock-recipe",recipe = "chocolate-batter-cupcake-cooked"},
+      {type = "unlock-recipe",recipe = "chocolate-batter-cupcake-cooked-frosted"},
+      {type = "unlock-recipe",recipe = "chocolate-batter-doughnut"},
+      {type = "unlock-recipe",recipe = "chocolate-batter-doughnut-cooked"},
+      {type = "unlock-recipe",recipe = "chocolate-batter-doughnut-cooked-frosted"},
+      {type = "unlock-recipe",recipe = "brownie"},
     },
     unit =
     {
@@ -209,10 +209,10 @@ data:extend {
     prerequisites = {"logistic-science-pack"},
     effects =
     {
-      {type = "unlock-recipe",recipe = "cheese",
-      {type = "unlock-recipe",recipe = "cheese-batter",
-      {type = "unlock-recipe",recipe = "cheese-batter-cake",
-      {type = "unlock-recipe",recipe = "cheese-batter-cake-cooked",
+      {type = "unlock-recipe",recipe = "cheese"},
+      {type = "unlock-recipe",recipe = "cheese-batter"},
+      {type = "unlock-recipe",recipe = "cheese-batter-cake"},
+      {type = "unlock-recipe",recipe = "cheese-batter-cake-cooked"},
     },
     unit =
     {
@@ -232,15 +232,15 @@ data:extend {
     prerequisites = {"chemical-science-pack"},
     effects =
     {
-      {type = "unlock-recipe",recipe = "cinnamon",
+      {type = "unlock-recipe",recipe = "cinnamon"},
       {type = "unlock-recipe",recipe = "cinnamon-seeds"},
-      {type = "unlock-recipe",recipe = "cinnamon-sugar",
-      {type = "unlock-recipe",recipe = "fryer-dough-bun",
-      {type = "unlock-recipe",recipe = "fryer-dough-bun-cooked",
-      {type = "unlock-recipe",recipe = "fryer-dough-bun-cooked-frosted",
-      {type = "unlock-recipe",recipe = "cinnamon-dough",
-      {type = "unlock-recipe",recipe = "cinnamon-bread",
-      {type = "unlock-recipe",recipe = "cinnamon-sugar-doughnut",
+      {type = "unlock-recipe",recipe = "cinnamon-sugar"},
+      {type = "unlock-recipe",recipe = "fryer-dough-bun"},
+      {type = "unlock-recipe",recipe = "fryer-dough-bun-cooked"},
+      {type = "unlock-recipe",recipe = "fryer-dough-bun-cooked-frosted"},
+      {type = "unlock-recipe",recipe = "cinnamon-dough"},
+      {type = "unlock-recipe",recipe = "cinnamon-bread"},
+      {type = "unlock-recipe",recipe = "cinnamon-sugar-doughnut"},
     },
     unit =
     {
@@ -260,16 +260,16 @@ data:extend {
     prerequisites = {"nutrient5"},
     effects =
     {
-      {type = "unlock-recipe",recipe = "blueberries",
+      {type = "unlock-recipe",recipe = "blueberries"},
       {type = "unlock-recipe",recipe = "blueberry-seeds"},
-      {type = "unlock-recipe",recipe = "blueberry-batter",
-      {type = "unlock-recipe",recipe = "blueberry-batter-doughnut",
-      {type = "unlock-recipe",recipe = "blueberry-batter-doughnut-cooked",
-      {type = "unlock-recipe",recipe = "blueberry-batter-scone",
-      {type = "unlock-recipe",recipe = "blueberry-batter-scone-cooked",
-      {type = "unlock-recipe",recipe = "blueberry-batter-scone-cooked-frosted",
-      {type = "unlock-recipe",recipe = "blueberry-batter-muffin",
-      {type = "unlock-recipe",recipe = "blueberry-batter-muffin-cooked",
+      {type = "unlock-recipe",recipe = "blueberry-batter"},
+      {type = "unlock-recipe",recipe = "blueberry-batter-doughnut"},
+      {type = "unlock-recipe",recipe = "blueberry-batter-doughnut-cooked"},
+      {type = "unlock-recipe",recipe = "blueberry-batter-scone"},
+      {type = "unlock-recipe",recipe = "blueberry-batter-scone-cooked"},
+      {type = "unlock-recipe",recipe = "blueberry-batter-scone-cooked-frosted"},
+      {type = "unlock-recipe",recipe = "blueberry-batter-muffin"},
+      {type = "unlock-recipe",recipe = "blueberry-batter-muffin-cooked"},
     },
     unit =
     {
@@ -290,7 +290,7 @@ data:extend {
     prerequisites = {"utility-science-pack"},
     effects =
     {
-      {type = "unlock-recipe",recipe = "strawberries",
+      {type = "unlock-recipe",recipe = "strawberries"},
       {type = "unlock-recipe",recipe = "strawberry-seeds"},
     },
     unit =
@@ -312,8 +312,8 @@ data:extend {
     prerequisites = {"utility-science-pack"},
     effects =
     {
-      {type = "unlock-recipe",recipe = "chocolate-chip-batter",
-      {type = "unlock-recipe",recipe = "chocolate-chip-cookie",
+      {type = "unlock-recipe",recipe = "chocolate-chip-batter"},
+      {type = "unlock-recipe",recipe = "chocolate-chip-cookie"},
     },
     unit =
     {
@@ -337,13 +337,13 @@ data:extend {
     {
       {type = "unlock-recipe",recipe = "soda-ash"},
       {type = "unlock-recipe",recipe = "baking-soda"},
-      {type = "unlock-recipe",recipe = "advanced-cake-batter",
-      {type = "unlock-recipe",recipe = "advanced-cake-batter-cake",
-      {type = "unlock-recipe",recipe = "advanced-cake-batter-cake-cooked",
-      {type = "unlock-recipe",recipe = "advanced-cake-batter-cake-cooked-frosted",
-      {type = "unlock-recipe",recipe = "advanced-cake-batter-cupcake",
-      {type = "unlock-recipe",recipe = "advanced-cake-batter-cupcake-cooked",
-      {type = "unlock-recipe",recipe = "advanced-cake-batter-cupcake-cooked-frosted",
+      {type = "unlock-recipe",recipe = "advanced-cake-batter"},
+      {type = "unlock-recipe",recipe = "advanced-cake-batter-cake"},
+      {type = "unlock-recipe",recipe = "advanced-cake-batter-cake-cooked"},
+      {type = "unlock-recipe",recipe = "advanced-cake-batter-cake-cooked-frosted"},
+      {type = "unlock-recipe",recipe = "advanced-cake-batter-cupcake"},
+      {type = "unlock-recipe",recipe = "advanced-cake-batter-cupcake-cooked"},
+      {type = "unlock-recipe",recipe = "advanced-cake-batter-cupcake-cooked-frosted"},
     },
     unit =
     {
@@ -388,10 +388,10 @@ data:extend {
     prerequisites = {"strawberries"},
     effects =
     {
-      {type = "unlock-recipe",recipe = "blueberry-pie",
-      {type = "unlock-recipe",recipe = "strawberry-pie",
-      {type = "unlock-recipe",recipe = "blueberry-pie-cooked",
-      {type = "unlock-recipe",recipe = "strawberry-pie-cooked",
+      {type = "unlock-recipe",recipe = "blueberry-pie"},
+      {type = "unlock-recipe",recipe = "strawberry-pie"},
+      {type = "unlock-recipe",recipe = "blueberry-pie-cooked"},
+      {type = "unlock-recipe",recipe = "strawberry-pie-cooked"},
     },
     unit =
     {
