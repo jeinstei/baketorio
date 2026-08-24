@@ -54,11 +54,9 @@ script.on_event(defines.events.on_research_finished, function (event)
                     end
                 end
                 if numGood == rIngSize then
-                    print("Enabling recipe " .. rRecipe.name)
                     rRecipe.enabled = true
                     fMissing[rRecipe.name] = nil
                 else
-                    print("Disabling recipe " .. rRecipe.name)
                     rRecipe.enabled = false
                     fMissing[rRecipe.name] = true
                 end
