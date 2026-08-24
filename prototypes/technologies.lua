@@ -104,11 +104,11 @@ data:extend {
       },
       {
         type = "unlock-recipe",
-        recipe = "egg-recipe"
+        recipe = "egg"
       },
       {
         type = "unlock-recipe",
-        recipe = "chicken-recipe"
+        recipe = "chicken"
       },
       {
         type = "unlock-recipe",
@@ -116,11 +116,11 @@ data:extend {
       },
       {
         type = "unlock-recipe",
-        recipe = "cow-recipe"
+        recipe = "cow"
       },
       {
         type = "unlock-recipe",
-        recipe = "u-milk-recipe"
+        recipe = "unpasteurized-milk"
       },
       {
         type = "unlock-recipe",
@@ -132,7 +132,7 @@ data:extend {
       },
       {
         type = "unlock-recipe",
-        recipe = "frosting-recipe"
+        recipe = "frosting"
       },
       {
         type = "unlock-recipe",
@@ -144,7 +144,7 @@ data:extend {
       },
       {
         type = "unlock-recipe",
-        recipe = "breed-cow-recipe"
+        recipe = "breed-cow"
       },
       {type = "unlock-recipe",recipe = "egg-dough",
       {type = "unlock-recipe",recipe = "egg-bread",
@@ -173,11 +173,11 @@ data:extend {
       },
       {
         type = "unlock-recipe",
-        recipe = "cocoa-beans-recipe"
+        recipe = "cocoa-beans"
       },
       {
         type = "unlock-recipe",
-        recipe = "cocoa-powder-recipe"
+        recipe = "cocoa-powder"
       },
       {type = "unlock-recipe",recipe = "chocolate-batter",
       {type = "unlock-recipe",recipe = "chocolate-batter-cake",

@@ -132,17 +132,17 @@ data:extend(
 -- Add recipe names here to add them to productivity modules
 local prod_recipes = {
   "wheat-seeds",
-  "wheat"
-  "flour"
-  "sugar"
-  "sugarcane"
+  "wheat",
+  "flour",
+  "sugar",
+  "sugarcane",
   "sugarcane-seeds",
   "cocoa-bean-seeds",
-  "cocoa-beans"
+  "cocoa-beans",
   "cinnamon-seeds",
-  "cinnamon"
+  "cinnamon",
   "blueberry-seeds",
-  "blueberries"
+  "blueberries",
   "strawberry-seeds",
   "strawberries"
 }

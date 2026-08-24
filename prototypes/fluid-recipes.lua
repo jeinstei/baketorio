@@ -1,9 +1,9 @@
 -- Add recipe names here to add them to productivity modules
 local prod_recipes = {
-  "u-milk"
-  "milk-filtering",
-  "milk-pasteurization",
-  "butter-churning",
+    "unpasteurized-milk",
+    "milk-filtering",
+    "milk-pasteurization",
+    "butter-churning"
 }
 
 -- for _, v in ipairs(prod_recipes) do
@@ -14,7 +14,7 @@ data:extend(
     {
         {
             type = "recipe",
-            name = "u-milk"
+            name = "unpasteurized-milk"
             localised_name = {"fluid-name.unpasteurized-milk"},
             categories = {"greenhouse-recipes"}, 
             subgroup = "fluid-recipes",
