@@ -137,6 +137,7 @@ function baketorio.makeRecipe(name,amount,ingredients,c)
             categories = {"crafting"}, 
             order= name .."-".. amount,
             subgroup="nutrients",
+            allow_productivity = true,
             enabled = false,
             ingredients = ingredients,
             results = {
@@ -146,9 +147,7 @@ function baketorio.makeRecipe(name,amount,ingredients,c)
             icon_size=iconSize
         }
     }
-
-    -- Allow productivity modules for nutrients
-    baketorio.add_to_prod_mod(recipe_name)
+    -- baketorio.add_to_prod_mod(recipe_name)
 
     table.insert(data.raw.technology[name].effects,{
         type = "unlock-recipe",
@@ -211,19 +210,19 @@ end
 function baketorio.build_nutrient_items(nutrient_table)
     for k, v in pairs(nutrient_table)
     do
-        data:extend(
-            {
-                {
-                    type = "item",
+data:extend(
+    {
+        {
+            type = "item",
                     name = k,
                     localised_name = {"nutrient-name." .. k},
                     icon = baketorio.get_png(k),
-                    icon_size = 32,
-                    subgroup = "nutrients",
-                    stack_size = 100
-                },
-            }
-        )
+            icon_size = 32,
+            subgroup = "nutrients",
+            stack_size = 100
+        },
+    }
+)
     end
 end
 

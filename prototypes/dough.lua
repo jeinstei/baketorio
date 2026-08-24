@@ -108,6 +108,7 @@ for key,value in pairs(doughs) do
         localised_name = {"item-name." .. value.name},
         categories = {"crafting-with-fluid"}, 
         subgroup = "ingredient",
+        allow_productivity = true,
         energy_required = 1,
         enabled = false,
         ingredients = value.ingredients,
@@ -134,6 +135,7 @@ for key,value in pairs(doughs) do
         localised_name = {"item-name." .. item.name},
         categories = {"smelting"}, 
         subgroup = "bread",
+        allow_productivity = true,
         energy_required = 2,
         enabled = false,
         ingredients = {
@@ -148,8 +150,8 @@ for key,value in pairs(doughs) do
     dataToAdd[#dataToAdd+1] = dough_recipe;
     dataToAdd[#dataToAdd+1] = item;
 
-	baketorio.add_to_prod_mod(bread_recipe.name);
-	baketorio.add_to_prod_mod(dough_recipe.name);
+	-- baketorio.add_to_prod_mod(bread_recipe.name);
+	-- baketorio.add_to_prod_mod(dough_recipe.name);
 end
 
 data:extend(dataToAdd)

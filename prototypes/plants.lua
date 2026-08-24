@@ -147,9 +147,9 @@ local prod_recipes = {
   "strawberries-recipe",
 }
 
-for _, v in ipairs(prod_recipes) do
-	baketorio.add_to_prod_mod(v)
-end
+-- for _, v in ipairs(prod_recipes) do
+-- 	baketorio.add_to_prod_mod(v)
+-- end
 
 data:extend{
     {
@@ -423,3 +423,7 @@ data:extend{
     },
 
 }
+
+for _, v in ipairs(prod_recipes) do
+	data.raw.recipe[v].allow_productivity = true
+end
