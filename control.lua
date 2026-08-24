@@ -28,10 +28,10 @@ script.on_event(defines.events.on_research_finished, function (event)
 
     -- Create global storage to speed up processing
     if (not storage.missingIngredientNutrients) then storage.missingIngredientNutrients = {} end
-    if (not storage.missingIngredientNutrients[rForce]) then storage.missingIngredientNutrients[rforce] = {} end
+    if (not storage.missingIngredientNutrients[rForce.name]) then storage.missingIngredientNutrients[rForce.name] = {} end
 
     -- Local reference to global storage
-    local fMissing = storage.missingIngredientNutrients[rForce]
+    local fMissing = storage.missingIngredientNutrients[rForce.name]
 
     if string_starts_with(event.research.name, "nutrient") then
         local rEffects = event.research.prototype.effects
@@ -54,9 +54,11 @@ script.on_event(defines.events.on_research_finished, function (event)
                     end
                 end
                 if numGood == rIngSize then
+                    print("Enabling recipe " .. rRecipe.name)
                     rRecipe.enabled = true
                     fMissing[rRecipe.name] = nil
                 else
+                    print("Disabling recipe " .. rRecipe.name)
                     rRecipe.enabled = false
                     fMissing[rRecipe.name] = true
                 end
@@ -64,7 +66,7 @@ script.on_event(defines.events.on_research_finished, function (event)
         end
     else
         -- If not a nutrient recipe, check if any deactivated nutrinent recipes are now valid
-        for nutrRecipe, v in pairs(fMissing)
+        for nutrRecipe, _ in pairs(fMissing)
         do
             local rRecipe = rForce.recipes[nutrRecipe]
             local rIngredients = rRecipe.ingredients
