@@ -112,7 +112,7 @@ data:extend {
       },
       {
         type = "unlock-recipe",
-        recipe = "chicken-recipe-egg"
+        recipe = "chicken-egg"
       },
       {
         type = "unlock-recipe",

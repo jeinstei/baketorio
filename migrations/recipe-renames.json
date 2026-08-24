@@ -315,6 +315,10 @@
         [
             "chicken-recipe",
             "chicken"
+        ],
+        [
+            "chicken-recipe-egg",
+            "chicken-egg"
         ]
     ]
 }

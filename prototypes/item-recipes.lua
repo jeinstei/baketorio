@@ -7,7 +7,7 @@ local prod_recipes = {
   "hardtack",
   "salted-hardtack",
   "chicken",
-  "chicken-recipe-egg",
+  "chicken-egg",
   "egg",
   "cow",
   "breed-cow",
@@ -165,7 +165,7 @@ data:extend(
         },
         {
             type = "recipe",
-            name = "chicken-recipe-egg",
+            name = "chicken-egg",
             order = "d",
             categories = {"organic-synth-recipes"}, 
             subgroup = "seeds",
