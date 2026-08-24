@@ -251,6 +251,7 @@ for key,shape in pairs(shapes) do
         localised_name = {"item-name." .. uncooked_shape.name},
         categories = {"crafting"},
         subgroup = "ingredient",
+        allow_productivity = true,
         energy_required = 2,
         enabled = false,
         ingredients = {
@@ -284,6 +285,7 @@ for key,shape in pairs(shapes) do
         localised_name = {"item-name." .. cooked_shape.name},
         categories = {"smelting"}, 
         subgroup = b.subgroup,
+        allow_productivity = true,
         energy_required = 10,
         enabled = false,
         ingredients = {
@@ -302,8 +304,8 @@ for key,shape in pairs(shapes) do
         cooked_shape_recipe
     })
 
-	baketorio.add_to_prod_mod(uncooked_shape_recipe.name)
-	baketorio.add_to_prod_mod(cooked_shape_recipe.name)
+	-- baketorio.add_to_prod_mod(uncooked_shape_recipe.name)
+	-- baketorio.add_to_prod_mod(cooked_shape_recipe.name)
 
     if(shape.frosted_mod ~= nil) then
         local cooked_shape_frosted = {
@@ -323,6 +325,7 @@ for key,shape in pairs(shapes) do
             localised_name = {"item-name." .. cooked_shape_frosted.name},
             categories = {"crafting"}, 
             subgroup = b.subgroup,
+            allow_productivity = true,
             energy_required = 2,
             enabled = false,
             ingredients = {
@@ -339,6 +342,6 @@ for key,shape in pairs(shapes) do
             cooked_shape_frosted,
             cooked_shape_frosted_recipe
         })
-		baketorio.add_to_prod_mod(cooked_shape_frosted_recipe.name)
+		-- baketorio.add_to_prod_mod(cooked_shape_frosted_recipe.name)
     end
 end
