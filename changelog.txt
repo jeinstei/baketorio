@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.0.18
+Date: 2026.08.
+  Locale:
+    - Updates to      translations from CrowdIn
+  Changes:
+    - Changed nutrient tech and item building and handling
+---------------------------------------------------------------------------------------------------
 Version: 2.0.17
 Date: 2026.08.21
   Locale:

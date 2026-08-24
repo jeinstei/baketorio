@@ -1,6 +1,9 @@
 # Compiled Lua sources
 luac.out
 
+# emmylua files
+.luarc.json
+
 # luarocks build files
 *.src.rock
 *.zip
@@ -39,5 +42,6 @@ luac.out
 *.x86_64
 *.hex
 
+# Folders
 .DS_Store
 .vscode
