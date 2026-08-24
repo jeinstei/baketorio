@@ -97,7 +97,7 @@ for key,value in pairs(batter) do
         },
         {
             type="recipe",
-            name= (value.name),
+            name= value.name,
             localised_name = {"item-name." .. value.name},
             categories = {"crafting-with-fluid"},
             subgroup = "ingredient",
