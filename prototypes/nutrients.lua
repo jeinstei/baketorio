@@ -11,10 +11,10 @@ local lowerRight = {adjustSize,adjustSize}
 local overlayOffsets = {upperLeft, upperRight, lowerLeft, lowerRight}
 
 -- Definition of nutrient techs
-local nutrient_tech_table_lookup = {}
-nutrient_tech_table_lookup["nutrient1"] =  {
+baketorio.nutrient_tech_table = {}
+baketorio.nutrient_tech_table["nutrient1"] = {
     tastiness = 3,
-    prerequisites = {"leavening"},
+    prerequisites = {"automation-science-pack"},
     unit = {
         count = 10,
         ingredients = {
@@ -23,17 +23,17 @@ nutrient_tech_table_lookup["nutrient1"] =  {
         time = 30,
     },
 }
-nutrient_tech_table_lookup["nutrient2"] =  {
+baketorio.nutrient_tech_table["nutrient2"] = {
     tastiness = 5,
     prerequisites = {"leavening"},
-    unit = {count = 10,
+    unit = {count = 20,
         ingredients = {
         {"automation-science-pack", 1}
     },
         time = 30,
     }
 }
-nutrient_tech_table_lookup["nutrient3"] =  {
+baketorio.nutrient_tech_table["nutrient3"] = {
     tastiness = 7,
     prerequisites = {"leavening"},
     unit = {count = 30,
@@ -43,7 +43,7 @@ nutrient_tech_table_lookup["nutrient3"] =  {
         time = 30,
     }
 }
-nutrient_tech_table_lookup["nutrient4"] =  {
+baketorio.nutrient_tech_table["nutrient4"] = {
     tastiness = 12,
     prerequisites = {"logistic-science-pack"},
     unit = {count = 150,
@@ -54,7 +54,7 @@ nutrient_tech_table_lookup["nutrient4"] =  {
         time = 30,
     }
 }
-nutrient_tech_table_lookup["nutrient5"] = {
+baketorio.nutrient_tech_table["nutrient5"] = {
     tastiness = 17,
     prerequisites = {"chemical-science-pack"},
     unit = {
@@ -67,7 +67,7 @@ nutrient_tech_table_lookup["nutrient5"] = {
         time = 30,
     }
 }
-nutrient_tech_table_lookup["nutrient6"] = {
+baketorio.nutrient_tech_table["nutrient6"] = {
     tastiness = 25,
     prerequisites = {"production-science-pack"},
     unit = {
@@ -81,7 +81,7 @@ nutrient_tech_table_lookup["nutrient6"] = {
         time = 30
     }
 }
-nutrient_tech_table_lookup["nutrient7"] = {
+baketorio.nutrient_tech_table["nutrient7"] = {
     tastiness = 30,
     prerequisites = {"rocket-silo"},
     unit = {
@@ -386,7 +386,7 @@ end
 -- Used primarily to allow for a rebuild based on other mods that might use the tastiness field
 function baketorio.clear_nutrient_recipes(max_level)
     -- Remove recipe unlocks from nutrient technologies for clean slate
-    for k, v in pairs(nutrient_tech_table_lookup)
+    for k, v in pairs(baketorio.nutrient_tech_table)
     do
         data.raw["technology"][k].effects = {}
     end
@@ -400,7 +400,7 @@ function baketorio.clear_nutrient_recipes(max_level)
 end
 
 -- baketorio.getNutrientListFromData()
-baketorio.verify_nutrient_table(nutrient_tech_table_lookup)
-baketorio.build_nutrient_items(nutrient_tech_table_lookup)
-baketorio.build_nutrient_techs(nutrient_tech_table_lookup)
-baketorio.build_nutrient_recipes(nutrient_tech_table_lookup)
+baketorio.verify_nutrient_table(baketorio.nutrient_tech_table)
+baketorio.build_nutrient_items(baketorio.nutrient_tech_table)
+baketorio.build_nutrient_techs(baketorio.nutrient_tech_table)
+baketorio.build_nutrient_recipes(baketorio.nutrient_tech_table)

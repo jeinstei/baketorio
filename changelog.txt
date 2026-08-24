@@ -1,10 +1,16 @@
 ---------------------------------------------------------------------------------------------------
-Version: 2.0.18
+Version: 2.1.0
 Date: 2026.08.
   Locale:
+    - Updates to files due to changes in recipe names
     - Updates to      translations from CrowdIn
+  Features:
+    - Auto-hiding of nutrient recipes based on if the ingredients can be crafted
   Changes:
+    - nutrient1 technology not enabled on startup and has automation science pack as prerequisite
+    - Adjusted cost of nutrient2 technology
     - Changed nutrient tech and item building and handling
+    - Renamed recipes internally for better Factoriopedia display
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.17
 Date: 2026.08.21
