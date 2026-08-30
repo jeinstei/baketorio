@@ -3,98 +3,101 @@ local iconSize = 32
 local overlayScale = 0.5
 
 local adjustSize = iconSize / 4
-local upperLeft = {-adjustSize,-adjustSize}
-local upperRight = {adjustSize,-adjustSize}
-local lowerLeft = {-adjustSize,adjustSize}
-local lowerRight = {adjustSize,adjustSize}
+local upperLeft = { -adjustSize, -adjustSize }
+local upperRight = { adjustSize, -adjustSize }
+local lowerLeft = { -adjustSize, adjustSize }
+local lowerRight = { adjustSize, adjustSize }
 
-local overlayOffsets = {upperLeft, upperRight, lowerLeft, lowerRight}
+local overlayOffsets = { upperLeft, upperRight, lowerLeft, lowerRight }
 
 -- Definition of nutrient techs
 baketorio.nutrient_tech_table = {}
 baketorio.nutrient_tech_table["nutrient1"] = {
     tastiness = 3,
-    prerequisites = {"automation-science-pack"},
+    prerequisites = { "automation-science-pack" },
     unit = {
         count = 10,
         ingredients = {
-        {"automation-science-pack", 1}
-    },
+            { "automation-science-pack", 1 }
+        },
         time = 30,
     },
 }
 baketorio.nutrient_tech_table["nutrient2"] = {
     tastiness = 5,
-    prerequisites = {"leavening"},
-    unit = {count = 20,
+    prerequisites = { "leavening" },
+    unit = {
+        count = 20,
         ingredients = {
-        {"automation-science-pack", 1}
-    },
+            { "automation-science-pack", 1 }
+        },
         time = 30,
     }
 }
 baketorio.nutrient_tech_table["nutrient3"] = {
     tastiness = 7,
-    prerequisites = {"leavening"},
-    unit = {count = 30,
+    prerequisites = { "leavening" },
+    unit = {
+        count = 30,
         ingredients = {
-        {"automation-science-pack", 1}
-    },
+            { "automation-science-pack", 1 }
+        },
         time = 30,
     }
 }
 baketorio.nutrient_tech_table["nutrient4"] = {
     tastiness = 12,
-    prerequisites = {"logistic-science-pack"},
-    unit = {count = 150,
+    prerequisites = { "logistic-science-pack" },
+    unit = {
+        count = 150,
         ingredients = {
-        {"automation-science-pack", 1},
-        {"logistic-science-pack", 1}
-    },
+            { "automation-science-pack", 1 },
+            { "logistic-science-pack",   1 }
+        },
         time = 30,
     }
 }
 baketorio.nutrient_tech_table["nutrient5"] = {
     tastiness = 17,
-    prerequisites = {"chemical-science-pack"},
+    prerequisites = { "chemical-science-pack" },
     unit = {
         count = 200,
         ingredients = {
-        {"automation-science-pack", 1},
-        {"logistic-science-pack", 1},
-        {"chemical-science-pack", 1}
-    },
+            { "automation-science-pack", 1 },
+            { "logistic-science-pack",   1 },
+            { "chemical-science-pack",   1 }
+        },
         time = 30,
     }
 }
 baketorio.nutrient_tech_table["nutrient6"] = {
     tastiness = 25,
-    prerequisites = {"production-science-pack"},
+    prerequisites = { "production-science-pack" },
     unit = {
         count = 500,
         ingredients = {
-        {"automation-science-pack", 1},
-        {"logistic-science-pack", 1},
-        {"chemical-science-pack", 1},
-        {"production-science-pack", 1}
+            { "automation-science-pack", 1 },
+            { "logistic-science-pack",   1 },
+            { "chemical-science-pack",   1 },
+            { "production-science-pack", 1 }
         },
         time = 30
     }
 }
 baketorio.nutrient_tech_table["nutrient7"] = {
     tastiness = 30,
-    prerequisites = {"rocket-silo"},
+    prerequisites = { "rocket-silo" },
     unit = {
         count = 800,
         ingredients = {
-        {"automation-science-pack", 1},
-        {"logistic-science-pack", 1},
-        {"chemical-science-pack", 1},
-        {"utility-science-pack", 1},
-        {"production-science-pack", 1},
-        {"space-science-pack", 1},
+            { "automation-science-pack", 1 },
+            { "logistic-science-pack",   1 },
+            { "chemical-science-pack",   1 },
+            { "utility-science-pack",    1 },
+            { "production-science-pack", 1 },
+            { "space-science-pack",      1 },
         },
-    time = 30,
+        time = 30,
     }
 }
 
@@ -126,46 +129,45 @@ function baketorio.verify_nutrient_table(nutrient_table)
 end
 
 -- Build a nutrient receipe
-function baketorio.makeRecipe(name,amount,ingredients,c)
-    local recipe_name = "recipe-".. name.."-" .. c
-    data:extend{
+function baketorio.makeRecipe(name, amount, ingredients, c)
+    local recipe_name = "recipe-" .. name .. "-" .. c
+    data:extend {
         {
-            type="recipe",
-            name= recipe_name,
-            localised_name = {"nutrient-name." .. name},
+            type = "recipe",
+            name = recipe_name,
+            localised_name = { "nutrient-name." .. name },
             energy_required = 2,
-            categories = {"crafting"}, 
-            order= name .."-".. amount,
-            subgroup="nutrients",
+            categories = { "crafting" },
+            order = name .. "-" .. amount,
+            subgroup = "nutrients",
             allow_productivity = true,
             enabled = false,
             ingredients = ingredients,
             results = {
-                {type="item", name=name, amount=amount*2}
+                { type = "item", name = name, amount = amount * 2 }
             },
-            icons = baketorio.makeIconLayered(name,ingredients),
-            icon_size=iconSize
+            icons = baketorio.makeIconLayered(name, ingredients),
+            icon_size = iconSize
         }
     }
     -- baketorio.add_to_prod_mod(recipe_name)
 
-    table.insert(data.raw.technology[name].effects,{
+    table.insert(data.raw.technology[name].effects, {
         type = "unlock-recipe",
-        recipe = "recipe-".. name.."-" .. c
+        recipe = "recipe-" .. name .. "-" .. c
     });
 
     return recipe_name
 end
 
 -- Make a layered icon based on its ingredients
-function baketorio.makeIconLayered(name,ingredients)
+function baketorio.makeIconLayered(name, ingredients)
     local icon_list = {
-        {icon = baketorio.get_png(name), icon_size=iconSize},
+        { icon = baketorio.get_png(name), icon_size = iconSize },
     }
 
     -- For each ingredient, find item and choo
     for idx, ingredient in ipairs(ingredients) do
-
         -- Test for where to get icon data from and then use it
         local ingredientIcons = nil
         local rawItem = {}
@@ -176,7 +178,7 @@ function baketorio.makeIconLayered(name,ingredients)
                 ingredientIcons = data.raw["capsule"][ingredient.name].icons
             end
         end
-        if rawget(data.raw["capsule"],ingredient.name) then
+        if rawget(data.raw["capsule"], ingredient.name) then
             if rawget(data.raw["capsule"][ingredient.name], "icon") then
                 rawItem = data.raw["capsule"][ingredient.name]
             else
@@ -188,19 +190,21 @@ function baketorio.makeIconLayered(name,ingredients)
         if ingredientIcons then
             for _, ii in ipairs(ingredientIcons) do
                 table.insert(icon_list,
-                {icon = ii.icon,
-                icon_size = ii.icon_size,
-                scale = overlayScale,
-                shift = overlayOffsets[idx]
-                })
+                    {
+                        icon = ii.icon,
+                        icon_size = ii.icon_size,
+                        scale = overlayScale,
+                        shift = overlayOffsets[idx]
+                    })
             end
         else
             table.insert(icon_list,
-            {icon = rawItem.icon,
-            icon_size = rawItem.icon_size,
-            scale = overlayScale,
-            shift = overlayOffsets[idx]
-            })
+                {
+                    icon = rawItem.icon,
+                    icon_size = rawItem.icon_size,
+                    scale = overlayScale,
+                    shift = overlayOffsets[idx]
+                })
         end
     end
     return icon_list;
@@ -210,26 +214,26 @@ end
 function baketorio.build_nutrient_items(nutrient_table)
     for k, v in pairs(nutrient_table)
     do
-data:extend(
-    {
-        {
-            type = "item",
+        data:extend(
+            {
+                {
+                    type = "item",
                     name = k,
-                    localised_name = {"nutrient-name." .. k},
+                    localised_name = { "nutrient-name." .. k },
                     icon = baketorio.get_png(k),
-            icon_size = 32,
-            subgroup = "nutrients",
-            stack_size = 100
-        },
-    }
-)
+                    icon_size = 32,
+                    subgroup = "nutrients",
+                    stack_size = 100
+                },
+            }
+        )
     end
 end
 
 -- Get the list of nutrient items that were built from the registered prototypes
 function baketorio.getNutrientListFromData()
     local nlist = {}
-    for _,v in ipairs(data.raw["item"])
+    for _, v in ipairs(data.raw["item"])
     do
         if v["subgroup"] == "nutrients" then
             table.insert(nlist, v["name"])
@@ -243,11 +247,11 @@ function baketorio.build_nutrient_techs(nutrient_table)
     for key, values in pairs(nutrient_table)
     do
         nNumber = string.sub(key, 9, 1)
-        data:extend{
+        data:extend {
             {
                 type = "technology",
                 name = key,
-                localised_name= {"nutrient-name." .. key},
+                localised_name = { "nutrient-name." .. key },
                 icon_size = 128,
                 icon = baketorio.get_png(key .. "_tech"),
                 prerequisites = values["prerequisites"],
@@ -261,14 +265,14 @@ end
 -- Helper function to get which nutrient an item uses based on its tastiness
 function baketorio.get_nutrient_by_tastiness(tastiness, nutrient_table)
     -- Iterate backwards through table for tastiness
-    for i=table_size(nutrient_table),1,-1
+    for i = table_size(nutrient_table), 1, -1
     do
         name = "nutrient" .. tostring(i)
         test_value = nutrient_table[name]["tastiness"]
-        if(tastiness >= test_value) then
+        if (tastiness >= test_value) then
             return {
                 name = name,
-                amount = (tastiness-(test_value-1));
+                amount = (tastiness - (test_value - 1));
             };
         end
     end
@@ -283,55 +287,58 @@ end
 function baketorio.build_nutrient_recipes(nutrient_table)
     local foods = {}
 
-    for key,value in pairs(data.raw["item"]) do
-        if(value.tastiness ~= nil and value.not_edible ~= true) then
-            foods[#foods+1] = value;
+    for key, value in pairs(data.raw["item"]) do
+        if (value.tastiness ~= nil and value.not_edible ~= true) then
+            foods[#foods + 1] = value;
         end
     end
 
-    for key,value in pairs(data.raw["capsule"]) do
-        if(value.tastiness ~= nil and value.not_edible ~= true) then
-            foods[#foods+1] = value;
+    for key, value in pairs(data.raw["capsule"]) do
+        if (value.tastiness ~= nil and value.not_edible ~= true) then
+            foods[#foods + 1] = value;
         end
     end
 
     -- Supports negative tastiness setting
 
-    for key,value in pairs(foods) do
+    for key, value in pairs(foods) do
         if (value.type == "capsule") then
-            value.capsule_action = baketorio.capsule_action(value.tastiness*10)
+            value.capsule_action = baketorio.capsule_action(value.tastiness * 10)
         end
     end
 
     local c = 0
 
     -- Build nutrient ingredients for tasty recipes
-    for i=1,#foods-1 do
+    for i = 1, #foods - 1 do
         local t;
         local ingredient1 = foods[i].name
         local nutrientData = baketorio.get_nutrient_by_tastiness(foods[i].tastiness, nutrient_table)
-        if(nutrientData.name ~= "none") then
-            baketorio.makeRecipe(nutrientData.name,nutrientData.amount,{{type="item", name=ingredient1, amount=1}},c);
+        if (nutrientData.name ~= "none") then
+            baketorio.makeRecipe(nutrientData.name, nutrientData.amount, { { type = "item", name = ingredient1, amount = 1 } },
+                c);
             c = c + 1
         end
-        for j=i+1,#foods do
+        for j = i + 1, #foods do
             local ingredient2 = foods[j].name
             t = foods[i].tastiness + foods[j].tastiness
-            if(foods[j].tastiness < t/5) then
+            if (foods[j].tastiness < t / 5) then
                 goto continue
             end
-            if(foods[i].tastiness < t/5) then
+            if (foods[i].tastiness < t / 5) then
                 goto continue
             end
-            if(foods[i].cant_mix_with == foods[j].name) then
+            if (foods[i].cant_mix_with == foods[j].name) then
                 goto continue
             end
-            if(foods[j].cant_mix_with == foods[i].name) then
+            if (foods[j].cant_mix_with == foods[i].name) then
                 goto continue
             end
             nutrientData = baketorio.get_nutrient_by_tastiness(t, nutrient_table)
-            if(nutrientData.name ~= "none") then
-                baketorio.makeRecipe(nutrientData.name,nutrientData.amount,{{type="item", name=ingredient1, amount=1},{type="item", name=ingredient2, amount=1}},c);
+            if (nutrientData.name ~= "none") then
+                baketorio.makeRecipe(nutrientData.name, nutrientData.amount,
+                    { { type = "item", name = ingredient1, amount = 1 }, { type = "item", name = ingredient2, amount = 1 } },
+                    c);
                 c = c + 1
             end
             ::continue::
@@ -344,7 +351,7 @@ end
 function baketorio.clear_nutrient_techs()
     -- Get nutrient tech indices for techs that match the string "nutrient[0,9]"
     local nTechsIdx = {}
-    for i,v in ipairs(data.raw["technology"]) do
+    for i, v in ipairs(data.raw["technology"]) do
         -- If a match, save index of technology into list
         if string.sub(v["name"], 1, 8) == "nutrient" and tonumber(string.sub(v["name"], 9, 1)) ~= nil then
             table.insert(nTechsIdx, i)
@@ -377,7 +384,7 @@ function baketorio.clear_nutrient_techs()
     -- Remove techs previously found
     for i in ipairs(nTechsIdx)
     do
-        tech  = data.raw["technology"][i]
+        tech                      = data.raw["technology"][i]
         data.raw["technology"][i] = nil
     end
 end
