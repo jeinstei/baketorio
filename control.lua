@@ -68,7 +68,7 @@ script.on_event(defines.events.on_research_reversed, function (event)
     if event.research.name:find("nutrient", 1, true) == 1 then
         r.onNutrientResearchReversed(event.research)
     else
-        r.onNonNutrientResearchFinished(event.research)
+        r.onNonNutrientResearchReversed(event.research)
     end
 
     gui.updateAllItemChooserForForce(force)

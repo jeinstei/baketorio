@@ -72,6 +72,7 @@ lib.onNutrientResearchReversed = function (research)
             missing[effect.recipe] = nil
         end
     end
+    g.rebuildNutrientGlobalData(force)
     g.rebuildActiveNutrientIngredients(force)
 end
 
