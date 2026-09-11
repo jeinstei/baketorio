@@ -14,6 +14,13 @@ local get_gui_data = function (elem, prop)
     return storage.gui_data[elem.index][prop];
 end
 
+remote.add_interface("technology",
+    {
+        getPrerequisites = function ()
+            return baketorio.techPrereqs
+        end,
+    }
+)
 
 -- Hook on_research_finished to check for unlocks
 script.on_event(defines.events.on_research_finished, function (event)
@@ -40,7 +47,7 @@ script.on_event(defines.events.on_research_finished, function (event)
             -- Check all recipe unlocks and build set of ingredients
             if effect.type == "unlock-recipe" then
                 -- handle recipe; store ingredient states if good
-                -- BReak out 
+                -- BReak out
                 local rRecipe = rForce.recipes[effect.recipe]
                 local rIngredients = rRecipe.ingredients
                 local rIngSize = table_size(rIngredients)
@@ -86,6 +93,76 @@ script.on_event(defines.events.on_research_finished, function (event)
     end
 end)
 
+-- Hook on_research_finished to check for unlocks
+script.on_event(defines.events.on_research_reversed, function (event)
+    -- Get force and get reference to all recipes force has enabled
+    -- If a nutrient tech, loop through all recipes and unhide all recipes where the ingredients
+    --   are enabled and unhidden
+    -- Otherwise loop through effects of the prototype of the tech
+    -- Determine list of all ingredients for all unlocked recipes
+    -- and unhide all nutrient recipes that are enabled that use those ingredients
+
+    local rForce = event.research.force
+
+    -- Create global storage to speed up processing
+    if (not storage.missingIngredientNutrients) then storage.missingIngredientNutrients = {} end
+    if (not storage.missingIngredientNutrients[rForce.name]) then storage.missingIngredientNutrients[rForce.name] = {} end
+
+    -- Local reference to global storage
+    local fMissing = storage.missingIngredientNutrients[rForce.name]
+
+    -- If a nutrient recipe, clear all nutrient recipes from missing list
+    if string_starts_with(event.research.name, "nutrient") then
+        local rEffects = event.research.prototype.effects
+        for _, effect in ipairs(rEffects)
+        do
+            if effect.type == "unlock-recipe" then
+                fMissing[effect.recipe] = nil
+            end
+        end
+    else
+        -- Build set of all products that are disappearing
+        local disappearingProducts = {}
+        local rEffects = event.research.prototype.effects
+        for _, effect in ipairs(rEffects)
+        do
+            -- Check all recipe unlocks and build set of ingredients
+            if effect.type == "unlock-recipe" then
+                -- handle recipe; store ingredient states if good
+                -- BReak out
+                local rRecipe = rForce.recipes[effect.recipe]
+                for _, prod in ipairs(rRecipe.products)
+                do
+                    print(prod)
+                    disappearingProducts[prod.name] = true
+                end
+            end
+        end
+
+        -- print(serpent.block(disappearingProducts))
+
+        -- Loop through active force recipes
+        -- If visible and is a nutrient recipe
+        -- If any of the products going away are an ingredient
+        -- then add to missing list and disable recipe
+        for k, v in pairs(rForce.recipes)
+        do
+            if rForce.is_visible({ type = "recipe", name = k }) then
+                if string_starts_with(k, "recipe-nutrient") then
+                    for _, ing in ipairs(v.ingredients)
+                    do
+                        if disappearingProducts[ing.name] == true then
+                            fMissing[k] = true
+                            v.enabled = false
+                            break
+                        end
+                    end
+                end
+            end
+        end
+    end
+end)
+
 script.on_event(defines.events.on_gui_opened, function (event)
     local player = game.players[event.player_index]
     if (event.entity ~= nil and string.sub(event.entity.name, 1, 18) == "assembling-machine") then
@@ -94,12 +171,12 @@ script.on_event(defines.events.on_gui_opened, function (event)
         end
         player.gui.top.add { type = "frame", name = "recipe_chooser", caption = { "ui-elements.nutrigen" } }
         local filter = {
-            {filter = "subgroup", subgroup = "basic" },
-            {filter = "subgroup", subgroup = "bread" },
-            {filter = "subgroup", subgroup = "milk" },
-            {filter = "subgroup", subgroup = "chocolate" },
-            {filter = "subgroup", subgroup = "fruit" },
-            {filter = "subgroup", subgroup = "advanced" },
+            { filter = "subgroup", subgroup = "basic" },
+            { filter = "subgroup", subgroup = "bread" },
+            { filter = "subgroup", subgroup = "milk" },
+            { filter = "subgroup", subgroup = "chocolate" },
+            { filter = "subgroup", subgroup = "fruit" },
+            { filter = "subgroup", subgroup = "advanced" },
         }
         local item1 = player.gui.top.recipe_chooser.add { type = "choose-elem-button", name = "item1", elem_type = "item", caption = { "ui-elements.nutrigen-i1" }, elem_filters = filter }
         local item2 = player.gui.top.recipe_chooser.add { type = "choose-elem-button", name = "item2", elem_type = "item", caption = { "ui-elements.nutrigen-i2" }, elem_filters = filter }
@@ -164,7 +241,6 @@ script.on_event(defines.events.on_gui_elem_changed, function (event)
             get_gui_data(event.element, "entity").set_recipe(value.name);
             break;
         end
-
     end
 end)
 

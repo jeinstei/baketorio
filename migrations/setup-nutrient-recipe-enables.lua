@@ -28,7 +28,7 @@ do
             -- Check all recipe unlocks and build set of ingredients
             if effect.type == "unlock-recipe" then
                 -- handle recipe; store ingredient states if good
-                -- BReak out 
+                -- BReak out
                 local rRecipe = rForce.recipes[effect.recipe]
                 local rIngredients = rRecipe.ingredients
                 local rIngSize = table_size(rIngredients)

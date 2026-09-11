@@ -1,5 +1,3 @@
-
-
 local batter = {
     {
         type = "item",
@@ -9,11 +7,11 @@ local batter = {
         subgroup = "basic",
         stack_size = 100,
         ingredients = {
-            {type="item", name="flour", amount=3},
-            {type="fluid", name="milk", amount=5},
-            {type="item", name="butter", amount=1},
-            {type="item", name="egg", amount=1},
-            {type="item", name="sugar", amount=1}
+            { type = "item", name = "flour", amount = 3 },
+            { type = "fluid", name = "milk", amount = 5 },
+            { type = "item", name = "butter", amount = 1 },
+            { type = "item", name = "egg", amount = 1 },
+            { type = "item", name = "sugar", amount = 1 }
         }
     },
     {
@@ -24,8 +22,8 @@ local batter = {
         subgroup = "chocolate",
         stack_size = 100,
         ingredients = {
-            {type="item", name="basic-batter", amount=1},
-            {type="item", name="cocoa-powder", amount=2},
+            { type = "item", name = "basic-batter", amount = 1 },
+            { type = "item", name = "cocoa-powder", amount = 2 },
         }
     },
     {
@@ -36,10 +34,10 @@ local batter = {
         subgroup = "bread",
         stack_size = 100,
         ingredients = {
-            {type="item", name="flour", amount=3},
-            {type="fluid", name="milk", amount=5},
-            {type="item", name="butter", amount=1},
-            {type="item", name="salt", amount=1}
+            { type = "item", name = "flour", amount = 3 },
+            { type = "fluid", name = "milk", amount = 5 },
+            { type = "item", name = "butter", amount = 1 },
+            { type = "item", name = "salt", amount = 1 }
         }
     },
     {
@@ -50,8 +48,8 @@ local batter = {
         subgroup = "milk",
         stack_size = 100,
         ingredients = {
-            {type="item", name="basic-batter", amount=1},
-            {type="item", name="cheese", amount=3},
+            { type = "item", name = "basic-batter", amount = 1 },
+            { type = "item", name = "cheese",   amount = 3 },
         }
     },
     {
@@ -62,8 +60,8 @@ local batter = {
         subgroup = "fruit",
         stack_size = 100,
         ingredients = {
-            {type="item", name="basic-batter", amount=1},
-            {type="item", name="blueberries", amount=1},
+            { type = "item", name = "basic-batter", amount = 1 },
+            { type = "item", name = "blueberries", amount = 1 },
         }
     },
     {
@@ -74,18 +72,18 @@ local batter = {
         subgroup = "advanced",
         stack_size = 100,
         ingredients = {
-            {type="item", name="basic-batter", amount=1},
-            {type="item", name="baking-soda", amount=1},
-            {type="item", name="salt", amount=2},
-            {type="item", name="strawberries", amount=1},
+            { type = "item", name = "basic-batter", amount = 1 },
+            { type = "item", name = "baking-soda", amount = 1 },
+            { type = "item", name = "salt",     amount = 2 },
+            { type = "item", name = "strawberries", amount = 1 },
         }
     }
 }
 
 -- Add batter recipes
-for key,value in pairs(batter) do
+for key, value in pairs(batter) do
     -- Adding manually to get proper subgroups and still have a local batter table for reference
-    data:extend ({
+    data:extend({
         {
             type = value.type,
             name = value.name,
@@ -96,16 +94,16 @@ for key,value in pairs(batter) do
             ingredients = value.ingredients
         },
         {
-            type="recipe",
-            name= (value.name .. "-recipe"),
-            localised_name = {"item-name." .. value.name},
-            categories = {"crafting-with-fluid"},
+            type = "recipe",
+            name = value.name,
+            localised_name = { "item-name." .. value.name },
+            categories = { "crafting-with-fluid" },
             subgroup = "ingredient",
             energy_required = 1,
             enabled = false,
             ingredients = value.ingredients,
             results = {
-                {type="item", name=value.name, amount=1},
+                { type = "item", name = value.name, amount = 1 },
             },
             icon = value.icon,
             icon_size = 32
@@ -117,119 +115,118 @@ end
 -- Add batter shapes (muffins, cakes, etc)
 local shapes = {
     {
-        name="cake",
-        batter="basic-batter",
-        tastiness=5,
-        frosted_mod=1,
-        batter_amount=1,
-        result=1,
+        name = "cake",
+        batter = "basic-batter",
+        tastiness = 5,
+        frosted_mod = 1,
+        batter_amount = 1,
+        result = 1,
     },
     {
-        name="cupcake",
-        batter="basic-batter",
-        tastiness=5,
-        frosted_mod=1,
-        batter_amount=1,
-        result=1,
+        name = "cupcake",
+        batter = "basic-batter",
+        tastiness = 5,
+        frosted_mod = 1,
+        batter_amount = 1,
+        result = 1,
     },
     {
-        name="doughnut",
-        batter="fryer-dough",
-        tastiness=4,
-        frosted_mod=1,
-        batter_amount=1,
-        result=1,
+        name = "doughnut",
+        batter = "fryer-dough",
+        tastiness = 4,
+        frosted_mod = 1,
+        batter_amount = 1,
+        result = 1,
     },
     {
-        name="doughnut",
-        batter="chocolate-batter",
-        tastiness=6,
-        frosted_mod=1,
-        batter_amount=2,
-        result=1,
+        name = "doughnut",
+        batter = "chocolate-batter",
+        tastiness = 6,
+        frosted_mod = 1,
+        batter_amount = 2,
+        result = 1,
     },
     {
-        name="cake",
-        batter="chocolate-batter",
-        tastiness=7,
-        frosted_mod=1,
-        batter_amount=1,
-        result=1,
+        name = "cake",
+        batter = "chocolate-batter",
+        tastiness = 7,
+        frosted_mod = 1,
+        batter_amount = 1,
+        result = 1,
     },
     {
-        name="cupcake",
-        batter="chocolate-batter",
-        tastiness=7,
-        frosted_mod=1,
-        batter_amount=1,
-        result=1,
+        name = "cupcake",
+        batter = "chocolate-batter",
+        tastiness = 7,
+        frosted_mod = 1,
+        batter_amount = 1,
+        result = 1,
     },
     {
-        name="cake",
-        batter="cheese-batter",
-        tastiness=6,
-        batter_amount=1,
-        result=1,
+        name = "cake",
+        batter = "cheese-batter",
+        tastiness = 6,
+        batter_amount = 1,
+        result = 1,
     },
     {
-        name="bun",
-        batter="fryer-dough",
-        tastiness=8,
-        frosted_mod=2,
+        name = "bun",
+        batter = "fryer-dough",
+        tastiness = 8,
+        frosted_mod = 2,
         topping = "cinnamon-sugar",
-        batter_amount=1,
-        result=1,
+        batter_amount = 1,
+        result = 1,
     },
     {
-        name="scone",
-        batter="blueberry-batter",
-        tastiness=9,
-        frosted_mod=1,
-        batter_amount=1,
-        result=2,
+        name = "scone",
+        batter = "blueberry-batter",
+        tastiness = 9,
+        frosted_mod = 1,
+        batter_amount = 1,
+        result = 2,
     },
     {
-        name="doughnut",
-        batter="blueberry-batter",
-        tastiness=11,
-        batter_amount=1,
-        result=1,
+        name = "doughnut",
+        batter = "blueberry-batter",
+        tastiness = 11,
+        batter_amount = 1,
+        result = 1,
     },
     {
-        name="muffin",
-        batter="blueberry-batter",
-        tastiness=11,
-        batter_amount=1,
-        result=1,
+        name = "muffin",
+        batter = "blueberry-batter",
+        tastiness = 11,
+        batter_amount = 1,
+        result = 1,
     },
     {
-        name="cupcake",
-        batter="advanced-cake-batter",
-        tastiness=13,
-        frosted_mod=1,
-        batter_amount=1,
-        result=1,
+        name = "cupcake",
+        batter = "advanced-cake-batter",
+        tastiness = 13,
+        frosted_mod = 1,
+        batter_amount = 1,
+        result = 1,
     },
     {
-        name="cake",
-        batter="advanced-cake-batter",
-        tastiness=13,
-        frosted_mod=1,
-        batter_amount=1,
-        result=1,
+        name = "cake",
+        batter = "advanced-cake-batter",
+        tastiness = 13,
+        frosted_mod = 1,
+        batter_amount = 1,
+        result = 1,
     },
 }
 
 local dataToAdd = {}
 
-for key,shape in pairs(shapes) do
+for key, shape in pairs(shapes) do
     local b = nil
-    for _,value in pairs(batter) do
+    for _, value in pairs(batter) do
         if value.name == shape.batter then
             b = value
             break
         end
-
     end
 
     if b == nil then
@@ -237,8 +234,8 @@ for key,shape in pairs(shapes) do
     end
 
     local uncooked_shape = {
-        type="item",
-        name=b.name .. "-" .. shape.name,
+        type = "item",
+        name = b.name .. "-" .. shape.name,
         subgroup = "ingredient",
         enabled = false,
         stack_size = 100,
@@ -246,32 +243,32 @@ for key,shape in pairs(shapes) do
         icon_size = 32;
     }
     local uncooked_shape_recipe = {
-        type="recipe",
-        name= (uncooked_shape.name .. "-recipe"),
-        localised_name = {"item-name." .. uncooked_shape.name},
-        categories = {"crafting"},
+        type = "recipe",
+        name = (uncooked_shape.name),
+        localised_name = { "item-name." .. uncooked_shape.name },
+        categories = { "crafting" },
         subgroup = "ingredient",
         allow_productivity = true,
         energy_required = 2,
         enabled = false,
         ingredients = {
-            {type="item", name=b.name, amount=shape.batter_amount},
+            { type = "item", name = b.name, amount = shape.batter_amount },
         },
         results = {
-            {type="item", name=uncooked_shape.name, amount=shape.result},
+            { type = "item", name = uncooked_shape.name, amount = shape.result },
         },
         icon = uncooked_shape.icon;
         icon_size = 32;
 
     }
-    if(shape.topping ~= nil) then
-        uncooked_shape_recipe.ingredients[2] = {type="item", name=shape.topping,amount=1};
+    if (shape.topping ~= nil) then
+        uncooked_shape_recipe.ingredients[2] = { type = "item", name = shape.topping, amount = 1 };
     end
 
     local cooked_shape = {
         type = "capsule",
-        capsule_action=baketorio.capsule_action(0),
-        name=b.name .. "-" .. shape.name .. "-cooked",
+        capsule_action = baketorio.capsule_action(0),
+        name = b.name .. "-" .. shape.name .. "-cooked",
         subgroup = b.subgroup,
         enabled = false,
         tastiness = shape.tastiness,
@@ -280,19 +277,19 @@ for key,shape in pairs(shapes) do
         icon_size = 32;
     }
     local cooked_shape_recipe = {
-        type="recipe",
-        name= cooked_shape.name .. "-recipe",
-        localised_name = {"item-name." .. cooked_shape.name},
-        categories = {"smelting"}, 
+        type = "recipe",
+        name = cooked_shape.name,
+        localised_name = { "item-name." .. cooked_shape.name },
+        categories = { "smelting" },
         subgroup = b.subgroup,
         allow_productivity = true,
         energy_required = 10,
         enabled = false,
         ingredients = {
-            {type="item", name=uncooked_shape.name, amount=1}
+            { type = "item", name = uncooked_shape.name, amount = 1 }
         },
         results = {
-            {type="item", name=cooked_shape.name, amount=shape.result}
+            { type = "item", name = cooked_shape.name, amount = shape.result }
         },
         icon = cooked_shape.icon;
         icon_size = 32;
@@ -304,36 +301,36 @@ for key,shape in pairs(shapes) do
         cooked_shape_recipe
     })
 
-	-- baketorio.add_to_prod_mod(uncooked_shape_recipe.name)
-	-- baketorio.add_to_prod_mod(cooked_shape_recipe.name)
+    -- baketorio.add_to_prod_mod(uncooked_shape_recipe.name)
+    -- baketorio.add_to_prod_mod(cooked_shape_recipe.name)
 
-    if(shape.frosted_mod ~= nil) then
+    if (shape.frosted_mod ~= nil) then
         local cooked_shape_frosted = {
             type = "capsule",
-            capsule_action=baketorio.capsule_action(0),
-            name=b.name .. "-" .. shape.name .. "-cooked-frosted",
+            capsule_action = baketorio.capsule_action(0),
+            name = b.name .. "-" .. shape.name .. "-cooked-frosted",
             subgroup = b.subgroup,
             tastiness = shape.tastiness + shape.frosted_mod,
             stack_size = 100,
-            cant_mix_with=cooked_shape.name,
+            cant_mix_with = cooked_shape.name,
             icon = baketorio.get_png(b.name .. "-" .. shape.name .. "-cooked-frosted");
             icon_size = 32;
         }
         local cooked_shape_frosted_recipe = {
-            type="recipe",
-            name= cooked_shape_frosted.name .. "-recipe",
-            localised_name = {"item-name." .. cooked_shape_frosted.name},
-            categories = {"crafting"}, 
+            type = "recipe",
+            name = cooked_shape_frosted.name,
+            localised_name = { "item-name." .. cooked_shape_frosted.name },
+            categories = { "crafting" },
             subgroup = b.subgroup,
             allow_productivity = true,
             energy_required = 2,
             enabled = false,
             ingredients = {
-                {type="item", name=cooked_shape.name, amount=1},
-                {type="item", name="frosting", amount=1},
+                { type = "item", name = cooked_shape.name, amount = 1 },
+                { type = "item", name = "frosting",    amount = 1 },
             },
             results = {
-                {type="item", name=cooked_shape_frosted.name, amount=1},
+                { type = "item", name = cooked_shape_frosted.name, amount = 1 },
             },
             icon = cooked_shape_frosted.icon;
             icon_size = 32;
@@ -342,6 +339,6 @@ for key,shape in pairs(shapes) do
             cooked_shape_frosted,
             cooked_shape_frosted_recipe
         })
-		-- baketorio.add_to_prod_mod(cooked_shape_frosted_recipe.name)
+        -- baketorio.add_to_prod_mod(cooked_shape_frosted_recipe.name)
     end
 end
