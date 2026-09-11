@@ -129,7 +129,6 @@ function baketorio.verify_nutrient_table(nutrient_table)
 end
 
 -- Build a nutrient receipe
----@type fun(name:string, amount:int, ingredients:table<Ingredient>, c:int)
 function baketorio.makeRecipe(name, amount, ingredients, c)
     local recipe_name = "recipe-" .. name .. "-" .. c
     -- recipe_name = "recipe-" .. name
@@ -222,9 +221,9 @@ end
 function baketorio.build_nutrient_items(nutrient_table)
     for k, _ in pairs(nutrient_table)
     do
-        start, stop = string.find(k, "%d+", -1)
-        nNumber = string.sub(k, start, stop)
-        overlayNumberIcon = "__base__/graphics/icons/signal/signal_" .. nNumber .. ".png"
+        local start, stop = k:find("%d+", -1)
+        local nNumber = k:sub(start, stop)
+        local overlayNumberIcon = "__base__/graphics/icons/signal/signal_" .. nNumber .. ".png"
         data:extend(
             {
                 {
@@ -286,8 +285,8 @@ function baketorio.get_nutrient_by_tastiness(tastiness, nutrient_table)
     -- Iterate backwards through table for tastiness
     for i = table_size(nutrient_table), 1, -1
     do
-        name = "nutrient" .. tostring(i)
-        test_value = nutrient_table[name]["tastiness"]
+        local name = "nutrient" .. tostring(i)
+        local test_value = nutrient_table[name]["tastiness"]
         if (tastiness >= test_value) then
             return {
                 name = name,

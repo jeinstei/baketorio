@@ -1,40 +1,6 @@
 local g = require("globals")
-local gui = require("gui")
 
 local lib = {}
-
----@type fun(recipe:LuaRecipe):nil
-lib.enableNutrientRecipe = function (recipe)
-    local force = recipe.force
-
-    recipe.enabled = true
-    storage.recipesMissingIngredientNutrientsByForce[force.name][recipe.name] = nil
-    storage.activeNutrientRecipesByForce[force.name][recipe.name] = true
-
-    -- -- Get all recipes with each ingredient as a product
-    -- -- Loop through each and for each recipe that is_visible increment
-    -- -- activeNutrientIngredientsByForce list
-    -- for _, ing in ipairs(recipe.ingredients) do
-    --     local visibleRecipes = {}
-    --     local recipes = prototypes.get_recipe_filtered({ { filter = "has-product-item", elem_filters = { { filter = "name", name = ing.name } } } })
-    --     for k, v in pairs(recipes) do
-    --         if force.is_visible(v) then
-    --             table.insert(visibleRecipes, k)
-    --             storage.activeNutrientIngredientsByForce[force.name][k] = 1
-    --         end
-    --     end
-    -- end
-
-    g.addIngredientToNutrientIngredients(force, recipe.ingredients)
-end
-
----@type fun(recipe:LuaRecipe):nil
-lib.disableNutrientRecipeDueToMissingIngredients = function (recipe)
-    local force = recipe.force
-    recipe.enabled = false
-    storage.recipesMissingIngredientNutrientsByForce[force.name][recipe.name] = true
-    g.removeProductFromNutrientIngredients(force, recipe.products)
-end
 
 ---@type fun(research:LuaTechnology):nil
 lib.onNutrientResearchFinished = function (research)
@@ -60,9 +26,9 @@ lib.onNutrientResearchFinished = function (research)
                 end
             end
             if numGood == rIngSize then
-                lib.enableNutrientRecipe(recipe)
+                g.enableNutrientRecipe(recipe)
             else
-                lib.disableNutrientRecipeDueToMissingIngredients(recipe)
+                g.disableNutrientRecipeDueToMissingIngredients(recipe)
             end
         end
     end
@@ -89,7 +55,7 @@ lib.onNonNutrientResearchFinished = function (research)
             end
         end
         if numGood == rIngSize then
-            lib.enableNutrientRecipe(recipe)
+            g.enableNutrientRecipe(recipe)
         end
     end
 end
@@ -146,7 +112,7 @@ lib.onNonNutrientResearchReversed = function (research)
                 for _, ing in ipairs(v.ingredients)
                 do
                     if disappearingProducts[ing.name] == true then
-                        lib.disableNutrientRecipeDueToMissingIngredients(v)
+                        g.disableNutrientRecipeDueToMissingIngredients(v)
                         break
                     end
                 end

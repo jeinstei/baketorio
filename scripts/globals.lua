@@ -37,6 +37,39 @@ lib.buildStorageDataForForce = function (force, doRebuild)
     end
 end
 
+---@type fun(recipe:LuaRecipe):nil
+lib.enableNutrientRecipe = function (recipe)
+    local force = recipe.force
+
+    recipe.enabled = true
+    storage.recipesMissingIngredientNutrientsByForce[force.name][recipe.name] = nil
+    storage.activeNutrientRecipesByForce[force.name][recipe.name] = true
+
+    -- -- Get all recipes with each ingredient as a product
+    -- -- Loop through each and for each recipe that is_visible increment
+    -- -- activeNutrientIngredientsByForce list
+    -- for _, ing in ipairs(recipe.ingredients) do
+    --     local visibleRecipes = {}
+    --     local recipes = prototypes.get_recipe_filtered({ { filter = "has-product-item", elem_filters = { { filter = "name", name = ing.name } } } })
+    --     for k, v in pairs(recipes) do
+    --         if force.is_visible(v) then
+    --             table.insert(visibleRecipes, k)
+    --             storage.activeNutrientIngredientsByForce[force.name][k] = 1
+    --         end
+    --     end
+    -- end
+
+    lib.addIngredientToNutrientIngredients(force, recipe.ingredients)
+end
+
+---@type fun(recipe:LuaRecipe):nil
+lib.disableNutrientRecipeDueToMissingIngredients = function (recipe)
+    local force = recipe.force
+    recipe.enabled = false
+    storage.recipesMissingIngredientNutrientsByForce[force.name][recipe.name] = true
+end
+
+
 ---@type fun(force:LuaForce, ingredients:Ingredient[])
 lib.addIngredientToNutrientIngredients = function (force, ingredients)
     local uniqueIngredients = {}
@@ -50,7 +83,8 @@ lib.addIngredientToNutrientIngredients = function (force, ingredients)
             storage.activeNutrientIngredientsByForce[force.name][k] = 1
         else
             log(k .. " found: adding 1 to value")
-            storage.activeNutrientIngredientsByForce[force.name][k] = storage.activeNutrientIngredientsByForce[force.name][k] +
+            storage.activeNutrientIngredientsByForce[force.name][k] = storage.activeNutrientIngredientsByForce
+                [force.name][k] +
                 1
         end
         log(serpent.dump(storage.activeNutrientIngredientsByForce[force.name][k]))
@@ -69,7 +103,8 @@ lib.removeProductFromNutrientIngredients = function (force, products)
         if storage.activeNutrientIngredientsByForce[force.name][k] ~= nil then
             log("Removing from list " .. k)
             log(serpent.dump(storage.activeNutrientIngredientsByForce[force.name][k]))
-            storage.activeNutrientIngredientsByForce[force.name][k] = storage.activeNutrientIngredientsByForce[force.name][k] -
+            storage.activeNutrientIngredientsByForce[force.name][k] = storage.activeNutrientIngredientsByForce
+                [force.name][k] -
                 1
             log(serpent.dump(storage.activeNutrientIngredientsByForce[force.name][k]))
             if storage.activeNutrientIngredientsByForce[force.name][k] <= 0 then
@@ -141,7 +176,61 @@ lib.rebuildStorage = function ()
     do
         if force ~= nil then
             lib.buildStorageDataForForce(force, true)
+            lib.rebuildNutrientGlobalData(force)
             lib.rebuildActiveNutrientIngredients(force)
+        end
+    end
+end
+
+---@type fun(force:LuaForce):nil
+lib.rebuildNutrientGlobalData = function (force)
+
+    -- Find all enabled nutrient technologies
+    local enabledNutrientTechs = {}
+    storage.activeNutrientTechs[force.name] = {}
+
+    for tName, tech in pairs(force.technologies)
+    do
+        if tName:find("nutrient") == 1 then
+            if tech.researched then
+                enabledNutrientTechs[tName] = tech
+            end
+        end
+    end
+
+    -- Add active nutrient techs here
+    -- Loop through enabled nutrients and setup which nutrient recipes are active
+    for k, tech in pairs(enabledNutrientTechs)
+    do
+        storage.activeNutrientTechs[force.name][k] = true
+
+        local rEffects = tech.prototype.effects
+        for _, effect in ipairs(rEffects)
+        do
+            -- Check all recipe unlocks and build set of ingredients
+            if effect.type == "unlock-recipe" then
+                -- handle recipe; store ingredient states if good
+                -- BReak out
+                local rRecipe = force.recipes[effect.recipe]
+                local rIngredients = rRecipe.ingredients
+                local rIngSize = table_size(rIngredients)
+                local numGood = 0
+                for _, ing in ipairs(rIngredients)
+                do
+                    if force.is_visible({ type = "item", name = ing.name }) then
+                        numGood = numGood + 1
+                    else
+                        break
+                    end
+                end
+                if numGood == rIngSize then
+                    log("Enabling " .. rRecipe.name)
+                    lib.enableNutrientRecipe(rRecipe)
+                else
+                    log("Disabling " .. rRecipe.name)
+                    lib.disableNutrientRecipeDueToMissingIngredients(rRecipe)
+                end
+            end
         end
     end
 end

@@ -62,6 +62,7 @@ local getActiveRecipeFromItems = function (force, items)
         end
     end
 
+    -- Exit with nil if all fields are empty strings
     if allEmpty then
         return nil
     end
@@ -100,8 +101,9 @@ local getActiveRecipeFromItems = function (force, items)
         end
     end
 
-    if (visibleRecipes == nil) then
-        log("No nutrient recipe selected for: " .. i1 .. " and " .. i2)
+    if (next(visibleRecipes) == nil) then
+        log("No nutrient recipe selected for: " .. serpent.dump(items))
+        return nil
     end
 
     for name, _ in pairs(visibleRecipes) do
@@ -110,7 +112,7 @@ local getActiveRecipeFromItems = function (force, items)
 end
 
 ---@type fun(player:LuaPlayer)
-local setRecipeBasedOnChoosers = function(player)
+local setRecipeBasedOnChoosers = function (player)
     local chooser = player.gui.top.itemChooserFrame.itemChooser
     local i1 = player.gui.top.recipe_chooser.item1
     local i2 = player.gui.top.recipe_chooser.item2

@@ -27,57 +27,6 @@ end
 
 script.on_configuration_changed(function (confData)
     g.rebuildStorage()
-
-    for _, force in pairs(game.forces)
-    do
-        -- Local reference to global storage
-        local fMissing = storage.recipesMissingIngredientNutrientsByForce[force.name]
-
-        -- Find all enabled nutrient technologies
-        local enabledNutrientTechs = {}
-        for tName, tech in pairs(force.technologies)
-        do
-            if tName:find("nutrient") == 1 then
-                if tech.researched then
-                    enabledNutrientTechs[tName] = tech
-                end
-            end
-        end
-
-        -- Add active nutrient techs here
-        -- Loop through enabled nutrients and setup which nutrient recipes are active
-        for k, tech in pairs(enabledNutrientTechs)
-        do
-            storage.activeNutrientTechs[force.name][k] = true
-
-            local rEffects = tech.prototype.effects
-            for _, effect in ipairs(rEffects)
-            do
-                -- Check all recipe unlocks and build set of ingredients
-                if effect.type == "unlock-recipe" then
-                    -- handle recipe; store ingredient states if good
-                    -- BReak out
-                    local rRecipe = force.recipes[effect.recipe]
-                    local rIngredients = rRecipe.ingredients
-                    local rIngSize = table_size(rIngredients)
-                    local numGood = 0
-                    for _, ing in ipairs(rIngredients)
-                    do
-                        if force.is_visible({ type = "item", name = ing.name }) then
-                            numGood = numGood + 1
-                        else
-                            break
-                        end
-                    end
-                    if numGood == rIngSize then
-                        r.enableRecipe(rRecipe, force)
-                    else
-                        r.disableNutrientRecipeDueToMissingIngredients(rRecipe, force)
-                    end
-                end
-            end
-        end
-    end
 end
 )
 
