@@ -129,8 +129,15 @@ function baketorio.verify_nutrient_table(nutrient_table)
 end
 
 -- Build a nutrient receipe
+---@type fun(name:string, amount:int, ingredients:table<Ingredient>, c:int)
 function baketorio.makeRecipe(name, amount, ingredients, c)
     local recipe_name = "recipe-" .. name .. "-" .. c
+    -- recipe_name = "recipe-" .. name
+    -- for _, v in pairs(ingredients)
+    -- do
+    --     recipe_name = recipe_name .. "-" .. v.name
+    -- end
+    -- if c ~= nil then recipe_name = recipe_name .. "-" .. c end
     data:extend {
         {
             type = "recipe",
@@ -143,6 +150,7 @@ function baketorio.makeRecipe(name, amount, ingredients, c)
             allow_productivity = true,
             enabled = false,
             ingredients = ingredients,
+            requires_ingredients_to_unlock_results = true,
             results = {
                 { type = "item", name = name, amount = amount * 2 }
             },
@@ -212,16 +220,28 @@ end
 
 -- Add nutrient items to prototypes
 function baketorio.build_nutrient_items(nutrient_table)
-    for k, v in pairs(nutrient_table)
+    for k, _ in pairs(nutrient_table)
     do
+        start, stop = string.find(k, "%d+", -1)
+        nNumber = string.sub(k, start, stop)
+        overlayNumberIcon = "__base__/graphics/icons/signal/signal_" .. nNumber .. ".png"
         data:extend(
             {
                 {
                     type = "item",
                     name = k,
                     localised_name = { "nutrient-name." .. k },
-                    icon = baketorio.get_png(k),
-                    icon_size = 32,
+                    icons = {
+                        {
+                            icon = baketorio.get_png(k),
+                            icon_size = 32,
+                        },
+                        {
+                            icon = overlayNumberIcon,
+                            scale = 0.25,
+                            shift = upperRight,
+                        }
+                    },
                     subgroup = "nutrients",
                     stack_size = 100
                 },
@@ -246,14 +266,13 @@ end
 function baketorio.build_nutrient_techs(nutrient_table)
     for key, values in pairs(nutrient_table)
     do
-        nNumber = string.sub(key, 9, 1)
         data:extend {
             {
                 type = "technology",
                 name = key,
                 localised_name = { "nutrient-name." .. key },
-                icon_size = 128,
                 icon = baketorio.get_png(key .. "_tech"),
+                icon_size = 128,
                 prerequisites = values["prerequisites"],
                 effects = {},
                 unit = values["unit"],
@@ -315,7 +334,8 @@ function baketorio.build_nutrient_recipes(nutrient_table)
         local ingredient1 = foods[i].name
         local nutrientData = baketorio.get_nutrient_by_tastiness(foods[i].tastiness, nutrient_table)
         if (nutrientData.name ~= "none") then
-            baketorio.makeRecipe(nutrientData.name, nutrientData.amount, { { type = "item", name = ingredient1, amount = 1 } },
+            baketorio.makeRecipe(nutrientData.name, nutrientData.amount,
+                { { type = "item", name = ingredient1, amount = 1 } },
                 c);
             c = c + 1
         end
@@ -349,45 +369,51 @@ end
 -- Removes nutrient technologies for clean slate
 -- Does not clear recipes, though
 function baketorio.clear_nutrient_techs()
-    -- Get nutrient tech indices for techs that match the string "nutrient[0,9]"
-    local nTechsIdx = {}
-    for i, v in ipairs(data.raw["technology"]) do
-        -- If a match, save index of technology into list
-        if string.sub(v["name"], 1, 8) == "nutrient" and tonumber(string.sub(v["name"], 9, 1)) ~= nil then
-            table.insert(nTechsIdx, i)
-        end
-
-        -- Remove nutrient techs from prerequisites of all technologies
-        for _, j in ipairs(data.raw["technology"][k]["prerequisites"])
-        do
-            -- Trigger a prerequisites rebuild if a nutrient tech was found in the list
-            local doRebuild = false
-            if string.sub(j, 1, 8) == "nutrient" and tonumber(string.sub(v["name"], 9, 1)) ~= nil then
-                doRebuild = true
-            end
-
-            -- Perform rebuild of prerequsistes if needed and then break out of this loop
-            if doRebuild then
-                for _, j in ipairs(data.raw["technology"][k]["prerequisites"])
-                do
-                    local prereqs = {}
-                    if string.sub(j, 1, 8) ~= "nutrient" then
-                        table.insert(prereqs, j)
-                    end
-                    data.raw["technology"][k]["prerequisites"] = prereqs
-                end
-                break
-            end
-        end
-    end
-
-    -- Remove techs previously found
-    for i in ipairs(nTechsIdx)
-    do
-        tech                      = data.raw["technology"][i]
-        data.raw["technology"][i] = nil
-    end
+    -- TODO fix this
 end
+
+--     "BROKEN"
+--     -- TODO fix this
+
+--     -- Get nutrient tech indices for techs that match the string "nutrient[0,9]"
+--     local nTechsIdx = {}
+--     for k, v in pairs(data.raw["technology"]) do
+--         -- If a match, save index of technology into list
+--         if string.sub(v["name"], 1, 8) == "nutrient" and tonumber(string.sub(v["name"], 9, 1)) ~= nil then
+--             table.insert(nTechsIdx, i)
+--         end
+
+--         -- Remove nutrient techs from prerequisites of all technologies
+--         for _, j in ipairs(data.raw["technology"][k]["prerequisites"])
+--         do
+--             -- Trigger a prerequisites rebuild if a nutrient tech was found in the list
+--             local doRebuild = false
+--             if string.sub(j, 1, 8) == "nutrient" and tonumber(string.sub(v["name"], 9, 1)) ~= nil then
+--                 doRebuild = true
+--             end
+
+--             -- Perform rebuild of prerequsistes if needed and then break out of this loop
+--             if doRebuild then
+--                 for _, j in ipairs(data.raw["technology"][k]["prerequisites"])
+--                 do
+--                     local prereqs = {}
+--                     if string.sub(j, 1, 8) ~= "nutrient" then
+--                         table.insert(prereqs, j)
+--                     end
+--                     data.raw["technology"][k]["prerequisites"] = prereqs
+--                 end
+--                 break
+--             end
+--         end
+--     end
+
+--     -- Remove techs previously found
+--     for i in ipairs(nTechsIdx)
+--     do
+--         tech                      = data.raw["technology"][i]
+--         data.raw["technology"][i] = nil
+--     end
+-- end
 
 -- Clear all nutrient recipes from nutrient technologies and data prototypes
 -- Used primarily to allow for a rebuild based on other mods that might use the tastiness field

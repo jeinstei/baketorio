@@ -103,43 +103,44 @@ data:extend(
         }
     })
 
-data.raw["recipe"]["automation-science-pack"].ingredients =
-{
-    { type = "item", name = "basic-bread", amount = 2 }
+baketorio.sciencePackCosts = {
+    ["automation-science-pack"] = {
+        { type = "item", name = "basic-bread", amount = 2 }
+    },
+    ["logistic-science-pack"] = {
+        { type = "item", name = "basic-batter-cupcake-cooked-frosted", amount = 2 },
+        { type = "item", name = "basic-batter-cake-cooked-frosted",    amount = 2 }
+    },
+    ["military-science-pack"] = {
+        { type = "item", name = "salted-hardtack", amount = 50 },
+    },
+    ["chemical-science-pack"] = {
+        { type = "item", name = "brownie",                             amount = 3 },
+        { type = "item", name = "cheese-batter-cake-cooked",           amount = 2 },
+        { type = "item", name = "fryer-dough-doughnut-cooked-frosted", amount = 5 },
+    },
+    ["utility-science-pack"] = {
+        { type = "item", name = "blueberry-batter-muffin-cooked", amount = 2 },
+        { type = "item", name = "fryer-dough-bun-cooked-frosted", amount = 1 },
+        { type = "item", name = "blueberry-batter-scone-cooked",  amount = 5 },
+    },
+    ["production-science-pack"] = {
+        { type = "item", name = "blueberry-pie-cooked",                     amount = 1 },
+        { type = "item", name = "brownies-with-ice-cream",                  amount = 2 },
+        { type = "item", name = "advanced-cake-batter-cake-cooked-frosted", amount = 1 },
+        { type = "item", name = "chocolate-chip-cookie",                    amount = 8 },
+    },
+    ["rocket-part"] = {
+        { type = "item", name = "nutrient6", amount = 10 },
+    }
 }
 
-data.raw["recipe"]["logistic-science-pack"].ingredients =
-{
-    { type = "item", name = "basic-batter-cupcake-cooked-frosted", amount = 2 },
-    { type = "item", name = "basic-batter-cake-cooked-frosted", amount = 2 }
-}
-data.raw["recipe"]["military-science-pack"].ingredients =
-{
-    { type = "item", name = "salted-hardtack", amount = 50 },
-}
-data.raw["recipe"]["chemical-science-pack"].ingredients =
-{
-    { type = "item", name = "brownie",                         amount = 3 },
-    { type = "item", name = "cheese-batter-cake-cooked",       amount = 2 },
-    { type = "item", name = "fryer-dough-doughnut-cooked-frosted", amount = 5 },
-}
-
-data.raw["recipe"]["utility-science-pack"].ingredients =
-{
-    { type = "item", name = "blueberry-batter-muffin-cooked", amount = 2 },
-    { type = "item", name = "fryer-dough-bun-cooked-frosted", amount = 1 },
-    { type = "item", name = "blueberry-batter-scone-cooked", amount = 5 },
-}
-
-data.raw["recipe"]["production-science-pack"].ingredients =
-{
-    { type = "item", name = "blueberry-pie-cooked",                 amount = 1 },
-    { type = "item", name = "brownies-with-ice-cream",              amount = 2 },
-    { type = "item", name = "advanced-cake-batter-cake-cooked-frosted", amount = 1 },
-    { type = "item", name = "chocolate-chip-cookie",                amount = 8 },
-}
-
-data.raw["recipe"]["rocket-part"].ingredients =
-{
-    { type = "item", name = "nutrient6", amount = 10 },
-}
+baketorio.setScienceCosts = function ()
+    for k, v in pairs(baketorio.sciencePackCosts)
+    do
+        data.raw["recipe"][k].ingredients = v
+    end
+end
+if settings.startup["baketorio-exclusive-science-costs"].value then
+    baketorio.setScienceCosts()
+end

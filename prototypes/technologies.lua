@@ -442,4 +442,4 @@ baketorio.setSciencePrerequisites = function (exclusive)
     end
 end
 
-baketorio.setSciencePrerequisites(settings.startup["baketorio-exclusive-science"].value)
+baketorio.setSciencePrerequisites(settings.startup["baketorio-exclusive-science-prereq"].value)

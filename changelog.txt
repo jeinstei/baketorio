@@ -1,11 +1,13 @@
 ---------------------------------------------------------------------------------------------------
 Version: 2.1.0
-Date: 2026.08.
+Date: 2026.08.31
   Locale:
     - Updates to files due to changes in recipe names
-    - Updates to      translations from CrowdIn
+    - Updates to translations from CrowdIn
   Features:
     - Auto-hiding of nutrient recipes based on if the ingredients can be crafted
+    - Working NutriGen for hidden recipes
+    - Added mod setting to allow Basketorio to not be the excusive science pack prerequisites
   Changes:
     - nutrient1 technology not enabled on startup and has automation science pack as prerequisite
     - Adjusted cost of nutrient2 technology
