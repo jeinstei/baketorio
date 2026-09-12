@@ -35,6 +35,28 @@ The mod is currently maintained by [derim422](https://mods.factorio.com/user/der
 
 ## API
 
+Two remote interfaces exist:
+
+- baketorio.technology
+  - getPrerequisites: returns a table of {science-pack=string[]}
+  - getCosts: returns a table of {science-pack=ItemIngredientPrototype []}
+- baketorio.module
+  - rebuildStorage: rebuilds internal nutrient recipe state
+
 ## Data Storage
 
+lib.storageData = {
+    "gui_data",
+    "activeNutrientTechsByForce",
+    "activeNutrientIngredientsByForce",
+    "missingNutrientIngredientRecipesByForce",
+}
 
+- gui_data
+  - Tracks internal gui objects and state for NutriGen
+- activeNutrientTechsByForce
+  - Researched nutrient technologies
+- activeNutrientIngredientsByForce
+  - table mapping currently active ingredients to nutrient recipes
+- missingNutrientIngredientRecipesByForce
+  - array of missing nutrient ingredients for enabled research to speed up event hooks
