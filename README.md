@@ -8,6 +8,13 @@ To mix in even more fun, check out [Baketorio+](https://mods.factorio.com/mod/ba
 
 ## FAQ
 
+Q: Are there any compatability issues?
+
+Yes! But three jump out:
+
+- Any other mod that has technologies named "nutrient*" will lead to unpredictable behavior
+- This mod is an overhaul mod, meaning that it changes the base science and rocket silo requirements. The feature can be turned off in mod settings, as long as all players in a multiplayer game have the mode settings set the same.
+
 Q: How do I select the right nutrient recipe?
 
 A: The NutriGen tool that will open whenever inside an assembling machine. There is a two item selector that will show in the top left of your sceen when inside an assembler. Select your desired inputs, and the selector will update the recipe to be a compatible nutrient.

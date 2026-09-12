@@ -20,11 +20,9 @@ end
 lib.updateItemChooser = function (chooser, ingredients)
     if (not chooser) then return end
     chooser.clear()
-    log("Adding items to chooser " .. chooser.name)
     local i = 0
     for k, _ in pairs(ingredients)
     do
-        log("Adding item " .. k)
         chooser.add { type = "sprite-button", name = "ngen" .. i, sprite = "item/" .. k }
         i = i + 1
     end
@@ -113,9 +111,9 @@ end
 
 ---@type fun(player:LuaPlayer)
 local setRecipeBasedOnChoosers = function (player)
-    local chooser = player.gui.top.itemChooserFrame.itemChooser
-    local i1 = player.gui.top.recipe_chooser.item1
-    local i2 = player.gui.top.recipe_chooser.item2
+    local itemChooser = player.gui.top.itemChooserFrame.itemChooser
+    local i1 = lib.get_gui_data(player.gui.top, "recipe_chooser").item1
+    local i2 = lib.get_gui_data(player.gui.top, "recipe_chooser").item2
 
     local items = {
         i1.sprite:sub(6, -1),
@@ -123,7 +121,7 @@ local setRecipeBasedOnChoosers = function (player)
     }
 
     local recipe = getActiveRecipeFromItems(player.force, items)
-    local entity = lib.get_gui_data(chooser, "entity")
+    local entity = lib.get_gui_data(itemChooser, "entity")
     entity.set_recipe(recipe)
 end
 
@@ -136,7 +134,8 @@ lib.onAssemblingMachineGuiOpened = function (player, entity)
     -- Ignore if nutrients not yet researched
     if player.force.technologies["nutrient1"].researched == false then return end
 
-    player.gui.top.add { type = "frame", name = "recipe_chooser", caption = { "ui-elements.nutrigen" } }
+    local recipe_chooser = player.gui.top.add { type = "frame", name = "recipe_chooser", caption = { "ui-elements.nutrigen" } }
+    lib.set_gui_data(player.gui.top, "recipe_chooser", recipe_chooser)
 
     ---@type LuaGuiElement
     local item1
@@ -145,24 +144,17 @@ lib.onAssemblingMachineGuiOpened = function (player, entity)
     item1 = player.gui.top.recipe_chooser.add { type = "sprite-button", name = "item1", sprite = "", tooltip = { "ui-elements.nutrigen-i1" } }
     item2 = player.gui.top.recipe_chooser.add { type = "sprite-button", name = "item2", sprite = "", tooltip = { "ui-elements.nutrigen-i2" } }
 
-    local activeNutrientIngredientsByForce = storage.activeNutrientIngredientsByForce
-    if (not activeNutrientIngredientsByForce) then activeNutrientIngredientsByForce = {} end
-    if activeNutrientIngredientsByForce ~= nil and (not activeNutrientIngredientsByForce[player.force.name]) then
-        log("Unexpected missing inventory. Creating inventory now. Likely due to scripts or console commands.")
-        activeNutrientIngredientsByForce[player.force.name] = {}
-    end
-
     -- Add to top element
-    player.gui.top.add { type = "frame", name = "itemChooserFrame", caption = "Select Your Ingredient", visible = false }
+    local frame = player.gui.top.add { type = "frame", name = "itemChooserFrame", caption = "Select Your Ingredient", visible = false }
+    lib.set_gui_data(player.gui.top, "frame", frame)
 
     ---@type LuaGuiElement
-    local itemChooser = player.gui.top.itemChooserFrame.add { type = "table", name = "itemChooser", column_count = 6, visible = true }
+    local itemChooser = player.gui.top.itemChooserFrame.add { type = "table", name = "itemChooser", column_count = 8, visible = true }
 
     -- Update chooser table
-    lib.updateItemChooser(itemChooser, activeNutrientIngredientsByForce[player.force.name])
+    lib.updateItemChooser(itemChooser, storage.activeNutrientIngredientsByForce[player.force.name])
 
     -- Set shared data
-    lib.set_gui_data(itemChooser, "frame", player.gui.top.itemChooserFrame)
     lib.set_gui_data(itemChooser, "entity", entity)
     lib.set_gui_data(itemChooser, "buttons", { item1, item2 })
     lib.set_gui_data(itemChooser, "active", nil)
@@ -189,7 +181,7 @@ lib.onChooserClick = function (event)
         setRecipeBasedOnChoosers(game.players[event.player_index])
     else
         local chooser = lib.get_gui_data(event.element, "chooser")
-        local frame = lib.get_gui_data(chooser, "frame")
+        local frame = lib.get_gui_data(game.players[event.player_index].gui.top, "frame")
         lib.set_gui_data(chooser, "active", event.element)
         frame.visible = true
     end
