@@ -8,6 +8,13 @@ To mix in even more fun, check out [Baketorio+](https://mods.factorio.com/mod/ba
 
 ## FAQ
 
+Q: Are there any compatability issues?
+
+Yes! But three jump out:
+
+- Any other mod that has technologies named "nutrient*" will lead to unpredictable behavior
+- This mod is an overhaul mod, meaning that it changes the base science and rocket silo requirements. The feature can be turned off in mod settings, as long as all players in a multiplayer game have the mode settings set the same.
+
 Q: How do I select the right nutrient recipe?
 
 A: The NutriGen tool that will open whenever inside an assembling machine. There is a two item selector that will show in the top left of your sceen when inside an assembler. Select your desired inputs, and the selector will update the recipe to be a compatible nutrient.
@@ -25,3 +32,31 @@ This mod was created by [Butteredcoffe](https://mods.factorio.com/user/butteredc
 ![eggs in a greenhouse](https://github.com/jeinstei/baketorio/blob/50524bdb629312d64bb3a55e89dc78152fd84869/graphics/eggs_greenhouse.png)
 
 The mod is currently maintained by [derim422](https://mods.factorio.com/user/derim422)/[jeinstei](https://github.com/jeinstei/)
+
+## API
+
+Two remote interfaces exist:
+
+- baketorio.technology
+  - getPrerequisites: returns a table of {science-pack=string[]}
+  - getCosts: returns a table of {science-pack=ItemIngredientPrototype []}
+- baketorio.module
+  - rebuildStorage: rebuilds internal nutrient recipe state
+
+## Data Storage
+
+lib.storageData = {
+    "gui_data",
+    "activeNutrientTechsByForce",
+    "activeNutrientIngredientsByForce",
+    "missingNutrientIngredientRecipesByForce",
+}
+
+- gui_data
+  - Tracks internal gui objects and state for NutriGen
+- activeNutrientTechsByForce
+  - Researched nutrient technologies
+- activeNutrientIngredientsByForce
+  - table mapping currently active ingredients to nutrient recipes
+- missingNutrientIngredientRecipesByForce
+  - array of missing nutrient ingredients for enabled research to speed up event hooks
