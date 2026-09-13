@@ -11,10 +11,8 @@ local overlayOffsets = { upperLeft, upperRight, lowerLeft, lowerRight }
 
 ---@type fun(number:int, location:int[]|nil):IconData
 local getOverlayIconData = function (number, location)
-    local shift
-    if location == nil then
-        shift = 0
-    else
+    local shift = { 0, 0 }
+    if location ~= nil then
         shift = location
     end
 
