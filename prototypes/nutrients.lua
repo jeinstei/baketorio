@@ -180,6 +180,11 @@ function baketorio.makeRecipe(name, amount, ingredients, c)
         icon_size = iconSize
     }
 
+    if mods["icon-badges"] ~= nil then
+        prototype["ib_let_badge"] = nNumber
+        prototype["ib_let_corner"] = "right-bottom"
+    end
+
     data:extend {
         prototype,
     }
@@ -279,6 +284,11 @@ function baketorio.build_nutrient_items(nutrient_table)
             subgroup = "nutrients",
             stack_size = 100,
         }
+
+        if mods["icon-badges"] ~= nil then
+            prototype["ib_let_badge"] = nNumber
+            prototype["ib_let_corner"] = "right-top"
+        end
 
         data:extend(
             {
