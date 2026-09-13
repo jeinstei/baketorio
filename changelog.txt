@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.1.1
+Date: 2026.09.13
+  Features:
+    - Added mod settings to enable number labeling of nutrient items and recipes
+  Bugfix:
+    - Removed number from nutrient item icons
+---------------------------------------------------------------------------------------------------
 Version: 2.1.0
 Date: 2026.09.13
   Locale:

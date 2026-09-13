@@ -33,6 +33,12 @@ This mod was created by [Butteredcoffe](https://mods.factorio.com/user/butteredc
 
 The mod is currently maintained by [derim422](https://mods.factorio.com/user/derim422)/[jeinstei](https://github.com/jeinstei/)
 
+## Mod Settings
+
+Mod settings are available to allow Baketorio to work with other overhaul mods but not setting the science prerequisites or science pack costs.
+
+Additional mod settings are available for accessiblity to label the nutrient items or nutrient recipes with their level on the icon itself. These settings are hidden if the [Icon Badges](https://mods.factorio.com/mod/icon-badges) mod is installed.
+
 ## API
 
 Two remote interfaces exist:

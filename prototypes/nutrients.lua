@@ -1,4 +1,3 @@
---local serpent = require("serpent")
 local iconSize = 32
 local overlayScale = 0.5
 
@@ -9,6 +8,25 @@ local lowerLeft = { -adjustSize, adjustSize }
 local lowerRight = { adjustSize, adjustSize }
 
 local overlayOffsets = { upperLeft, upperRight, lowerLeft, lowerRight }
+
+---@type fun(number:int, location:int[]|nil):IconData
+local getOverlayIconData = function (number, location)
+    local shift
+    if location == nil then
+        shift = 0
+    else
+        shift = location
+    end
+
+    -- Get IconData overlaid for a number
+    local overlayNumberIcon = "__base__/graphics/icons/signal/signal_" .. number .. ".png"
+    local overlayIconData = {
+        icon = overlayNumberIcon,
+        scale = 0.25,
+        shift = shift,
+    }
+    return overlayIconData
+end
 
 -- Definition of nutrient techs
 baketorio.nutrient_tech_table = {}
@@ -137,25 +155,35 @@ function baketorio.makeRecipe(name, amount, ingredients, c)
     --     recipe_name = recipe_name .. "-" .. v.name
     -- end
     -- if c ~= nil then recipe_name = recipe_name .. "-" .. c end
+    local start, stop = name:find("%d+", -1)
+    local nNumber = name:sub(start, stop)
+    local iconArray = baketorio.makeIconLayered(name, ingredients)
+    if settings.startup["baketorio-numbers-on-nutrient-recipes"].value then
+        local overlayIconData = getOverlayIconData(nNumber, lowerRight)
+        table.insert(iconArray, overlayIconData)
+    end
+
+    local prototype = {
+        type = "recipe",
+        name = recipe_name,
+        localised_name = { "nutrient-name." .. name },
+        energy_required = 2,
+        categories = { "crafting" },
+        order = name .. "-" .. amount,
+        subgroup = "nutrients",
+        allow_productivity = true,
+        enabled = false,
+        ingredients = ingredients,
+        requires_ingredients_to_unlock_results = true,
+        results = {
+            { type = "item", name = name, amount = amount * 2 }
+        },
+        icons = iconArray,
+        icon_size = iconSize
+    }
+
     data:extend {
-        {
-            type = "recipe",
-            name = recipe_name,
-            localised_name = { "nutrient-name." .. name },
-            energy_required = 2,
-            categories = { "crafting" },
-            order = name .. "-" .. amount,
-            subgroup = "nutrients",
-            allow_productivity = true,
-            enabled = false,
-            ingredients = ingredients,
-            requires_ingredients_to_unlock_results = true,
-            results = {
-                { type = "item", name = name, amount = amount * 2 }
-            },
-            icons = baketorio.makeIconLayered(name, ingredients),
-            icon_size = iconSize
-        }
+        prototype,
     }
     -- baketorio.add_to_prod_mod(recipe_name)
 
@@ -168,6 +196,7 @@ function baketorio.makeRecipe(name, amount, ingredients, c)
 end
 
 -- Make a layered icon based on its ingredients
+---@type fun(name:string, ingredients:Ingredient[]):IconData[]
 function baketorio.makeIconLayered(name, ingredients)
     local icon_list = {
         { icon = baketorio.get_png(name), icon_size = iconSize },
@@ -223,27 +252,39 @@ function baketorio.build_nutrient_items(nutrient_table)
     do
         local start, stop = k:find("%d+", -1)
         local nNumber = k:sub(start, stop)
-        local overlayNumberIcon = "__base__/graphics/icons/signal/signal_" .. nNumber .. ".png"
+        local dark_icon_list
+        local icon_list = {
+            {
+                icon = baketorio.get_png(k),
+                icon_size = 32,
+            },
+        }
+        if settings.startup["baketorio-numbers-on-nutrient-items"].value then
+            local overlayIconData = getOverlayIconData(nNumber, upperRight)
+            table.insert(icon_list, overlayIconData)
+        end
+        if settings.startup["baketorio-numbers-on-nutrient-items-in-alt-mode"].value then
+            dark_icon_list = util.table.deepcopy(icon_list)
+            local overlayIconData = getOverlayIconData(nNumber, upperRight)
+            table.insert(dark_icon_list, overlayIconData)
+        end
+
+        log(serpent.dump(icon_list))
+        log(serpent.dump(dark_icon_list))
+
+        local prototype = {
+            type = "item",
+            name = k,
+            localised_name = { "nutrient-name." .. k },
+            icons = icon_list,
+            dark_background_icons = dark_icon_list,
+            subgroup = "nutrients",
+            stack_size = 100,
+        }
+
         data:extend(
             {
-                {
-                    type = "item",
-                    name = k,
-                    localised_name = { "nutrient-name." .. k },
-                    icons = {
-                        {
-                            icon = baketorio.get_png(k),
-                            icon_size = 32,
-                        },
-                        {
-                            icon = overlayNumberIcon,
-                            scale = 0.25,
-                            shift = upperRight,
-                        }
-                    },
-                    subgroup = "nutrients",
-                    stack_size = 100
-                },
+                prototype,
             }
         )
     end

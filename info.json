@@ -5,6 +5,6 @@
 	"author":"ButteredCoffee",
 	"factorio_version":"2.1",
 	"contact": "derim422",
-	"dependencies": ["base >= 2.1.0", "? space-age"],
+	"dependencies": ["base >= 2.1.0", "? space-age", "? icon-badges"],
 	"description":"adds baking"
 }
