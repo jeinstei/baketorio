@@ -6,11 +6,11 @@ local prod_recipes = {
     "organic-synthesizer",
     "hardtack",
     "salted-hardtack",
-    "chicken",
-    "chicken-egg",
-    "egg",
-    "cow",
-    "breed-cow",
+    -- "chicken",
+    -- "chicken-egg",
+    -- "egg",
+    -- "cow",
+    -- "breed-cow",
     "frosting",
     "cocoa-powder",
     "brownie",
@@ -27,10 +27,6 @@ local prod_recipes = {
     "plain-ice-cream",
     "brownies-with-ice-cream",
 }
-
--- for _, v in ipairs(prod_recipes) do
--- 	baketorio.add_to_prod_mod(v)
--- end
 
 data:extend(
     {

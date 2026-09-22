@@ -1,6 +1,12 @@
 data:extend({
     {
         type = "bool-setting",
+        name = "baketorio-batter-fluids",
+        setting_type = "startup",
+        default_value = false
+    },
+    {
+        type = "bool-setting",
         name = "baketorio-exclusive-science-prereq",
         setting_type = "startup",
         default_value = true

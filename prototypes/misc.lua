@@ -9,6 +9,10 @@ data:extend(
             name = "organic-synth-recipes"
         },
         {
+            type = "fuel-category",
+            name = "meat"
+        },
+        {
             type = "item-subgroup",
             name = "nutrients",
             group = "nutrients"

@@ -23,7 +23,7 @@ data:extend(
             icon_size = 32,
             subgroup = "seeds",
             stack_size = 100,
-            fuel_category = "chemical",
+            fuel_categories = { "chemical", },
             fuel_value = "10kJ"
         },
         {
@@ -41,7 +41,7 @@ data:extend(
             icon_size = 32,
             subgroup = "seeds",
             stack_size = 100,
-            fuel_category = "chemical",
+            fuel_categories = { "chemical", },
             fuel_value = "10kJ"
         },
         {
@@ -67,7 +67,7 @@ data:extend(
             icon_size = 32,
             subgroup = "seeds",
             stack_size = 100,
-            fuel_category = "chemical",
+            fuel_categories = { "chemical", },
             fuel_value = "10kJ"
         },
         {
@@ -85,7 +85,7 @@ data:extend(
             icon_size = 32,
             subgroup = "seeds",
             stack_size = 100,
-            fuel_category = "chemical",
+            fuel_categories = { "chemical", },
             fuel_value = "10kJ"
         },
         {
@@ -104,7 +104,7 @@ data:extend(
             icon_size = 32,
             subgroup = "seeds",
             stack_size = 100,
-            fuel_category = "chemical",
+            fuel_categories = { "chemical", },
             fuel_value = "10kJ"
         },
         {
@@ -114,7 +114,7 @@ data:extend(
             icon_size = 32,
             subgroup = "seeds",
             stack_size = 100,
-            fuel_category = "chemical",
+            fuel_categories = { "chemical", },
             fuel_value = "10kJ"
         },
         {
@@ -146,10 +146,6 @@ local prod_recipes = {
     "strawberry-seeds",
     "strawberries"
 }
-
--- for _, v in ipairs(prod_recipes) do
--- 	baketorio.add_to_prod_mod(v)
--- end
 
 data:extend {
     {
@@ -183,9 +179,9 @@ data:extend {
             { type = "item", name = "wheat-seeds", amount = 1 }
         },
         results = {
-            { type = "item", name = "wheat-seeds", amount = 1, independent_probability = 0.1 },
+            { type = "item", name = "wheat-seeds", amount = 1,     independent_probability = 0.1 },
             { type = "item", name = "wheat-seeds", amount = 1 },
-            { type = "item", name = "wheat",   amount_min = 3, amount_max = 5 }
+            { type = "item", name = "wheat",       amount_min = 3, amount_max = 5 }
         },
         icon = "__baketorio__/graphics/wheat.png",
         icon_size = 32,
@@ -237,12 +233,12 @@ data:extend {
         enabled = false,
         ingredients = {
             { type = "item", name = "sugarcane-seeds", amount = 1 },
-            { type = "item", name = "nutrient1",   amount = 1 }
+            { type = "item", name = "nutrient1",       amount = 1 }
         },
         results = {
-            { type = "item", name = "sugarcane-seeds", amount = 1, independent_probability = 0.15 },
+            { type = "item", name = "sugarcane-seeds", amount = 1,     independent_probability = 0.15 },
             { type = "item", name = "sugarcane-seeds", amount = 1 },
-            { type = "item", name = "sugarcane",   amount_min = 3, amount_max = 4 }
+            { type = "item", name = "sugarcane",       amount_min = 3, amount_max = 4 }
         },
         icon = "__baketorio__/graphics/sugarcane.png",
         icon_size = 32,
@@ -294,12 +290,12 @@ data:extend {
         enabled = false,
         ingredients = {
             { type = "item", name = "cocoa-bean-seeds", amount = 1 },
-            { type = "item", name = "nutrient3",    amount = 1 }
+            { type = "item", name = "nutrient3",        amount = 1 }
         },
         results = {
-            { type = "item", name = "cocoa-bean-seeds", amount = 1, independent_probability = 0.05 },
+            { type = "item", name = "cocoa-bean-seeds", amount = 1,     independent_probability = 0.05 },
             { type = "item", name = "cocoa-bean-seeds", amount = 1 },
-            { type = "item", name = "cocoa-beans",  amount_min = 2, amount_max = 5 }
+            { type = "item", name = "cocoa-beans",      amount_min = 2, amount_max = 5 }
         },
         icon = "__baketorio__/graphics/cocoa-beans.png",
         icon_size = 32,
@@ -333,12 +329,12 @@ data:extend {
         enabled = false,
         ingredients = {
             { type = "item", name = "cinnamon-seeds", amount = 1 },
-            { type = "item", name = "nutrient4",  amount = 1 }
+            { type = "item", name = "nutrient4",      amount = 1 }
         },
         results = {
-            { type = "item", name = "cinnamon-seeds", amount = 1, independent_probability = 0.01 },
+            { type = "item", name = "cinnamon-seeds", amount = 1,     independent_probability = 0.01 },
             { type = "item", name = "cinnamon-seeds", amount = 1 },
-            { type = "item", name = "cinnamon",   amount_min = 2, amount_max = 4 }
+            { type = "item", name = "cinnamon",       amount_min = 2, amount_max = 4 }
         },
         icon = "__baketorio__/graphics/cinnamon.png",
         icon_size = 32,
@@ -372,12 +368,12 @@ data:extend {
         enabled = false,
         ingredients = {
             { type = "item", name = "blueberry-seeds", amount = 1 },
-            { type = "item", name = "nutrient5",   amount = 1 }
+            { type = "item", name = "nutrient5",       amount = 1 }
         },
         results = {
             { type = "item", name = "blueberry-seeds", amount = 1, independent_probability = 0.02 },
             { type = "item", name = "blueberry-seeds", amount = 1 },
-            { type = "item", name = "blueberries", amount = 1 }
+            { type = "item", name = "blueberries",     amount = 1 }
         },
         icon = "__baketorio__/graphics/blueberries.png",
         icon_size = 32,
@@ -411,12 +407,12 @@ data:extend {
         enabled = false,
         ingredients = {
             { type = "item", name = "strawberry-seeds", amount = 1 },
-            { type = "item", name = "nutrient5",    amount = 5 }
+            { type = "item", name = "nutrient5",        amount = 5 }
         },
         results = {
             { type = "item", name = "strawberry-seeds", amount = 1, independent_probability = 0.04 },
             { type = "item", name = "strawberry-seeds", amount = 1 },
-            { type = "item", name = "strawberries", amount = 1 }
+            { type = "item", name = "strawberries",     amount = 1 }
         },
         icon = "__baketorio__/graphics/strawberries.png",
         icon_size = 32,

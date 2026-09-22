@@ -1,81 +1,106 @@
+-- Modifications for previously created recipes
+data.raw.recipe["brownie"].categories = { "crafting-with-fluid" }
+data.raw.recipe["chocolate-chip-batter"].categories = { "crafting-with-fluid" }
+data.raw.recipe["blueberry-pie"].categories = { "crafting-with-fluid" }
+data.raw.recipe["strawberry-pie"].categories = { "crafting-with-fluid" }
+
+data.raw.recipe["brownie"].ingredients = {
+    { type = "fluid", name = "chocolate-batter", amount = 1 }
+}
+data.raw.recipe["chocolate-chip-batter"].ingredients[1] = { type = "fluid", name = "basic-batter", amount = 1 }
+data.raw.recipe["blueberry-pie"].ingredients[1] = { type = "fluid", name = "fryer-dough", amount = 1 }
+data.raw.recipe["strawberry-pie"].ingredients[1] = { type = "fluid", name = "fryer-dough", amount = 1 }
+
 local batter = {
     {
-        type = "item",
+        type = "fluid",
         name = "basic-batter",
         icon = baketorio.get_png("cakebatter"),
         icon_size = 32,
         subgroup = "basic",
         stack_size = 100,
+        base_color = { r = 0.76, g = 0.73, b = 0.58, a = 1 },
+        flow_color = { r = 0.76, g = 0.73, b = 0.58, a = 1 },
         ingredients = {
-            { type = "item", name = "flour", amount = 3 },
-            { type = "fluid", name = "milk", amount = 5 },
-            { type = "item", name = "butter", amount = 1 },
-            { type = "item", name = "egg", amount = 1 },
-            { type = "item", name = "sugar", amount = 1 }
+            { type = "item",  name = "flour",  amount = 3 },
+            { type = "fluid", name = "milk",   amount = 5 },
+            { type = "item",  name = "butter", amount = 1 },
+            { type = "item",  name = "egg",    amount = 1 },
+            { type = "item",  name = "sugar",  amount = 1 }
         }
     },
     {
-        type = "item",
+        type = "fluid",
         name = "chocolate-batter",
         icon = baketorio.get_png("chocolate-batter"),
         icon_size = 32,
         subgroup = "chocolate",
         stack_size = 100,
+        base_color = { r = 0.6, g = 0.42, b = 0.26, a = 1 },
+        flow_color = { r = 0.6, g = 0.42, b = 0.26, a = 1 },
         ingredients = {
-            { type = "item", name = "basic-batter", amount = 1 },
-            { type = "item", name = "cocoa-powder", amount = 2 },
+            { type = "fluid", name = "basic-batter", amount = 1 },
+            { type = "item",  name = "cocoa-powder", amount = 2 },
         }
     },
     {
-        type = "item",
+        type = "fluid",
         name = "fryer-dough",
         icon = baketorio.get_png("fryer-dough"),
         icon_size = 32,
         subgroup = "bread",
         stack_size = 100,
+        base_color = { r = 0.76, g = 0.73, b = 0.58, a = 1 },
+        flow_color = { r = 0.76, g = 0.73, b = 0.58, a = 1 },
         ingredients = {
-            { type = "item", name = "flour", amount = 3 },
-            { type = "fluid", name = "milk", amount = 5 },
-            { type = "item", name = "butter", amount = 1 },
-            { type = "item", name = "salt", amount = 1 }
+            { type = "item",  name = "flour",  amount = 3 },
+            { type = "fluid", name = "milk",   amount = 5 },
+            { type = "item",  name = "butter", amount = 1 },
+            { type = "item",  name = "salt",   amount = 1 }
         }
     },
     {
-        type = "item",
+        type = "fluid",
         name = "cheese-batter",
         icon = baketorio.get_png("cheese-batter"),
         icon_size = 32,
         subgroup = "milk",
         stack_size = 100,
+        base_color = { r = 0.76, g = 0.73, b = 0.58, a = 1 },
+        flow_color = { r = 0.76, g = 0.73, b = 0.58, a = 1 },
         ingredients = {
-            { type = "item", name = "basic-batter", amount = 1 },
-            { type = "item", name = "cheese",   amount = 3 },
+            { type = "fluid", name = "basic-batter", amount = 1 },
+            { type = "item",  name = "cheese",       amount = 3 },
         }
     },
     {
-        type = "item",
+        type = "fluid",
         name = "blueberry-batter",
         icon = baketorio.get_png("blueberry-batter"),
         icon_size = 32,
         subgroup = "fruit",
         stack_size = 100,
+        base_color = { r = 0.17, g = 0.46, b = 0.93, a = 1 },
+        flow_color = { r = 0.17, g = 0.46, b = 0.93, a = 1 },
         ingredients = {
-            { type = "item", name = "basic-batter", amount = 1 },
-            { type = "item", name = "blueberries", amount = 1 },
+            { type = "fluid", name = "basic-batter", amount = 1 },
+            { type = "item",  name = "blueberries",  amount = 1 },
         }
     },
     {
-        type = "item",
+        type = "fluid",
         name = "advanced-cake-batter",
         icon = baketorio.get_png("advanced-cake-batter"),
         icon_size = 32,
         subgroup = "advanced",
         stack_size = 100,
+        base_color = { r = 0.91, g = 0.91, b = 0.20, a = 1 },
+        flow_color = { r = 0.91, g = 0.91, b = 0.20, a = 1 },
         ingredients = {
-            { type = "item", name = "basic-batter", amount = 1 },
-            { type = "item", name = "baking-soda", amount = 1 },
-            { type = "item", name = "salt",     amount = 2 },
-            { type = "item", name = "strawberries", amount = 1 },
+            { type = "fluid", name = "basic-batter", amount = 1 },
+            { type = "item",  name = "baking-soda",  amount = 1 },
+            { type = "item",  name = "salt",         amount = 2 },
+            { type = "item",  name = "strawberries", amount = 1 },
         }
     }
 }
@@ -87,10 +112,15 @@ for key, value in pairs(batter) do
         {
             type = value.type,
             name = value.name,
+            localised_name = { "item-name." .. value.name },
             icon = value.icon,
             icon_size = value.icon_size,
             subgroup = "ingredient",
+            default_temperature = 20,
+            max_temperature = 45,
             stack_size = value.stack_size,
+            base_color = value.base_color,
+            flow_color = value.flow_color,
             ingredients = value.ingredients
         },
         {
@@ -103,7 +133,7 @@ for key, value in pairs(batter) do
             enabled = false,
             ingredients = value.ingredients,
             results = {
-                { type = "item", name = value.name, amount = 1 },
+                { type = "fluid", name = value.name, amount = 1 },
             },
             icon = value.icon,
             icon_size = 32
@@ -246,13 +276,13 @@ for key, shape in pairs(shapes) do
         type = "recipe",
         name = (uncooked_shape.name),
         localised_name = { "item-name." .. uncooked_shape.name },
-        categories = { "crafting" },
+        categories = { "crafting-with-fluid" },
         subgroup = "ingredient",
         allow_productivity = true,
         energy_required = 2,
         enabled = false,
         ingredients = {
-            { type = "item", name = b.name, amount = shape.batter_amount },
+            { type = "fluid", name = b.name, amount = shape.batter_amount },
         },
         results = {
             { type = "item", name = uncooked_shape.name, amount = shape.result },
@@ -324,7 +354,7 @@ for key, shape in pairs(shapes) do
             enabled = false,
             ingredients = {
                 { type = "item", name = cooked_shape.name, amount = 1 },
-                { type = "item", name = "frosting",    amount = 1 },
+                { type = "item", name = "frosting",        amount = 1 },
             },
             results = {
                 { type = "item", name = cooked_shape_frosted.name, amount = 1 },

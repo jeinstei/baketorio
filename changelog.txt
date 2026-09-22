@@ -1,4 +1,14 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.1.2
+Date: 2026.09.22
+  Features:
+    - Added mod startup setting to treat some batters as liquids
+    - Support for Factorio version 2.1.20
+  Bugfix:
+    - Fix for rocket-silo prereqs due to bad indexing and typo
+  Changes:
+    - Removed some farming recipes from productivity-mod lists
+---------------------------------------------------------------------------------------------------
 Version: 2.1.1
 Date: 2026.09.13
   Features:
