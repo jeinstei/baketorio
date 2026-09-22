@@ -422,21 +422,22 @@ table.insert(
 )
 
 -- Helper function to set prereqs
+---@type fun(exclusive:boolean):nil
 baketorio.setSciencePrerequisites = function (exclusive)
     for k, v in pairs(baketorio.techPrereqs)
     do
+        local tech = data.raw.technology[k]
         if exclusive then
-            local science = data.raw.technology[k]
-            if k == "rocket-science" then
-                table.insert(science.prerequisites, v[0])
+            -- rocket-silo pre-req is an append, not a replace, even in exclusive
+            if k == "rocket-silo" then
+                table.insert(tech.prerequisites, v[1])
             else
-                science.prerequisites = v
+                tech.prerequisites = v
             end
         else
-            local science = data.raw.technology[k]
             for _, p in ipairs(v)
             do
-                table.insert(science.prerequisites, p)
+                table.insert(tech.prerequisites, p)
             end
         end
     end

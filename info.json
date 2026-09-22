@@ -1,10 +1,10 @@
 {
 	"name":"baketorio",
-	"version":"2.1.1",
+	"version":"2.1.2",
 	"title":"Baketorio",
 	"author":"ButteredCoffee",
 	"factorio_version":"2.1",
 	"contact": "derim422",
-	"dependencies": ["base >= 2.1.0", "? space-age", "? icon-badges"],
+	"dependencies": ["base >= 2.1.20", "? space-age", "? icon-badges"],
 	"description":"adds baking"
 }

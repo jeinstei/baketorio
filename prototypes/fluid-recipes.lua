@@ -1,14 +1,10 @@
 -- Add recipe names here to add them to productivity modules
 local prod_recipes = {
-    "unpasteurized-milk",
+    -- "unpasteurized-milk",
     "milk-filtering",
     "milk-pasteurization",
     "butter-churning"
 }
-
--- for _, v in ipairs(prod_recipes) do
--- 	baketorio.add_to_prod_mod(v)
--- end
 
 data:extend(
     {

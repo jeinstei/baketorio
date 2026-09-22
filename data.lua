@@ -45,21 +45,6 @@ function baketorio.capsule_action(health)
     }
 end
 
--- -- Build table of productivity modules
--- local baketorio_prod_mods = {}
--- for _, v in pairs(data.raw.module) do
---   if v.name:find("productivity%-module") and v.limitation then
---     table.insert(baketorio_prod_mods, v.limitation)
---   end
--- end
-
--- -- Get productivity module tables to add recipes
--- function baketorio.add_to_prod_mod(name)
---   for _, v in pairs(baketorio_prod_mods) do
---     table.insert(v,name)
---   end
--- end
-
 local nutrient_food_groups = { "basic", "bread", "milk", "chocolate", "fruit", "advanced" }
 
 -- Tips and Tricks note
@@ -110,7 +95,11 @@ require("prototypes.assembler1")
 require("prototypes.dough")
 require("prototypes.ores")
 require("prototypes.plants")
-require("prototypes.batter")
+if settings.startup["baketorio-batter-fluids"].value then
+    require("prototypes.batter-fluids")
+else
+    require("prototypes.batter")
+end
 require("prototypes.technologies")
 require("prototypes.nutrients")
 

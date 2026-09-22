@@ -183,7 +183,6 @@ function baketorio.makeRecipe(name, amount, ingredients, c)
     data:extend {
         prototype,
     }
-    -- baketorio.add_to_prod_mod(recipe_name)
 
     table.insert(data.raw.technology[name].effects, {
         type = "unlock-recipe",
@@ -266,9 +265,6 @@ function baketorio.build_nutrient_items(nutrient_table)
             local overlayIconData = getOverlayIconData(nNumber, upperRight)
             table.insert(dark_icon_list, overlayIconData)
         end
-
-        log(serpent.dump(icon_list))
-        log(serpent.dump(dark_icon_list))
 
         local prototype = {
             type = "item",

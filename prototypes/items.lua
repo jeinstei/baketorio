@@ -74,7 +74,10 @@ data:extend(
             icon = "__baketorio__/graphics/chicken.png",
             icon_size = 32,
             subgroup = "seeds",
-            stack_size = 50
+            stack_size = 50,
+            fuel_categories = { "meat", },
+            fuel_value = "9.9MJ", -- 1.1 kg @ 900 kJ per 100 g
+            fuel_glow_color = { r = 1, g = 0, b = 0, a = 0.75 }
         },
         {
             type = "item",
@@ -82,7 +85,10 @@ data:extend(
             icon = "__baketorio__/graphics/cow.png",
             icon_size = 32,
             subgroup = "seeds",
-            stack_size = 50
+            stack_size = 50,
+            fuel_categories = { "meat", },
+            fuel_value = "6TJ", -- 600 kg @ 1 MJ per 100 g
+            fuel_glow_color = { r = 1, g = 0, b = 0, a = 0.75 }
         },
         {
             type = "item",
