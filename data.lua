@@ -95,11 +95,7 @@ require("prototypes.assembler1")
 require("prototypes.dough")
 require("prototypes.ores")
 require("prototypes.plants")
-if settings.startup["baketorio-batter-fluids"].value then
-    require("prototypes.batter-fluids")
-else
-    require("prototypes.batter")
-end
+require("prototypes.batter")
 require("prototypes.technologies")
 require("prototypes.nutrients")
 

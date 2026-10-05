@@ -8,7 +8,7 @@ local prod_recipes = {
     "salted-hardtack",
     -- "chicken",
     -- "chicken-egg",
-    -- "egg",
+    "egg",
     -- "cow",
     -- "breed-cow",
     "frosting",
@@ -182,22 +182,19 @@ data:extend(
         {
             type = "recipe",
             name = "egg",
-            localised_name = { "item-name.egg" },
             order = "e",
             categories = { "greenhouse-recipes" },
-            subgroup = "ingredient",
+            main_product = "egg",
             energy_required = 10,
             enabled = false,
             ingredients = {
-                { type = "item", name = "chicken", amount = 1 },
+                { type = "item", name = "chicken", amount = 1, ignored_by_stats = 1 },
                 { type = "item", name = "nutrient1", amount = 5 }
             },
             results = {
                 { type = "item", name = "egg", amount = 1 },
-                { type = "item", name = "chicken", amount = 1 }
+                { type = "item", name = "chicken", amount = 1, ignored_by_stats = 1, ignored_by_productivity = 1 }
             },
-            icon = "__baketorio__/graphics/egg.png",
-            icon_size = 32,
         },
         {
             type = "recipe",
@@ -226,11 +223,11 @@ data:extend(
             energy_required = 100,
             enabled = false,
             ingredients = {
-                { type = "item", name = "cow",   amount = 2 },
+                { type = "item", name = "cow",   amount = 2, ignored_by_stats = 2 },
                 { type = "item", name = "nutrient2", amount = 10 },
             },
             results = {
-                { type = "item", name = "cow", amount = 3 }
+                { type = "item", name = "cow", amount = 3, ignored_by_stats = 2 }
             },
             icon = "__baketorio__/graphics/cow.png",
             icon_size = 32,
