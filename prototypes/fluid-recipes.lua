@@ -1,6 +1,6 @@
 -- Add recipe names here to add them to productivity modules
 local prod_recipes = {
-    -- "unpasteurized-milk",
+    "unpasteurized-milk",
     "milk-filtering",
     "milk-pasteurization",
     "butter-churning"
@@ -11,39 +11,36 @@ data:extend(
         {
             type = "recipe",
             name = "unpasteurized-milk",
-            localised_name = { "fluid-name.unpasteurized-milk" },
             categories = { "greenhouse-recipes" },
             subgroup = "fluid-recipes",
+            main_product = "unpasteurized-milk",
             energy_required = 10,
             enabled = false,
             ingredients = {
-                { type = "item", name = "cow",   amount = 1 },
+                { type = "item", name = "cow",   amount = 1, ignored_by_stats = 1 },
                 { type = "item", name = "nutrient2", amount = 1 }
             },
             results = {
-                { type = "item", name = "cow",             amount = 1 },
+                { type = "item", name = "cow", amount = 1, ignored_by_stats = 1, ignored_by_productivity = 1 },
                 { type = "fluid", name = "unpasteurized-milk", amount = 150 },
             },
-            icon = "__baketorio__/graphics/unpasteurized_milk.png",
-            icon_size = 32,
         },
         {
             type = "recipe",
             name = "milk-pasteurization",
             categories = { "chemistry" },
+            main_product = "milk",
             subgroup = "fluid-recipes",
             energy_required = 2,
             enabled = false,
             ingredients = {
-                { type = "fluid", name = "unpasteurized-milk", amount = 20, catalyst_amount = 18 },
+                { type = "fluid", name = "unpasteurized-milk", amount = 20 },
                 { type = "fluid", name = "water",          amount = 5 }
             },
             results = {
-                { type = "fluid", name = "milk", amount = 18, catalyst_amount = 18 },
+                { type = "fluid", name = "milk", amount = 18, ignored_by_productivity = 18 },
                 { type = "fluid", name = "cream", amount = 2 },
             },
-            icon = "__baketorio__/graphics/milk.png",
-            icon_size = 32,
         },
         {
             type = "recipe",
@@ -53,11 +50,11 @@ data:extend(
             energy_required = 2,
             enabled = false,
             ingredients = {
-                { type = "fluid", name = "milk", amount = 20, catalyst_amount = 18 },
+                { type = "fluid", name = "milk", amount = 20, ignored_by_stats = 18 },
                 { type = "fluid", name = "water", amount = 5 }
             },
             results = {
-                { type = "fluid", name = "milk", amount = 18, catalyst_amount = 18 },
+                { type = "fluid", name = "milk", amount = 18, ignored_by_stats = 18, ignored_by_prodcutivity = 18 },
                 { type = "fluid", name = "cream", amount = 2 },
             },
             icon = "__baketorio__/graphics/milk.png",

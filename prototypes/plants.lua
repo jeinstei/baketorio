@@ -169,10 +169,9 @@ data:extend {
     {
         type = "recipe",
         name = "wheat",
-        localised_name = { "item-name.wheat" },
         categories = { "greenhouse-recipes" },
-        subgroup = "ingredient",
         order = "a",
+        main_product = "wheat",
         energy_required = 10,
         enabled = true,
         ingredients = {
@@ -180,11 +179,9 @@ data:extend {
         },
         results = {
             { type = "item", name = "wheat-seeds", amount = 1,     independent_probability = 0.1 },
-            { type = "item", name = "wheat-seeds", amount = 1 },
+            { type = "item", name = "wheat-seeds", amount = 1, ignored_by_productivity = 1 },
             { type = "item", name = "wheat",       amount_min = 3, amount_max = 5 }
         },
-        icon = "__baketorio__/graphics/wheat.png",
-        icon_size = 32,
     },
     {
         type = "recipe",
@@ -225,10 +222,9 @@ data:extend {
     {
         type = "recipe",
         name = "sugarcane",
-        localised_name = { "item-name.sugarcane" },
         order = "c",
         categories = { "greenhouse-recipes" },
-        subgroup = "ingredient",
+        main_product = "sugarcane",
         energy_required = 10,
         enabled = false,
         ingredients = {
@@ -237,11 +233,9 @@ data:extend {
         },
         results = {
             { type = "item", name = "sugarcane-seeds", amount = 1,     independent_probability = 0.15 },
-            { type = "item", name = "sugarcane-seeds", amount = 1 },
+            { type = "item", name = "sugarcane-seeds", amount = 1,     ignored_by_productivity = 1 },
             { type = "item", name = "sugarcane",       amount_min = 3, amount_max = 4 }
         },
-        icon = "__baketorio__/graphics/sugarcane.png",
-        icon_size = 32,
     },
     {
         type = "recipe",
@@ -282,10 +276,9 @@ data:extend {
     {
         type = "recipe",
         name = "cocoa-beans",
-        localised_name = { "item-name.cocoa-beans" },
         order = "h",
         categories = { "greenhouse-recipes" },
-        subgroup = "ingredient",
+        main_product = "cocoa-beans",
         energy_required = 10,
         enabled = false,
         ingredients = {
@@ -294,11 +287,9 @@ data:extend {
         },
         results = {
             { type = "item", name = "cocoa-bean-seeds", amount = 1,     independent_probability = 0.05 },
-            { type = "item", name = "cocoa-bean-seeds", amount = 1 },
+            { type = "item", name = "cocoa-bean-seeds", amount = 1,     ignored_by_productivity = 1 },
             { type = "item", name = "cocoa-beans",      amount_min = 2, amount_max = 5 }
         },
-        icon = "__baketorio__/graphics/cocoa-beans.png",
-        icon_size = 32,
     },
     {
         type = "recipe",
@@ -321,10 +312,9 @@ data:extend {
     {
         type = "recipe",
         name = "cinnamon",
-        localised_name = { "item-name.cinnamon" },
         categories = { "greenhouse-recipes" },
-        subgroup = "ingredient",
         order = "j",
+        main_product = "cinnamon",
         energy_required = 10,
         enabled = false,
         ingredients = {
@@ -333,11 +323,9 @@ data:extend {
         },
         results = {
             { type = "item", name = "cinnamon-seeds", amount = 1,     independent_probability = 0.01 },
-            { type = "item", name = "cinnamon-seeds", amount = 1 },
+            { type = "item", name = "cinnamon-seeds", amount = 1,     ignored_by_productivity = 1 },
             { type = "item", name = "cinnamon",       amount_min = 2, amount_max = 4 }
         },
-        icon = "__baketorio__/graphics/cinnamon.png",
-        icon_size = 32,
     },
     {
         type = "recipe",
@@ -360,10 +348,9 @@ data:extend {
     {
         type = "recipe",
         name = "blueberries",
-        localised_name = { "item-name.blueberries" },
         categories = { "greenhouse-recipes" },
-        subgroup = "ingredient",
         order = "l",
+        main_product = "blueberries",
         energy_required = 10,
         enabled = false,
         ingredients = {
@@ -375,8 +362,6 @@ data:extend {
             { type = "item", name = "blueberry-seeds", amount = 1 },
             { type = "item", name = "blueberries",     amount = 1 }
         },
-        icon = "__baketorio__/graphics/blueberries.png",
-        icon_size = 32,
     },
     {
         type = "recipe",
@@ -399,10 +384,9 @@ data:extend {
     {
         type = "recipe",
         name = "strawberries",
-        localised_name = { "item-name.strawberries" },
         categories = { "greenhouse-recipes" },
-        subgroup = "ingredient",
         order = "m",
+        main_product = "strawberries",
         energy_required = 10,
         enabled = false,
         ingredients = {
@@ -411,11 +395,9 @@ data:extend {
         },
         results = {
             { type = "item", name = "strawberry-seeds", amount = 1, independent_probability = 0.04 },
-            { type = "item", name = "strawberry-seeds", amount = 1 },
+            { type = "item", name = "strawberry-seeds", amount = 1, ignored_by_productivity = 1 },
             { type = "item", name = "strawberries",     amount = 1 }
         },
-        icon = "__baketorio__/graphics/strawberries.png",
-        icon_size = 32,
     },
 
 }
